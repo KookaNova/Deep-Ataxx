@@ -36,18 +36,18 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Runtime\CCDSolver2D.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Runtime\Solver2DMenuAttribute.cs" />
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Runtime\IKManager2D.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Runtime\Solver2D.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Runtime\IKManager2DEditorData.cs" />
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Runtime\LimbSolver2D.cs" />
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Runtime\Solvers\FABRIK2D.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Runtime\IKUtility.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Runtime\CCDSolver2D.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Runtime\Solver2DMenuAttribute.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Runtime\Solver2D.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Runtime\IKManager2DEditorData.cs" />
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Runtime\Solvers\CCD2D.cs" />
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Runtime\IKChain2D.cs" />
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Runtime\Solvers\Limb.cs" />
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Runtime\AssemblyInfo.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Runtime\IKUtility.cs" />
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Runtime\FabrikSolver2D.cs" />
      <None Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Runtime\Unity.2D.IK.Runtime.asmdef" />
     <Reference Include="UnityEngine">

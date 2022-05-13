@@ -11,9 +11,11 @@ namespace Cox.Infection.Management{
         public PieceComponent piece = null;
         public Vector2Int gridPosition;
         public List<TileObject> neighbors;
+        public GameObject blockade;
 
         private void Awake() {
             player = FindObjectOfType<PlayerHelper>();
+            blockade.SetActive(false);
         }
 
         private void OnMouseEnter() {
@@ -28,6 +30,14 @@ namespace Cox.Infection.Management{
                     neighbors.Add(tile);
                 }
             }
+        }
+
+        public void BlockTile(bool isBlocked){
+            isDisabled = isBlocked;
+            if(isDisabled){
+                blockade.SetActive(true);
+            }
+
         }
     }
 }

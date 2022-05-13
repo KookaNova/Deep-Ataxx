@@ -24,11 +24,16 @@ public class GameUIManager : VisualElement
         this.Q("GC").style.backgroundColor = new StyleColor(ColorManager.green);
 
         this.Q<Button>("Reset").RegisterCallback<ClickEvent>(ev => Reset());
+        this.Q<Button>("Quit").RegisterCallback<ClickEvent>(ev => Quit());
     }
 
     private void Reset()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    
+    private void Quit(){
+        SceneManager.LoadScene("Home");
     }
 
     public void ChangeTurn(){

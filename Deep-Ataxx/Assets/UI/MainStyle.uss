@@ -13,7 +13,7 @@
     border-right-color: rgb(25, 25, 25);
     border-top-color: rgb(25, 25, 25);
     border-bottom-color: rgb(25, 25, 25);
-    -unity-background-image-tint-color: rgba(255, 255, 255, 255);
+    -unity-background-image-tint-color: rgb(255, 255, 255);
 }
 
 .button1 {
@@ -41,4 +41,7 @@
     font-size: 16px;
     -unity-font: url('project://database/Library/unity%20default%20resources?fileID=10102&guid=0000000000000000e000000000000000&type=0#Arial');
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.81);
+}
+
+.title {
 }

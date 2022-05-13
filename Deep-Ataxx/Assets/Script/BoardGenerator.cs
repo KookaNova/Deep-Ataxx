@@ -6,7 +6,7 @@ namespace Cox.Infection.Management{
     public class BoardGenerator : MonoBehaviour
     {
         GameManager gm;
-        public Rules rules;
+        public Level level;
 
         Vector2 offset = Vector2.zero;
         TileObject[,] grid;
@@ -20,14 +20,23 @@ namespace Cox.Infection.Management{
         }
 
         void GenerateBoard(){
-            offset = new Vector2(rules.columns/2, rules.rows/2);
+            offset = new Vector2(level.columns/2, level.rows/2);
 
-            grid = new TileObject[rules.columns,rules.rows];
-            for(int i = 0; i < rules.columns; i++){
-                for(int j = 0; j < rules.rows; j++){
-                    TileObject newTile = Instantiate(rules.tile, new Vector3((i - offset.x)* rules.padding,(-j + offset.y) * rules.padding,0), Quaternion.identity);
+            grid = new TileObject[level.columns,level.rows];
+            for(int i = 0; i < level.columns; i++){
+                for(int j = 0; j < level.rows; j++){
+                    TileObject newTile = Instantiate(level.tile, new Vector3((i - offset.x)* level.padding,(-j + offset.y) * level.padding,0), Quaternion.identity);
                     grid[i,j] = newTile;
                     newTile.gridPosition = new Vector2Int(i,j);
+                    //find blocked tiles and block them.
+                    if(level.blockedTiles != null){
+                        foreach (var blockedPosition in level.blockedTiles){
+                            if(newTile.gridPosition == blockedPosition){
+                                newTile.BlockTile(true);
+                            }
+                        }
+                    }
+                    
                     newTile.transform.SetParent(transform);
                     newTile.name = "Tile[" + i + "," + j + "]";
                 }
@@ -43,11 +52,11 @@ namespace Cox.Infection.Management{
 
         void PositionCamera(){
             //makes sure board is always on screen.
-            if(rules.rows > rules.columns){
-                Camera.main.orthographicSize = rules.columns + 2 + ((rules.rows - rules.columns) * 0.5f);
+            if(level.rows > level.columns){
+                Camera.main.orthographicSize = level.columns + 2 + ((level.rows - level.columns) * 0.5f);
             }
             else{
-                Camera.main.orthographicSize = rules.columns + 2;
+                Camera.main.orthographicSize = level.columns + 2;
             }
             //centers board to screen with offset.
             Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y + cameraOffset, -10);
@@ -55,17 +64,17 @@ namespace Cox.Infection.Management{
 
         void PlaceStarterPieces(){
             //Places red starter pieces
-            for(int i = 0; i < rules.redStartTiles.Length; i++){
-                var p = Instantiate(rules.piece, grid[rules.redStartTiles[i].x, rules.redStartTiles[i].y].transform.position, Quaternion.identity);
+            for(int i = 0; i < level.redStartTiles.Length; i++){
+                var p = Instantiate(level.piece, grid[level.redStartTiles[i].x, level.redStartTiles[i].y].transform.position, Quaternion.identity);
                 p.ChangeTeam(Team.RedTeam);
-                p.homeTile = grid[rules.redStartTiles[i].x, rules.redStartTiles[i].y];
+                p.homeTile = grid[level.redStartTiles[i].x, level.redStartTiles[i].y];
                 p.homeTile.piece = p;
             }
             //Places blue starter pieces
-            for(int i = 0; i < rules.blueStartTiles.Length; i++){
-                var p = Instantiate(rules.piece, grid[rules.blueStartTiles[i].x, rules.blueStartTiles[i].y].transform.position, Quaternion.identity);
+            for(int i = 0; i < level.blueStartTiles.Length; i++){
+                var p = Instantiate(level.piece, grid[level.blueStartTiles[i].x, level.blueStartTiles[i].y].transform.position, Quaternion.identity);
                 p.ChangeTeam(Team.GreenTeam);
-                p.homeTile = grid[rules.blueStartTiles[i].x, rules.blueStartTiles[i].y];
+                p.homeTile = grid[level.blueStartTiles[i].x, level.blueStartTiles[i].y];
                 p.homeTile.piece = p;
             }
 

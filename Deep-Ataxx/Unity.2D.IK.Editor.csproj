@@ -37,12 +37,12 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Editor\IKEditorManager.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Editor\Inspectors\CCDSolver2DEditor.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Editor\Inspectors\IKManager2DEditor.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Editor\Inspectors\LimbSolver2DEditor.cs" />
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Editor\IKGizmos.cs" />
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Editor\Inspectors\Solver2DEditor.cs" />
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Editor\AssemblyInfo.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Editor\Inspectors\CCDSolver2DEditor.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Editor\Inspectors\IKManager2DEditor.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Editor\Inspectors\LimbSolver2DEditor.cs" />
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Editor\Inspectors\FabrikSolver2DEditor.cs" />
      <None Include="Library\PackageCache\com.unity.2d.animation@7.0.4\IK\Editor\Unity.2D.IK.Editor.asmdef" />
     <Reference Include="UnityEngine">
