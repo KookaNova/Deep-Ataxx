@@ -1,0 +1,22 @@
+.scoreText {
+    color: rgb(255, 255, 255);
+    -unity-text-align: middle-center;
+    white-space: nowrap;
+}
+
+.button1:hover {
+    color: rgba(255, 255, 255, 255);
+    background-color: rgb(230, 0, 100);
+}
+
+.button1 {
+    color: rgb(0, 200, 150);
+    background-color: rgb(35, 35, 35);
+    -unity-text-align: middle-center;
+}
+
+.menuText {
+    font-size: 24px;
+    -unity-font: url('project://database/Library/unity%20default%20resources?fileID=10102&guid=0000000000000000e000000000000000&type=0#Arial');
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.81);
+}
