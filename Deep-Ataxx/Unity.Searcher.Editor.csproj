@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{e768849f-de0a-b664-3f3b-5142670cfbd1}</ProjectGuid>
+    <ProjectGuid>{dd3a13da-c136-938d-43c8-372be4a038f2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Unity.VisualStudio.Editor</AssemblyName>
+    <AssemblyName>Unity.Searcher.Editor</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -36,46 +36,20 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\ProjectGeneration\ProjectGenerationFlag.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\VisualStudioIntegration.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\UnityInstallation.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\KnownAssemblies.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\UsageUtility.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\Messaging\Deserializer.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\Testing\TestRunnerApiListener.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\Testing\TestResultAdaptor.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\Messaging\ExceptionEventArgs.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\ProjectGeneration\ProjectGeneration.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\SolutionProjectEntry.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\Messaging\UdpSocket.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\VisualStudioInstallation.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\Messaging\MessageEventArgs.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\Symbols.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\VisualStudioEditor.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\VersionPair.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\Cli.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\FileUtility.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\ProjectGeneration\AssemblyNameProvider.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\SolutionProperties.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\Messaging\MessageType.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\AssemblyInfo.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\SolutionParser.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\Messaging\Messenger.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\Messaging\Serializer.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\Messaging\TcpListener.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\Messaging\TcpClient.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\Image.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\ProjectGeneration\ProjectProperties.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\Solution.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\ProjectGeneration\FileIOProvider.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\ProjectGeneration\GUIDProvider.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\Testing\TestStatusAdaptor.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\Messaging\Message.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\AsyncOperation.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\Discovery.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\Testing\TestRunnerCallbacks.cs" />
-     <Compile Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\Testing\TestAdaptor.cs" />
-     <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.14\Editor\com.unity.ide.visualstudio.asmdef" />
+     <Compile Include="Library\PackageCache\com.unity.searcher@4.9.1\Editor\Searcher\SearcherItem.cs" />
+     <Compile Include="Library\PackageCache\com.unity.searcher@4.9.1\Editor\Searcher\SearcherAdapter.cs" />
+     <Compile Include="Library\PackageCache\com.unity.searcher@4.9.1\Editor\Searcher\Searcher.cs" />
+     <Compile Include="Library\PackageCache\com.unity.searcher@4.9.1\Editor\Searcher\SearcherTreeUtility.cs" />
+     <Compile Include="Library\PackageCache\com.unity.searcher@4.9.1\Editor\Searcher\SearcherWindow.cs" />
+     <Compile Include="Library\PackageCache\com.unity.searcher@4.9.1\Editor\Searcher\SearcherDatabaseBase.cs" />
+     <Compile Include="Library\PackageCache\com.unity.searcher@4.9.1\Editor\Searcher\SearcherDatabase.cs" />
+     <Compile Include="Library\PackageCache\com.unity.searcher@4.9.1\Editor\Searcher\SearcherControl.cs" />
+     <Compile Include="Library\PackageCache\com.unity.searcher@4.9.1\Editor\AssemblyInfo.cs" />
+     <Compile Include="Library\PackageCache\com.unity.searcher@4.9.1\Editor\Searcher\SearcherHighlighter.cs" />
+     <None Include="Library\PackageCache\com.unity.searcher@4.9.1\Editor\Unity.Searcher.Editor.asmdef" />
+     <None Include="Library\PackageCache\com.unity.searcher@4.9.1\Editor\Resources\SearcherItem.uxml" />
+     <None Include="Library\PackageCache\com.unity.searcher@4.9.1\Editor\Resources\SearcherWindow.uxml" />
+     <None Include="Library\PackageCache\com.unity.searcher@4.9.1\Editor\Resources\Searcher.uss" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.2.18f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -333,6 +307,33 @@
     </Reference>
     <Reference Include="UnityEditor.UWP.Extensions">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.2.18f1\Editor\Data\PlaybackEngines\MetroSupport\UnityEditor.UWP.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Plastic.Newtonsoft.Json">
+        <HintPath>C:\Users\Connor\Repositories\Deep-Ataxx\Deep-Ataxx\Library\PackageCache\com.unity.collab-proxy@1.15.13\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Plastic.Antlr3.Runtime">
+        <HintPath>C:\Users\Connor\Repositories\Deep-Ataxx\Deep-Ataxx\Library\PackageCache\com.unity.collab-proxy@1.15.13\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="unityplastic">
+        <HintPath>C:\Users\Connor\Repositories\Deep-Ataxx\Deep-Ataxx\Library\PackageCache\com.unity.collab-proxy@1.15.13\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Unsafe">
+        <HintPath>C:\Users\Connor\Repositories\Deep-Ataxx\Deep-Ataxx\Library\PackageCache\com.unity.burst@1.6.4\Unity.Burst.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Mdb">
+        <HintPath>C:\Users\Connor\Repositories\Deep-Ataxx\Deep-Ataxx\Library\PackageCache\com.unity.burst@1.6.4\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Pdb">
+        <HintPath>C:\Users\Connor\Repositories\Deep-Ataxx\Deep-Ataxx\Library\PackageCache\com.unity.burst@1.6.4\Unity.Burst.CodeGen\Unity.Burst.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil">
+        <HintPath>C:\Users\Connor\Repositories\Deep-Ataxx\Deep-Ataxx\Library\PackageCache\com.unity.burst@1.6.4\Unity.Burst.CodeGen\Unity.Burst.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="log4netPlastic">
+        <HintPath>C:\Users\Connor\Repositories\Deep-Ataxx\Deep-Ataxx\Library\PackageCache\com.unity.collab-proxy@1.15.13\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Rocks">
+        <HintPath>C:\Users\Connor\Repositories\Deep-Ataxx\Deep-Ataxx\Library\PackageCache\com.unity.burst@1.6.4\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
         <HintPath>C:\Users\Connor\Repositories\Deep-Ataxx\Deep-Ataxx\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>

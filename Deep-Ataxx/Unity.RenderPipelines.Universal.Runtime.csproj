@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{7fc459a5-2ab1-005b-95c1-ba2e02ff8041}</ProjectGuid>
+    <ProjectGuid>{f5cefcce-444b-0d9c-9497-63abf7250b8f}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>UnityEngine.TestRunner</AssemblyName>
+    <AssemblyName>Unity.RenderPipelines.Universal.Runtime</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -22,11 +22,11 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_2021_2_18;UNITY_2021_2;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_SEARCH_TABLE;USE_SEARCH_MODULE;USE_PROPERTY_DATABASE;USE_SEARCH_EXTENSION_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_ANDROID;TEXTCORE_1_0_OR_NEWER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_ETC_COMPRESSION;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_2021_2_18;UNITY_2021_2;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_SEARCH_TABLE;USE_SEARCH_MODULE;USE_PROPERTY_DATABASE;USE_SEARCH_EXTENSION_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_ANDROID;TEXTCORE_1_0_OR_NEWER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_ETC_COMPRESSION;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;ENABLE_BURST_1_0_0_OR_NEWER;ENABLE_VR_MODULE;ENABLE_XR_MODULE;USING_ANIMATION_MODULE;USING_PHYSICS2D_MODULE;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <NoConfig>true</NoConfig>
@@ -36,118 +36,172 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\TestRunner\TestListenerWrapper.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\AssemblyProvider\ITestAssemblyProvider.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\QuaternionEqualityComparer.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\AssemblyProvider\IScriptingRuntimeProxy.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Runner\UnityTestAssemblyRunner.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Runner\UnityTestExecutionContext.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Runner\FailCommand.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\TestRunner\RemoteHelpers\RemoteTestResultData.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\Vector4ComparerWithEqualsOperator.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\IOuterUnityTestAction.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Runner\IEnumerableTestMethodCommand.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\TestRunner\PlaymodeTestsControllerSettings.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Commands\TestActionCommand.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Commands\SetUpTearDownCommand.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\Vector4EqualityComparer.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Commands\ImmediateEnumerableCommand.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Attributes\UnityPlatformAttribute.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Assertions\LogScope\LogMatch.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Commands\TestCommandPcHelper.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\ConstructDelegator.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Attributes\ConditionalIgnoreAttribute.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\StacktraceFilter.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Assertions\LogScope\ILogScope.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\PostBuildCleanupAttribute.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\TestRunner\Callbacks\TestResultRenderer.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\TestRunner\Messages\IEditModeTestYieldInstruction.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\TestRunner\PlaymodeTestsController.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\TestRunner\RemoteHelpers\RemoteTestData.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Runner\PlaymodeWorkItemFactory.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Commands\EnumerableRepeatedTestCommand.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\AssemblyProvider\PlayerTestAssemblyProvider.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Runner\WorkItemFactory.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Commands\EnumerableTestState.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Assertions\LogScope\LogScope.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Runner\TestCommandBuilder.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Runner\UnityWorkItem.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\Vector3EqualityComparer.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\ActionDelegator.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\Vector2ComparerWithEqualsOperator.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Attributes\UnityCombinatorialStrategy.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Filters\FullNameFilter.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\TestRunCallbackListener.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\TestRunner\ITestRunnerListener.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\ColorEqualityComparer.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Assertions\ConstraintsExtensions.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\TestRunner\Callbacks\TestResultRendererCallback.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\Vector2EqualityComparer.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\Utils.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\AssemblyInfo.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestMustExpectAllLogsAttribute.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Assertions\LogScope\LogEvent.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Runner\CoroutineTestWorkItem.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\AttributeHelper.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Commands\BeforeAfterTestCommandState.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Commands\OuterUnityTestActionCommand.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\AssemblyProvider\IAssemblyWrapper.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Assertions\Is.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\Vector3ComparerWithEqualsOperator.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Filters\CategoryFilterExtended.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\TestRunner\TestPlatform.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\AssemblyProvider\AssemblyWrapper.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\TestRunCallbackAttribute.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\BaseDelegator.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Commands\UnityTestMethodCommand.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\TestRunner\SynchronousFilter.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Assertions\InvalidSignatureException.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Commands\EnumerableApplyChangesToContextCommand.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\TestRunner\RuntimeTestRunnerFilter.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\CoroutineRunner.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\UnityTestAssemblyBuilder.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\TestRunner\Callbacks\PlayerQuitHandler.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\IStateSerializer.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Assertions\LogAssert.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Runner\CompositeWorkItem.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Runner\RestoreTestContextAfterDomainReload.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\TestResultExtensions.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\TestRunner\Callbacks\PlayModeRunnerCallback.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Commands\EnumerableSetUpTearDownCommand.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\MonoBehaviourTest\IMonoBehaviourTest.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\IPrebuildSceneSetup.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Attributes\UnitySetUpAttribute.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Runner\UnityWorkItemDataHolder.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\MonoBehaviourTest\MonoBehaviourTest.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\TestRunner\Callbacks\RemoteTestResultSender.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\AssemblyProvider\IAssemblyLoadProxy.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Assertions\UnexpectedLogMessageException.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Filters\AssemblyNameFilter.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\ITestRunCallback.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Commands\EnumerableRetryTestCommand.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\TestExtensions.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\TestRunner\RemoteHelpers\RemoteTestResultDataWithTestData.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Commands\BeforeAfterTestCommandBase.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Assertions\AllocatingGCMemoryConstraint.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Attributes\UnityTearDownAttribute.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\IAsyncTestAssemblyBuilder.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Assertions\UnhandledLogMessageException.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\TestRunner\RemoteHelpers\IRemoteTestResultDataFactory.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\TestRunner\RemoteHelpers\RemoteTestResultDataFactory.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Runner\UnityLogCheckDelegatingCommand.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\TestRunner\TestEnumeratorWrapper.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\IPostBuildCleanup.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Attributes\UnityTestAttribute.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\AssemblyProvider\ScriptingRuntimeProxy.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\TestRunner\RemoteHelpers\PlayerConnectionMessageIds.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Commands\EnumerableTestMethodCommand.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\AssemblyProvider\AssemblyLoadProxy.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Assertions\UnityTestTimeoutException.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\PrebuildSceneSetupAttribute.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\NUnitExtensions\Runner\DefaultTestWorkItem.cs" />
-     <Compile Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\Utils\FloatEqualityComparer.cs" />
-     <None Include="Library\PackageCache\com.unity.test-framework@1.1.31\UnityEngine.TestRunner\UnityEngine.TestRunner.asmdef" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\Shadows\ShadowUtility.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Debug\DebugDisplaySettingsCommon.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Debug\IDebugDisplaySettingsQuery.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\XR\XRLayout.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Overrides\Tonemapping.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\ScriptableRenderer.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Decal\DecalDrawErrorRenderPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\Passes\Utility\Light2DLookupTexture.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Passes\MotionVectorRenderPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\Light2D.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Passes\DeferredPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\RendererFeatures\ScreenSpaceAmbientOcclusion.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Decal\Entities\DecalChunk.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Debug\DebugDisplaySettingsPanel.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Overrides\DepthOfField.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\DeferredTiler.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\MotionVectorRendering.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\UniversalRenderPipelineCore.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Overrides\ChannelMixer.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Passes\ColorGradingLutPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\AssemblyInfo.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\Shadows\CompositeShadowCaster2D.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Decal\DBuffer\DecalForwardEmissivePass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Overrides\WhiteBalance.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\DeferredLights.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\Passes\PixelPerfectBackgroundPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\PostProcessPasses.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Tiling\SliceCombineJob.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Debug\DebugDisplaySettingsMaterial.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\Passes\IRenderPass2D.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Decal\Entities\DecalDrawSystem.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\RendererFeatures\RenderObjects.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Passes\XROcclusionMeshPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Overrides\ColorCurves.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\Light2DPoint.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\External\LibTessDotNet\PriorityQueue.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\ForwardLights.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Decal\Entities\DecalEntityManager.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\Light2DManager.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Passes\CapturePass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\Passes\Utility\RendererLighting.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\DeferredShaderData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\PixelPerfectCamera.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Overrides\SplitToning.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Overrides\ColorLookup.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Passes\DrawSkyboxPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\RenderTargetHandle.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\Renderer2DDataAuthoring.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\Light2DCullResult.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Tiling\ZBinningJob.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Data\XRSystemData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\SampleCount.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Passes\GBufferPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\Passes\Utility\LayerUtility.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Passes\CopyDepthPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Decal\Entities\DecalSkipCulledSystem.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Data\RenderStateData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\PreviousFrameData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\LightUtility.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\ScriptableRendererFeature.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\LightCookieManager.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\ScriptableRendererData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Debug\DebugDisplaySettingsUI.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Passes\PostProcessPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\Light2DBlendStyle.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Tiling\LightExtractionJob.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Overrides\LiftGammaGain.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\RenderingUtils.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\External\LibTessDotNet\MeshUtils.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Decal\Entities\DecalCreateDrawCallSystem.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Passes\ScriptableRenderPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\External\LibTessDotNet\Mesh.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\SceneViewDrawMode.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\Shadows\ShadowCaster2D.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\XR\XRPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Tiling\RadixSortJob.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\ShadowUtils.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Debug\IDebugDisplaySettingsPanel.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Documentation.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Passes\InvokeOnRenderObjectCallbackPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\External\LibTessDotNet\Tess.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\UniversalAdditionalCameraData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\NormalReconstruction.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Passes\MainLightShadowCasterPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Overrides\FilmGrain.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\UniversalRenderPipelineGlobalSettings.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\Clipper.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\External\LibTessDotNet\Dict.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Passes\DepthNormalOnlyPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\RendererFeatures\ScreenSpaceShadows.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Decal\ScreenSpace\DecalScreenSpaceRenderPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Decal\Entities\DecalUpdateCulledSystem.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Tiling\SliceCullingJob.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\ShaderData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\RendererFeatures\DecalRendererFeature.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Passes\DrawObjectsPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Passes\FinalBlitPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\RenderTargetBufferSystem.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\UniversalRenderPipeline.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Decal\DecalShaderPassNames.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Data\UniversalRenderPipelineAsset.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\ForwardRendererData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Decal\Entities\DecalUpdateCullingGroupSystem.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Debug\DebugRenderSetup.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\IntermediateTextureMode.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Passes\DepthOnlyPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\NativeRenderPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\Shadows\ShadowCasterGroup2DManager.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\Passes\Render2DLightingPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Decal\ScreenSpace\DecalGBufferRenderPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Passes\AdditionalLightsShadowCasterPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Overrides\ColorAdjustments.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Passes\TileDepthRangePass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\Shadows\ShadowCasterGroup2D.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Decal\Entities\DecalUpdateCachedSystem.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Debug\DebugDisplaySettingsRendering.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Debug\DebugDisplaySettingsLighting.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\ComponentUtility.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Passes\RenderObjectsPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\External\LibTessDotNet\PriorityHeap.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\PixelPerfectCameraInternal.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Data\PostProcessData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\Light2DShape.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Passes\TransparentSettingsPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\UniversalAdditionalLightData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Overrides\ShadowsMidtonesHighlights.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Decal\DecalProjector.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Debug\IDebugDisplaySettingsData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\StencilUsage.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\UniversalRenderer.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Overrides\MotionBlur.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Debug\DebugHandler.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Debug\DebugDisplaySettings.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\ShaderUtils.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Overrides\Bloom.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Overrides\PaniniProjection.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Overrides\ChromaticAberration.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\External\LibTessDotNet\Geom.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Deprecated.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Overrides\LensDistortion.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\Renderer2DData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Passes\ScreenSpaceShadowResolvePass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\External\LibTessDotNet\Sweep.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Tiling\ReorderJob.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\CinemachineUniversalPixelPerfect.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Passes\CopyColorPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\UniversalRendererData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\Shadows\ShadowRendering.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\Light2DAuthoring.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Tiling\MinMaxZJob.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\RendererFeatures\DisallowMultipleRendererFeature.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Overrides\Vignette.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Data\UniversalRenderPipelineEditorResources.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\2D\Renderer2D.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\XR\XRSystem.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Decal\DBuffer\DBufferRenderPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Decal\DecalPreviewPass.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Tiling\TileSize.cs" />
+     <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\PostProcessUtils.cs" />
+     <None Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Decal\DBuffer\DBufferClear.shader" />
+     <None Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\VFXGraph\Shaders\VFXDefines.hlsl" />
+     <None Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\VFXGraph\Shaders\VFXLit.hlsl" />
+     <None Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\Unity.RenderPipelines.Universal.Runtime.asmdef" />
+     <None Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\External\LibTessDotNet\LICENSE.txt" />
+     <None Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\VFXGraph\Shaders\VFXCommon.hlsl" />
+     <None Include="Library\PackageCache\com.unity.render-pipelines.universal@12.1.6\Runtime\VFXGraph\Shaders\VFXLitPixelOutput.hlsl" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.2.18f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -394,8 +448,32 @@
     <Reference Include="UnityEditor.UWP.Extensions">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.2.18f1\Editor\Data\PlaybackEngines\MetroSupport\UnityEditor.UWP.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework">
-        <HintPath>C:\Users\Connor\Repositories\Deep-Ataxx\Deep-Ataxx\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
+    <Reference Include="Unity.Plastic.Newtonsoft.Json">
+        <HintPath>C:\Users\Connor\Repositories\Deep-Ataxx\Deep-Ataxx\Library\PackageCache\com.unity.collab-proxy@1.15.13\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Plastic.Antlr3.Runtime">
+        <HintPath>C:\Users\Connor\Repositories\Deep-Ataxx\Deep-Ataxx\Library\PackageCache\com.unity.collab-proxy@1.15.13\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="unityplastic">
+        <HintPath>C:\Users\Connor\Repositories\Deep-Ataxx\Deep-Ataxx\Library\PackageCache\com.unity.collab-proxy@1.15.13\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Unsafe">
+        <HintPath>C:\Users\Connor\Repositories\Deep-Ataxx\Deep-Ataxx\Library\PackageCache\com.unity.burst@1.6.4\Unity.Burst.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Mdb">
+        <HintPath>C:\Users\Connor\Repositories\Deep-Ataxx\Deep-Ataxx\Library\PackageCache\com.unity.burst@1.6.4\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Pdb">
+        <HintPath>C:\Users\Connor\Repositories\Deep-Ataxx\Deep-Ataxx\Library\PackageCache\com.unity.burst@1.6.4\Unity.Burst.CodeGen\Unity.Burst.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil">
+        <HintPath>C:\Users\Connor\Repositories\Deep-Ataxx\Deep-Ataxx\Library\PackageCache\com.unity.burst@1.6.4\Unity.Burst.CodeGen\Unity.Burst.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="log4netPlastic">
+        <HintPath>C:\Users\Connor\Repositories\Deep-Ataxx\Deep-Ataxx\Library\PackageCache\com.unity.collab-proxy@1.15.13\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Rocks">
+        <HintPath>C:\Users\Connor\Repositories\Deep-Ataxx\Deep-Ataxx\Library\PackageCache\com.unity.burst@1.6.4\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Android.Types">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.2.18f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
@@ -769,6 +847,32 @@
     <Reference Include="System.Xml.Serialization">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.2.18f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Unity.RenderPipelines.Core.Runtime.csproj">
+      <Project>{a2a26c0d-febb-a959-9772-25c958254718}</Project>
+      <Name>Unity.RenderPipelines.Core.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.RenderPipeline.Universal.ShaderLibrary.csproj">
+      <Project>{b37c524f-f395-4318-c6d8-9e5e6460b54f}</Project>
+      <Name>Unity.RenderPipeline.Universal.ShaderLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Mathematics.csproj">
+      <Project>{9508b597-7360-0776-1626-3632f6a27571}</Project>
+      <Name>Unity.Mathematics</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Burst.csproj">
+      <Project>{eeba573b-8b50-c7f6-db5e-91741d6ea85d}</Project>
+      <Name>Unity.Burst</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.UI.csproj">
+      <Project>{87cb2468-fda1-78ff-7cc9-5cb32372c678}</Project>
+      <Name>UnityEditor.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.UI.csproj">
+      <Project>{1fe7d951-842a-1d1d-114f-2d38962885d5}</Project>
+      <Name>UnityEngine.UI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
