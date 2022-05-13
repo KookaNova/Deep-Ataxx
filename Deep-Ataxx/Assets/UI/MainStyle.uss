@@ -5,18 +5,40 @@
 }
 
 .button1:hover {
-    color: rgba(255, 255, 255, 255);
+    color: rgb(255, 255, 255);
     background-color: rgb(230, 0, 100);
+    transition-duration: 0.1s;
+    scale: 1.03 1.03;
+    border-left-color: rgb(25, 25, 25);
+    border-right-color: rgb(25, 25, 25);
+    border-top-color: rgb(25, 25, 25);
+    border-bottom-color: rgb(25, 25, 25);
+    -unity-background-image-tint-color: rgba(255, 255, 255, 255);
 }
 
 .button1 {
     color: rgb(0, 200, 150);
     background-color: rgb(35, 35, 35);
     -unity-text-align: middle-center;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    border-left-color: rgb(106, 71, 86);
+    border-right-color: rgb(106, 71, 86);
+    border-top-color: rgb(106, 71, 86);
+    border-bottom-color: rgb(106, 71, 86);
+    -unity-background-image-tint-color: rgb(0, 200, 150);
 }
 
 .menuText {
     font-size: 24px;
+    -unity-font: url('project://database/Library/unity%20default%20resources?fileID=10102&guid=0000000000000000e000000000000000&type=0#Arial');
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.81);
+}
+
+.menuText2 {
+    font-size: 16px;
     -unity-font: url('project://database/Library/unity%20default%20resources?fileID=10102&guid=0000000000000000e000000000000000&type=0#Arial');
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.81);
 }

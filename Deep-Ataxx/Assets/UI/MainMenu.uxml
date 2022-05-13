@@ -8,9 +8,15 @@
             <ui:VisualElement name="Buttons" style="margin-left: 10%; margin-right: 10%; justify-content: flex-end; align-items: stretch; flex-grow: 1;">
                 <ui:Button text="Story Play" display-tooltip-when-elided="true" name="Story" class="button1 menuText" />
                 <ui:Button text="2-Player Mode" display-tooltip-when-elided="true" name="TwoPlayer" class="button1 menuText" />
-                <ui:Button text="Arcade Mode" display-tooltip-when-elided="true" name="Arcade" class="button1 menuText" />
+                <ui:Button text="Arcade Play" display-tooltip-when-elided="true" name="Arcade" class="button1 menuText" />
+                <ui:VisualElement name="SmallerButtons" style="flex-direction: row; align-items: flex-start; justify-content: center;">
+                    <ui:Button text="Lore" display-tooltip-when-elided="true" name="Lore" class="button1 menuText2" style="flex-grow: 0; width: 49%;" />
+                    <ui:Button text="Credits" display-tooltip-when-elided="true" name="Credits" class="button1 menuText2" style="flex-grow: 0; width: 50%;" />
+                </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="Bottom" style="flex-grow: 1; align-items: flex-start; justify-content: flex-end;" />
+        <ui:VisualElement name="Bottom" style="flex-grow: 0.2; align-items: flex-end; justify-content: space-between; flex-direction: row;">
+            <ui:Button display-tooltip-when-elided="true" class="button1" style="background-image: url(&apos;project://database/Assets/Textures/UI.Gear.png?fileID=2800000&amp;guid=fd7a589b84cc66a49ab2484f77fa0427&amp;type=3#UI.Gear&apos;); -unity-background-scale-mode: scale-to-fit; padding-left: 6%; padding-right: 6%; padding-top: 4%; padding-bottom: 4%;" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
