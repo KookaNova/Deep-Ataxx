@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7cb140986bffe8640bbd3d0a2f482bc8, type: 3}
-  m_Name: Default Rules
+  m_Name: Default Level
   m_EditorClassIdentifier: 
   padding: 1.27
   columns: 7
@@ -26,3 +26,5 @@ MonoBehaviour:
   blockedTiles:
   - {x: 3, y: 2}
   - {x: 3, y: 4}
+  - {x: 2, y: 3}
+  - {x: 4, y: 3}
