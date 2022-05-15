@@ -15,6 +15,10 @@ public class GridTileControl : VisualElement
         style.backgroundColor = new StyleColor(Color.black);
         style.width = new StyleLength(10);
         style.height = new StyleLength(10);
+        style.marginBottom = new StyleLength(1);
+        style.marginLeft = new StyleLength(1);
+        style.marginRight = new StyleLength(1);
+        style.marginTop = new StyleLength(1);
 
 
     }
