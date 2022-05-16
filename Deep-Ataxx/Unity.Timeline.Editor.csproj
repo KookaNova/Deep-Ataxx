@@ -90,9 +90,9 @@
      <Compile Include="Library\PackageCache\com.unity.timeline@1.6.4\Editor\Animation\AnimationClipActions.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.6.4\Editor\inspectors\BuiltInCurvePresets.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.6.4\Editor\inspectors\GroupTrackInspector.cs" />
-     <Compile Include="Library\PackageCache\com.unity.timeline@1.6.4\Editor\Recording\TimelineRecording.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.6.4\Editor\Audio\AudioPlayableAssetEditor.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.6.4\Editor\inspectors\EditorClip.cs" />
+     <Compile Include="Library\PackageCache\com.unity.timeline@1.6.4\Editor\Recording\TimelineRecording.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.6.4\Editor\Recording\TimelineRecording_Monobehaviour.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.6.4\Editor\treeview\Drawers\TrackDrawer.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.6.4\Editor\treeview\Snapping\SnapEngine.cs" />

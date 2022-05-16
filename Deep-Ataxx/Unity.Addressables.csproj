@@ -36,32 +36,32 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\Initialization\InitializationOperation.cs" />
+     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\AssemblyInfo.cs" />
+     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\Initialization\CheckCatalogsOperation.cs" />
+     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\AssetReferenceUIRestriction.cs" />
      <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\Addressables.cs" />
-     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\Initialization\CacheInitialization.cs" />
      <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\Initialization\ResourceManagerRuntimeData.cs" />
      <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\ResourceLocators\DynamicResourceLocators.cs" />
-     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\ResourceLocators\ContentCatalogData.cs" />
      <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\Initialization\PackedPlayModeBuildLogs.cs" />
-     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\Initialization\InitializationOperation.cs" />
-     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\AddressablesImpl.cs" />
-     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\AssemblyInfo.cs" />
-     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\IKeyEvaluator.cs" />
-     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\Initialization\CleanBundleCacheOperation.cs" />
-     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\ResourceProviders\ContentCatalogProvider.cs" />
-     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\Services\PlatformMappingService.cs" />
      <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\ResourceLocators\ResourceLocationData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\Utility\ResourceManagerEventCollector.cs" />
+     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\AssetLabelReference.cs" />
+     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\ResourceLocators\ContentCatalogData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\Services\PlatformMappingService.cs" />
+     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\Initialization\InitializationObjectsOperation.cs" />
+     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\ResourceLocators\LegacyResourcesLocator.cs" />
+     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\IKeyEvaluator.cs" />
      <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\ResourceLocators\ResourceLocationMap.cs" />
      <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\Initialization\AddressablesRuntimeProperties.cs" />
-     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\Utility\SerializationUtilities.cs" />
-     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\Initialization\InitializationObjectsOperation.cs" />
-     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\Utility\ResourceManagerEventCollector.cs" />
-     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\Initialization\CheckCatalogsOperation.cs" />
-     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\Initialization\UpdateCatalogsOperation.cs" />
-     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\AssetReferenceUIRestriction.cs" />
      <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\ResourceLocators\IResourceLocator.cs" />
-     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\ResourceLocators\LegacyResourcesLocator.cs" />
+     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\AddressablesImpl.cs" />
+     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\ResourceProviders\ContentCatalogProvider.cs" />
+     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\Utility\SerializationUtilities.cs" />
+     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\Initialization\CleanBundleCacheOperation.cs" />
+     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\Initialization\UpdateCatalogsOperation.cs" />
      <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\AssetReference.cs" />
-     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\AssetLabelReference.cs" />
+     <Compile Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\Initialization\CacheInitialization.cs" />
      <None Include="Library\PackageCache\com.unity.addressables@1.19.19\Runtime\Unity.Addressables.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.2f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

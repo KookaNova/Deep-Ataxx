@@ -71,8 +71,8 @@
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.16\Editor\Collaborate\Presenters\ChangesPresenter.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.16\Editor\Collaborate\Components\TabView.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.16\Editor\Collaborate\Views\Adapters\ListAdapters\HistoryEntryChangeListAdapter.cs" />
-     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.16\Editor\Collaborate\Assets\UiConstants.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.16\Editor\Collaborate\Common\LocationAttribute.cs" />
+     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.16\Editor\Collaborate\Assets\UiConstants.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.16\Editor\Collaborate\Components\ProgressView.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.16\Editor\Collaborate\Components\ChangeListElements\HistoryChangeListElement.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.16\Editor\Collaborate\Models\IStartModel.cs" />
