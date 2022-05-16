@@ -13,12 +13,9 @@ namespace Cox.Infection.Management{
 
         TileObject[] allTiles;
 
-        public void OnEnable(){
+        public void StartGame(){
             var root = FindObjectOfType<UIDocument>().rootVisualElement;
             gameUI = root.Q<GameUIManager>();
-        }
-
-        public void StartGame(){
             allTiles = FindObjectsOfType<TileObject>();
             redsTurn = true;
             gameUI.ChangeTurn();

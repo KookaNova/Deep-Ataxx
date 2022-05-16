@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/MainStyle.uss?fileID=7433441132597879392&amp;guid=8608c9f4c9ce0fc4b8306d735e94bea8&amp;type=3#MainStyle" />
     <HomeMenuManager style="flex-grow: 1;">
-        <ui:VisualElement name="HomeMenu" style="flex-grow: 1; justify-content: space-between; margin-left: 2%; margin-right: 2%; margin-top: 10%; margin-bottom: 2%; display: none;">
+        <ui:VisualElement name="HomeMenu" style="flex-grow: 1; justify-content: space-between; margin-left: 2%; margin-right: 2%; margin-top: 10%; margin-bottom: 2%; display: flex;">
             <ui:VisualElement name="Top" style="flex-grow: 0.5;">
                 <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Textures/Logo.DeepAtaxx.png?fileID=2800000&amp;guid=9d4f88bdff2342a47b410bf48c4a7698&amp;type=3#Logo.DeepAtaxx&apos;); flex-grow: 1; -unity-background-scale-mode: scale-and-crop; height: 100px;" />
             </ui:VisualElement>
@@ -10,8 +10,8 @@
                     <ui:Button text="Story Play" display-tooltip-when-elided="true" name="Story" class="button1 menuText" />
                     <ui:Button text="2-Player Mode" display-tooltip-when-elided="true" name="TwoPlayer" class="button1 menuText" />
                     <ui:Button text="Arcade Play" display-tooltip-when-elided="true" name="Arcade" class="button1 menuText" />
-                    <ui:VisualElement name="SmallerButtons" style="flex-direction: row; align-items: flex-start; justify-content: center;">
-                        <ui:Button text="Lore" display-tooltip-when-elided="true" name="Lore" class="button1 menuText2" style="flex-grow: 0; width: 49%;" />
+                    <ui:VisualElement name="SmallerButtons" style="align-items: flex-start; justify-content: space-around; flex-shrink: 1; flex-direction: row;">
+                        <ui:Button text="Lore" display-tooltip-when-elided="true" name="Lore" class="button1 menuText2" style="flex-grow: 0; width: 50%;" />
                         <ui:Button text="Credits" display-tooltip-when-elided="true" name="Credits" class="button1 menuText2" style="flex-grow: 0; width: 50%;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
@@ -20,19 +20,17 @@
                 <ui:Button display-tooltip-when-elided="true" class="button1" style="background-image: url(&apos;project://database/Assets/Textures/UI.Gear.png?fileID=2800000&amp;guid=fd7a589b84cc66a49ab2484f77fa0427&amp;type=3#UI.Gear&apos;); -unity-background-scale-mode: scale-to-fit; padding-left: 6%; padding-right: 6%; padding-top: 4%; padding-bottom: 4%;" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="TwoPlayerMenu" style="flex-grow: 1;">
+        <ui:VisualElement name="TwoPlayerMenu" style="flex-grow: 1; display: none;">
             <ui:VisualElement name="Top" style="flex-grow: 0.5; flex-shrink: 1;">
                 <ui:Label text="2-Player" display-tooltip-when-elided="true" class="title" style="-unity-text-align: upper-center; font-size: 36px; color: rgb(0, 200, 150); text-shadow: 1px 1px 1px rgba(0, 0, 45, 0.9); -unity-text-outline-color: rgb(0, 0, 40);" />
             </ui:VisualElement>
             <ui:VisualElement name="Center" style="flex-grow: 1; justify-content: flex-end;">
-                <ui:ScrollView name="2PLevelList" touch-scroll-type="Elastic" vertical-scroller-visibility="Hidden" horizontal-scroller-visibility="Hidden" elasticity="0.01" style="flex-grow: 1;">
-                    <GridGenControl focusable="true" />
-                </ui:ScrollView>
-                <ui:VisualElement name="Buttons" style="margin-left: 10%; margin-right: 10%; justify-content: flex-end; align-items: stretch; flex-grow: 0.25; flex-shrink: 0;">
+                <ui:ScrollView name="2PLevelList" touch-scroll-type="Elastic" vertical-scroller-visibility="Hidden" horizontal-scroller-visibility="Hidden" elasticity="0.01" style="flex-grow: 0.9;" />
+                <ui:VisualElement name="Buttons" style="margin-left: 10%; margin-right: 10%; justify-content: flex-end; align-items: stretch; flex-grow: 0.25; flex-shrink: 0.1;">
                     <ui:Button text="Play" display-tooltip-when-elided="true" name="Play" class="button1 menuText" />
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="Bottom" style="flex-grow: 0.2; align-items: flex-end; justify-content: space-between; flex-direction: row;">
+            <ui:VisualElement name="Bottom" style="flex-grow: 0.1; align-items: flex-end; justify-content: space-between; flex-direction: row;">
                 <ui:Button display-tooltip-when-elided="true" name="Back" class="button1" style="background-image: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=1169890249420208065&amp;guid=0f1f162e5bfbaab4dbc85f64ad939550&amp;type=3#arrow-left&apos;); -unity-background-scale-mode: scale-to-fit; padding-left: 6%; padding-right: 6%; padding-top: 4%; padding-bottom: 4%;" />
             </ui:VisualElement>
         </ui:VisualElement>

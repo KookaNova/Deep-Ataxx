@@ -6,7 +6,19 @@
 
 .button1:hover {
     color: rgb(255, 255, 255);
-    background-color: rgb(230, 0, 100);
+    background-color: rgb(161, 49, 98);
+    transition-duration: 0.1s;
+    scale: 1.03 1.03;
+    border-left-color: rgb(25, 25, 25);
+    border-right-color: rgb(25, 25, 25);
+    border-top-color: rgb(25, 25, 25);
+    border-bottom-color: rgb(25, 25, 25);
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+}
+
+.button1:focus {
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 0, 112);
     transition-duration: 0.1s;
     scale: 1.03 1.03;
     border-left-color: rgb(25, 25, 25);

@@ -15,8 +15,9 @@ namespace Cox.Infection.Management{
 
         
 
-        private void Start() {
+        private void Awake() {
             gm = FindObjectOfType<GameManager>();
+            level = FindObjectOfType<PersistentData>().selectedLevel;
             GenerateBoard();
         }
 
@@ -78,7 +79,7 @@ namespace Cox.Infection.Management{
                 p.homeTile = grid[level.greenPositions[i].x, level.greenPositions[i].y];
                 p.homeTile.piece = p;
             }
-            
+
             gm.StartGame();
 
 

@@ -110,5 +110,6 @@ public class GridGenControl : VisualElement
         descriptionBox.style.justifyContent = Justify.FlexEnd;
         AddToClassList("gridClass");
         gridContainer.style.flexDirection = FlexDirection.Row;
+        focusable = true;
     }
 }

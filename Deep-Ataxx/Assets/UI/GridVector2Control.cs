@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+#if UNITY_EDITOR
 public class GridVector2Control : VisualElement
 {
     GridTileControl[,] grid = new GridTileControl[0,0];
@@ -174,3 +175,4 @@ public class GridVector2Control : VisualElement
         so.ApplyModifiedProperties();
     }
 }
+#endif

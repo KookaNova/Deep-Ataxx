@@ -7,8 +7,7 @@ using UnityEngine.UIElements;
 
 public class ListLevels : MonoBehaviour
 {
-    
-
+    PersistentData data;
     public Level[] levelList;
 
     VisualElement root;
@@ -19,7 +18,8 @@ public class ListLevels : MonoBehaviour
     
 
     private void Awake() {
-        root = GetComponent<UIDocument>().rootVisualElement;
+        root = FindObjectOfType<UIDocument>().rootVisualElement;
+        data = FindObjectOfType<PersistentData>();
         twoPlayerMenu = root?.Q("TwoPlayerMenu");
         twoPlayerList = twoPlayerMenu.Q<ScrollView>("2PLevelList");
 
@@ -33,6 +33,7 @@ public class ListLevels : MonoBehaviour
             var grid = new GridGenControl(level);
             gridSource[index] = grid;
             twoPlayerList.Add(grid);
+            grid.RegisterCallback<ClickEvent>(ev => data.selectedLevel = grid.selectedLevel);
             index++;
         }
         
