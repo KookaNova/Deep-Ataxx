@@ -25,9 +25,24 @@ public class GridTileControl : VisualElement
 
     public void IncrementState(){
         gridState++;
+        AssignColor();
+    }
+    public void DecrementState(){
+        gridState--;
+        AssignColor();
+    }
+    public void SetState(int state){
+        gridState = state;
+        AssignColor();
+        
+    }
 
+    void AssignColor(){
         if(gridState > 3){
             gridState = 0;
+        }
+        if(gridState < 0){
+            gridState = 3;
         }
 
         if(gridState == 0){

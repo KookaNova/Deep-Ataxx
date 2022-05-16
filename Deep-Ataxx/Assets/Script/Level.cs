@@ -11,7 +11,7 @@ namespace Cox.Infection.Management{
         public int rows = 7;
         public TileObject tile;
         public PieceComponent piece;
-        public Vector2Int[] redStartTiles, blueStartTiles, blockedTiles;
+        public Vector2Int[] redPositions, greenPositions, blockPositions;
     }
 }
 

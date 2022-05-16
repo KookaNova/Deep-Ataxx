@@ -83,7 +83,7 @@ namespace Cox.Infection.Management{
                 winner = "RED";
             }
             else{
-                winner = "BLUE";
+                winner = "GREEN";
             }
 
             gameUI.GameOver(winner);

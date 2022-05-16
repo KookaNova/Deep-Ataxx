@@ -29,8 +29,8 @@ namespace Cox.Infection.Management{
                     grid[i,j] = newTile;
                     newTile.gridPosition = new Vector2Int(i,j);
                     //find blocked tiles and block them.
-                    if(level.blockedTiles != null){
-                        foreach (var blockedPosition in level.blockedTiles){
+                    if(level.blockPositions != null){
+                        foreach (var blockedPosition in level.blockPositions){
                             if(newTile.gridPosition == blockedPosition){
                                 newTile.BlockTile(true);
                             }
@@ -64,17 +64,17 @@ namespace Cox.Infection.Management{
 
         void PlaceStarterPieces(){
             //Places red starter pieces
-            for(int i = 0; i < level.redStartTiles.Length; i++){
-                var p = Instantiate(level.piece, grid[level.redStartTiles[i].x, level.redStartTiles[i].y].transform.position, Quaternion.identity);
+            for(int i = 0; i < level.redPositions.Length; i++){
+                var p = Instantiate(level.piece, grid[level.redPositions[i].x, level.redPositions[i].y].transform.position, Quaternion.identity);
                 p.ChangeTeam(Team.RedTeam);
-                p.homeTile = grid[level.redStartTiles[i].x, level.redStartTiles[i].y];
+                p.homeTile = grid[level.redPositions[i].x, level.redPositions[i].y];
                 p.homeTile.piece = p;
             }
             //Places blue starter pieces
-            for(int i = 0; i < level.blueStartTiles.Length; i++){
-                var p = Instantiate(level.piece, grid[level.blueStartTiles[i].x, level.blueStartTiles[i].y].transform.position, Quaternion.identity);
+            for(int i = 0; i < level.greenPositions.Length; i++){
+                var p = Instantiate(level.piece, grid[level.greenPositions[i].x, level.greenPositions[i].y].transform.position, Quaternion.identity);
                 p.ChangeTeam(Team.GreenTeam);
-                p.homeTile = grid[level.blueStartTiles[i].x, level.blueStartTiles[i].y];
+                p.homeTile = grid[level.greenPositions[i].x, level.greenPositions[i].y];
                 p.homeTile.piece = p;
             }
 

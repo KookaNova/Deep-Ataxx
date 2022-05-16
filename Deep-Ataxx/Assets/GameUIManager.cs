@@ -38,7 +38,7 @@ public class GameUIManager : VisualElement
 
     public void ChangeTurn(){
         if(gm.redsTurn)this.Q<Label>("ActivePlayer").text = "Red's Turn";
-        if(!gm.redsTurn)this.Q<Label>("ActivePlayer").text = "Blue's Turn";
+        if(!gm.redsTurn)this.Q<Label>("ActivePlayer").text = "Green's Turn";
     }
 
     public void UpdateScore(){
