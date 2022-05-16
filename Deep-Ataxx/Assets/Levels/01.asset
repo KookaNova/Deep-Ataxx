@@ -10,29 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7cb140986bffe8640bbd3d0a2f482bc8, type: 3}
-  m_Name: 9x9
+  m_Name: 01
   m_EditorClassIdentifier: 
+  levelName: Beginner's Demise
   padding: 1.27
-  columns: 9
-  rows: 9
+  columns: 5
+  rows: 5
+  redFirst: 1
+  opponent: {fileID: 0}
   tile: {fileID: 6591126127158432252, guid: 8942f259f5f68324d93062015a43984e, type: 3}
   piece: {fileID: 4928824779748932212, guid: 2009623556d0a6949b1b001d59da7041, type: 3}
   redPositions:
-  - {x: 1, y: 1}
-  - {x: 7, y: 7}
+  - {x: 0, y: 0}
+  - {x: 4, y: 4}
   greenPositions:
-  - {x: 1, y: 7}
-  - {x: 7, y: 1}
-  blockPositions:
   - {x: 0, y: 4}
-  - {x: 2, y: 4}
-  - {x: 3, y: 3}
-  - {x: 3, y: 5}
   - {x: 4, y: 0}
-  - {x: 4, y: 2}
-  - {x: 4, y: 6}
-  - {x: 4, y: 8}
-  - {x: 5, y: 3}
-  - {x: 5, y: 5}
-  - {x: 6, y: 4}
-  - {x: 8, y: 4}
+  blockPositions:
+  - {x: 0, y: 1}
+  - {x: 0, y: 3}
+  - {x: 4, y: 1}
+  - {x: 4, y: 3}

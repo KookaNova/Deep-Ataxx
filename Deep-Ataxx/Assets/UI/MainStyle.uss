@@ -35,33 +35,51 @@
     font-size: 24px;
     -unity-font: url('project://database/Library/unity%20default%20resources?fileID=10102&guid=0000000000000000e000000000000000&type=0#Arial');
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.81);
+    color: rgba(250, 250, 250, 255);
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: -4px;
+    margin-bottom: 6px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .menuText2 {
     font-size: 16px;
     -unity-font: url('project://database/Library/unity%20default%20resources?fileID=10102&guid=0000000000000000e000000000000000&type=0#Arial');
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.81);
+    color: rgba(224, 224, 224, 255);
+    margin-left: 4px;
+    margin-right: -4px;
+    margin-top: -4px;
+    margin-bottom: 1px;
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-top: 1px;
+    padding-bottom: 1px;
 }
 
 .title {
 }
 
 .gridClass {
-    background-color: rgba(43, 43, 43, 255);
+    background-color: rgba(43, 43, 43, 0.73);
     margin-left: 5px;
     margin-right: 5px;
     margin-top: 5px;
     margin-bottom: 5px;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
 
-.gridClass:hover {
-    background-color: rgb(230, 0, 100);
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+.gridClass:focus {
+    background-color: rgb(111, 115, 144);
     transition-duration: 0.25s;
-    scale: 1 1;
-    transform-origin: center;
-    translate: 0 0;
 }

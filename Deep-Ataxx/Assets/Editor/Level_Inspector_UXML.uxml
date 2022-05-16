@@ -1,8 +1,13 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
     <ui:VisualElement>
+        <ui:TextField picking-mode="Ignore" label="Level Name" text="new level name..." name="LevelName" binding-path="levelName" />
         <GridVector2Control style="align-items: center; justify-content: flex-start; flex-direction: column;" />
         <ui:SliderInt picking-mode="Ignore" label="Columns" value="7" high-value="13" name="Columns" binding-path="columns" low-value="5" show-input-field="true" />
         <ui:SliderInt picking-mode="Ignore" label="Rows" value="7" high-value="13" name="Rows" binding-path="rows" low-value="5" show-input-field="true" />
-        <ui:Foldout text="Default Inspector" name="Default_Inspector" />
+        <uie:PropertyField name="Opponent" binding-path="opponent" />
+        <uie:PropertyField name="TileObject" binding-path="tile" />
+        <uie:PropertyField name="Piece" binding-path="piece" />
+        <ui:Toggle label="Red Moves First" binding-path="redFirst" value="false" name="RedFirst" />
+        <ui:Foldout text="Default Inspector" name="Default_Inspector" is-delayed="true" style="display: none;" />
     </ui:VisualElement>
 </ui:UXML>

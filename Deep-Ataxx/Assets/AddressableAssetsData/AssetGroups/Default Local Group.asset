@@ -21,10 +21,6 @@ MonoBehaviour:
     m_Address: Assets/Levels
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 4039811b11fadb3428a1b6bc8e278a18
-    m_Address: Assets/Levels/Default Level.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 6f40472e99c151745999aa228ac278c7, type: 2}
   m_SchemaSet:
