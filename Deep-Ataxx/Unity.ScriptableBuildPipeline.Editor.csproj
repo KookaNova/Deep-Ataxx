@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{02c78166-abfc-c19e-6eda-7edc87c9e2db}</ProjectGuid>
+    <ProjectGuid>{a0d95aae-5071-155c-764b-77aaff99a793}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
+    <AssemblyName>Unity.ScriptableBuildPipeline.Editor</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -22,11 +22,11 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_2021_3_2;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_SEARCH_TABLE;USE_SEARCH_MODULE;USE_PROPERTY_DATABASE;USE_SEARCH_EXTENSION_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_ANDROID;TEXTCORE_1_0_OR_NEWER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_ETC_COMPRESSION;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;NET_STANDARD_2_0;NET_STANDARD</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_2021_3_2;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_SEARCH_TABLE;USE_SEARCH_MODULE;USE_PROPERTY_DATABASE;USE_SEARCH_EXTENSION_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_ANDROID;TEXTCORE_1_0_OR_NEWER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_ETC_COMPRESSION;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;ENABLE_TYPE_HASHING;NONRECURSIVE_DEPENDENCY_DATA;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;NET_STANDARD_2_0;NET_STANDARD</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <NoConfig>true</NoConfig>
@@ -36,8 +36,105 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Editor\Level_Inspector.cs" />
-     <None Include="Assets\Editor\Level_Inspector_UXML.uxml" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Shared\BuildSpriteData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Shared\BuildResults.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Interfaces\IBuildSpriteData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\WriteTypes\RawWriteOperation.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\WriteTypes\SceneRawWriteOperation.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Tasks\GenerateBundlePacking.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Interfaces\IBuildLog.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Tasks\WriteSerializedFiles.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\TrackerExtensions.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\HashingHelpers.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\BuildCacheUtility.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Tasks\CreateMonoScriptBundle.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Shared\LinearPackedIdentifiers.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\CacheServerDownloader.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Tasks\CalculateSceneDependencyData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Tasks\GenerateBundleMaps.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Interfaces\IBundleExplictObjectLayout.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Shared\BuildParameters.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Tasks\StripUnusedSpriteSources.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\Preferences.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\CacheServerUploader.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\MD4.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Tasks\UpdateBundleObjectLayout.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Interfaces\IAssetRepresentationData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\USerialize\USerialize.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\HashStream.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Shared\BundleExplictObjectLayout.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Tasks\PostWritingCallback.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\USerialize\DeSerializer.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\WriteTypes\AssetBundleWriteOperation.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\AssemblyInfo.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Interfaces\IDependencyData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Tasks\PostScriptsCallback.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\ReturnCode.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\BuildInterfacesWrapper.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Interfaces\IBuildContent.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\CompatibilityBuildPipeline.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\ValidationMethods.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Shared\BuildContent.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Interfaces\IWriteData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Tasks\PostPackingCallback.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Tasks\PostDependencyCallback.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\ProgressLoggingTracker.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\USerialize\Serializer.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Profiler\BuildProfiler.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Interfaces\IBuildCache.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Interfaces\IBuildResults.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\ThreadingManager.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\ProgressTracker.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\CacheEntry.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Shared\BuildContext.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Shared\PrefabPackedIdentifiers.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Tasks\CalculateCustomDependencyData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\QualitySettingsApi.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\HashingMethods.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\SpookyHash.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\BuildLog.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Shared\BuildDependencyData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Tasks\CreateBuiltInShadersBundle.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Shared\Unity5PackedIdentifiers.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Tasks\GenerateSubAssetPathMaps.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Shared\BuildCallbacks.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Shared\BuildExtendedAssetData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\SceneStateCleanup.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Tasks\BuildPlayerScripts.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Interfaces\IProgressTracker.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\BuildCache.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\CommonStrings.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Shared\DefaultBuildTasks.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\ReflectionExtensions.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Interfaces\IBuildParameters.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Tasks\SwitchToBuildPlatform.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\WriteTypes\SceneDataWriteOperation.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Shared\BuildTasksRunner.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\ExtensionMethods.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Interfaces\IWriteOperation.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\GraphicsSettingsApi.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\USerializeTools\DumpToText.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\BuildLogger.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Tasks\PreviewSceneDependencyData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Interfaces\IBuildContext.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Shared\BuildWriteData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Tasks\GenerateBundleCommands.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\ContentPipeline.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\TaskCachingUtility.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\PlayerSettingsApi.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\VersionedCallbackAttribute.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Tasks\AppendBundleHash.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Interfaces\IDeterministicIdentifiers.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Tasks\GenerateLinkXml.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\FileCompressor.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\WriteTypes\SceneBundleWriteOperation.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Tasks\CalculateAssetDependencyData.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Tasks\ArchiveAndCompressBundles.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Interfaces\IBuildTasks.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Injector\ContextInjector.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Utilities\LinkXMLGenerator.cs" />
+     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Tasks\RebuildSpriteAtlasCache.cs" />
+     <None Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.19.6\Editor\Unity.ScriptableBuildPipeline.Editor.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.2f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -934,9 +1031,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{f4872e3e-83e2-8764-21f0-c5d16be5838d}</Project>
-      <Name>Assembly-CSharp</Name>
+    <ProjectReference Include="Unity.ScriptableBuildPipeline.csproj">
+      <Project>{078c24ce-00bc-e90d-abc3-1eae0a4a6bbd}</Project>
+      <Name>Unity.ScriptableBuildPipeline</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.CacheServer.csproj">
+      <Project>{5fa46b65-8b35-a89e-8287-cc8d99da6dcf}</Project>
+      <Name>UnityEditor.CacheServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.UI.csproj">
+      <Project>{87cb2468-fda1-78ff-7cc9-5cb32372c678}</Project>
+      <Name>UnityEditor.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.UI.csproj">
+      <Project>{1fe7d951-842a-1d1d-114f-2d38962885d5}</Project>
+      <Name>UnityEngine.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
       <Project>{10f4d752-7c94-5674-ee8a-62def4112729}</Project>
@@ -945,218 +1054,6 @@
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
       <Project>{7fc459a5-2ab1-005b-95c1-ba2e02ff8041}</Project>
       <Name>UnityEngine.TestRunner</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Recorder.Editor.csproj">
-      <Project>{e5da430e-2164-b16d-fa0d-e06da443c78c}</Project>
-      <Name>Unity.Recorder.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.InternalAPIEngineBridge.001.csproj">
-      <Project>{caaa2b4e-ae7d-11e4-bfd6-1431d265a6a9}</Project>
-      <Name>Unity.InternalAPIEngineBridge.001</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.VSCode.Editor.csproj">
-      <Project>{a85b4253-c4b4-a49c-50df-ea6b27000936}</Project>
-      <Name>Unity.VSCode.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.PixelPerfect.csproj">
-      <Project>{af471136-158c-64f1-708d-6c3aaf3dcd21}</Project>
-      <Name>Unity.2D.PixelPerfect</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Universal.Shaders.csproj">
-      <Project>{46cc21f6-4e2b-14fd-39ec-8fcacbbbd9d1}</Project>
-      <Name>Unity.RenderPipelines.Universal.Shaders</Name>
-    </ProjectReference>
-    <ProjectReference Include="PsdPlugin.csproj">
-      <Project>{969164bf-2c4a-aa30-37eb-337771d17701}</Project>
-      <Name>PsdPlugin</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
-      <Project>{30edbaa1-e072-35f0-ae5c-8e925cb41538}</Project>
-      <Name>Unity.TextMeshPro.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Searcher.Editor.csproj">
-      <Project>{dd3a13da-c136-938d-43c8-372be4a038f2}</Project>
-      <Name>Unity.Searcher.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.IK.Editor.csproj">
-      <Project>{d935d976-f443-70f6-f670-725a77b0e7eb}</Project>
-      <Name>Unity.2D.IK.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.Path.Editor.csproj">
-      <Project>{cc3b05c8-8866-4c78-a41a-59aa51d43659}</Project>
-      <Name>Unity.2D.Path.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{87cb2468-fda1-78ff-7cc9-5cb32372c678}</Project>
-      <Name>UnityEditor.UI</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Rider.Editor.csproj">
-      <Project>{5388d099-9da4-1ffa-6a3d-151310969f77}</Project>
-      <Name>Unity.Rider.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Core.ShaderLibrary.csproj">
-      <Project>{0cf65efb-8867-18aa-69cb-a65f8bdea3a3}</Project>
-      <Name>Unity.RenderPipelines.Core.ShaderLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{1fe7d951-842a-1d1d-114f-2d38962885d5}</Project>
-      <Name>UnityEngine.UI</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.IK.Runtime.csproj">
-      <Project>{df3f3c8e-064d-1bfa-c561-dc0803726066}</Project>
-      <Name>Unity.2D.IK.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ShaderGraph.Editor.csproj">
-      <Project>{adb68242-9cf9-8ff3-bd87-9c0e8da89cb4}</Project>
-      <Name>Unity.ShaderGraph.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipeline.Universal.ShaderLibrary.csproj">
-      <Project>{b37c524f-f395-4318-c6d8-9e5e6460b54f}</Project>
-      <Name>Unity.RenderPipeline.Universal.ShaderLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Mathematics.Editor.csproj">
-      <Project>{c5edaaf4-eb6a-133d-d3b0-94c0be2b5e09}</Project>
-      <Name>Unity.Mathematics.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.Common.Editor.csproj">
-      <Project>{79dda033-0fff-c5e4-37ca-fd229af86632}</Project>
-      <Name>Unity.2D.Common.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Recorder.csproj">
-      <Project>{0e073c73-7bc6-d67a-8efa-842aeed22c0b}</Project>
-      <Name>Unity.Recorder</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.Animation.Editor.csproj">
-      <Project>{6949fd33-0439-6f1e-b79b-1cd18e70b8af}</Project>
-      <Name>Unity.2D.Animation.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.Tilemap.Editor.csproj">
-      <Project>{218f83a9-4017-e612-5601-b5168c9f8f5c}</Project>
-      <Name>Unity.2D.Tilemap.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Recorder.Base.csproj">
-      <Project>{27e7ebaf-5bf9-9e80-aa2a-9e6bdb2c893a}</Project>
-      <Name>Unity.Recorder.Base</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Universal.Runtime.csproj">
-      <Project>{f5cefcce-444b-0d9c-9497-63abf7250b8f}</Project>
-      <Name>Unity.RenderPipelines.Universal.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="PPv2URPConverters.csproj">
-      <Project>{579af557-c3bb-56c6-77da-488dd417b108}</Project>
-      <Name>PPv2URPConverters</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Timeline.csproj">
-      <Project>{df47f111-933b-dad7-897a-e78460b15109}</Project>
-      <Name>Unity.Timeline</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.TextMeshPro.csproj">
-      <Project>{1cbfaec8-3a3c-2e94-46ea-d7bb3ceb1286}</Project>
-      <Name>Unity.TextMeshPro</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Burst.Editor.csproj">
-      <Project>{850b1f45-6f5d-1a96-430e-58be973f523c}</Project>
-      <Name>Unity.Burst.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.Sprite.Editor.csproj">
-      <Project>{bae89d5b-563b-8d7a-0ff4-f80a4f79ea99}</Project>
-      <Name>Unity.2D.Sprite.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.Psdimporter.Editor.csproj">
-      <Project>{fadb88d5-e1ef-fc0e-27d2-f51e9d474bdb}</Project>
-      <Name>Unity.2D.Psdimporter.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.InternalAPIEditorBridge.001.csproj">
-      <Project>{53a04f1e-e642-06ba-83df-970b74143413}</Project>
-      <Name>Unity.InternalAPIEditorBridge.001</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Core.Runtime.csproj">
-      <Project>{a2a26c0d-febb-a959-9772-25c958254718}</Project>
-      <Name>Unity.RenderPipelines.Core.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.PlasticSCM.Editor.csproj">
-      <Project>{12726271-000d-ecd8-e468-0e222a1f67fe}</Project>
-      <Name>Unity.PlasticSCM.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Services.Core.csproj">
-      <Project>{0fc89800-7615-a545-b125-de445a934de4}</Project>
-      <Name>Unity.Services.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Mathematics.csproj">
-      <Project>{9508b597-7360-0776-1626-3632f6a27571}</Project>
-      <Name>Unity.Mathematics</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Services.Core.Analytics.csproj">
-      <Project>{5689421c-574e-ee79-ac9c-d25da4d05a2d}</Project>
-      <Name>Unity.Services.Core.Analytics</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Burst.csproj">
-      <Project>{eeba573b-8b50-c7f6-db5e-91741d6ea85d}</Project>
-      <Name>Unity.Burst</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Universal.Editor.csproj">
-      <Project>{0835004c-9c52-f0c5-cbb4-bb06080da104}</Project>
-      <Name>Unity.RenderPipelines.Universal.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Services.Core.Environments.csproj">
-      <Project>{d1d238be-354e-e77e-4a13-8ffde65ebcf4}</Project>
-      <Name>Unity.Services.Core.Environments</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.Animation.Runtime.csproj">
-      <Project>{88fc61a8-e2ac-9b9a-b997-a95566af352e}</Project>
-      <Name>Unity.2D.Animation.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.PixelPerfect.Editor.csproj">
-      <Project>{a1c7c528-db2b-364f-298c-c4f9965edcae}</Project>
-      <Name>Unity.2D.PixelPerfect.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Timeline.Editor.csproj">
-      <Project>{9aa75416-d835-8ad2-4c8d-06148b5dba90}</Project>
-      <Name>Unity.Timeline.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.csproj">
-      <Project>{4d398f28-2cb0-e782-708a-a386598a0196}</Project>
-      <Name>Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.Common.Runtime.csproj">
-      <Project>{9ad1a4d2-94c3-c7d5-1f3c-6c0fa8e273bb}</Project>
-      <Name>Unity.2D.Common.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.SpriteShape.Editor.csproj">
-      <Project>{0a1f89fb-7f75-1d3d-ba71-01fa867ab6bb}</Project>
-      <Name>Unity.2D.SpriteShape.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Core.Editor.csproj">
-      <Project>{c6d44c98-ced4-d87e-2953-a5789c2256d2}</Project>
-      <Name>Unity.RenderPipelines.Core.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.2D.SpriteShape.Runtime.csproj">
-      <Project>{262dcd6a-93a1-38c0-34cb-877a59e5b7a3}</Project>
-      <Name>Unity.2D.SpriteShape.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Addressables.csproj">
-      <Project>{ca44989c-c2ff-bce3-bdf2-3d960606ccea}</Project>
-      <Name>Unity.Addressables</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Addressables.Editor.csproj">
-      <Project>{8edd3ff7-9187-4a01-e75a-d4b399202212}</Project>
-      <Name>Unity.Addressables.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEditor.CacheServer.csproj">
-      <Project>{5fa46b65-8b35-a89e-8287-cc8d99da6dcf}</Project>
-      <Name>UnityEditor.CacheServer</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ResourceManager.csproj">
-      <Project>{f0f47eb5-b37a-e065-280d-d2998fa1bc11}</Project>
-      <Name>Unity.ResourceManager</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ScriptableBuildPipeline.csproj">
-      <Project>{078c24ce-00bc-e90d-abc3-1eae0a4a6bbd}</Project>
-      <Name>Unity.ScriptableBuildPipeline</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ScriptableBuildPipeline.Editor.csproj">
-      <Project>{a0d95aae-5071-155c-764b-77aaff99a793}</Project>
-      <Name>Unity.ScriptableBuildPipeline.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
