@@ -154,8 +154,8 @@
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.5\Editor\SkinningModule\SkinningCache\CharacterPartCache.cs" />
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.5\Editor\SkinningModule\SpriteMeshData\BoneWeightExtensions.cs" />
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.5\Editor\SkinningModule\SpriteBoneInfluence\BoneSpriteInfluenceTool.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.5\Editor\SkinningModule\SkinningCache\TransformCacheExtensions.cs" />
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.5\Editor\SkinningModule\HorizontalToggleTools.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.5\Editor\SkinningModule\SkinningCache\TransformCacheExtensions.cs" />
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.5\Editor\SkinningModule\IMGUI\ISkeletonView.cs" />
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.5\Editor\SkinningModule\AssociateBonesScope.cs" />
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.5\Editor\SkinningModule\SkinningCache\BoneCacheExtensions.cs" />
@@ -168,8 +168,8 @@
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.5\Editor\SkinningModule\UI\VisualElementExtensions.cs" />
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.5\Editor\SkinningModule\ColorExtensions.cs" />
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.5\Editor\AssemblyInfo.cs" />
-     <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.5\Editor\SkinningModule\IMGUI\SkeletonView.cs" />
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.5\Editor\SkinningModule\Selectors\CircleVertexSelector.cs" />
+     <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.5\Editor\SkinningModule\IMGUI\SkeletonView.cs" />
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.5\Editor\SkinningModule\Selectors\ICircleSelector.cs" />
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.5\Editor\SkinningModule\OutlineGenerator\IOutlineGenerator.cs" />
      <Compile Include="Library\PackageCache\com.unity.2d.animation@7.0.5\Editor\SpriteLib\SpriteResolverInspector.cs" />

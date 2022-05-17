@@ -38,10 +38,13 @@
   <ItemGroup>
      <Compile Include="Assets\UI\GridGenControl.cs" />
      <Compile Include="Assets\Script\PlayerHelper.cs" />
+     <Compile Include="Assets\Script\CharacterObject.cs" />
      <Compile Include="Assets\UI\HomeMenuManager.cs" />
      <Compile Include="Assets\Script\ColorManager.cs" />
      <Compile Include="Assets\UI\GridVector2Control.cs" />
+     <Compile Include="Assets\PlayerPersistantChoice.cs" />
      <Compile Include="Assets\Script\GameManager.cs" />
+     <Compile Include="Assets\StartUp.cs" />
      <Compile Include="Assets\Script\Level.cs" />
      <Compile Include="Assets\UI\GridTileControl.cs" />
      <Compile Include="Assets\Script\BoardGenerator.cs" />
@@ -49,10 +52,7 @@
      <Compile Include="Assets\UI\ListLevels.cs" />
      <Compile Include="Assets\Script\TileObject.cs" />
      <Compile Include="Assets\Script\PieceComponent.cs" />
-     <Compile Include="Assets\Script\CharacterObject.cs" />
-     <Compile Include="Assets\PersistentData.cs" />
      <None Include="Assets\UI\GameScreen.uxml" />
-     <None Include="Assets\AddressableAssetsData\link.xml" />
      <None Include="Assets\UI\MainStyle.uss" />
      <None Include="Assets\UI\MainMenu_UXML.uxml" />
     <Reference Include="UnityEngine">
@@ -701,17 +701,9 @@
       <Project>{46cc21f6-4e2b-14fd-39ec-8fcacbbbd9d1}</Project>
       <Name>Unity.RenderPipelines.Universal.Shaders</Name>
     </ProjectReference>
-    <ProjectReference Include="UnityEditor.CacheServer.csproj">
-      <Project>{5fa46b65-8b35-a89e-8287-cc8d99da6dcf}</Project>
-      <Name>UnityEditor.CacheServer</Name>
-    </ProjectReference>
     <ProjectReference Include="PsdPlugin.csproj">
       <Project>{969164bf-2c4a-aa30-37eb-337771d17701}</Project>
       <Name>PsdPlugin</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Addressables.csproj">
-      <Project>{ca44989c-c2ff-bce3-bdf2-3d960606ccea}</Project>
-      <Name>Unity.Addressables</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
       <Project>{30edbaa1-e072-35f0-ae5c-8e925cb41538}</Project>
@@ -760,10 +752,6 @@
     <ProjectReference Include="Unity.Mathematics.Editor.csproj">
       <Project>{c5edaaf4-eb6a-133d-d3b0-94c0be2b5e09}</Project>
       <Name>Unity.Mathematics.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Addressables.Editor.csproj">
-      <Project>{8edd3ff7-9187-4a01-e75a-d4b399202212}</Project>
-      <Name>Unity.Addressables.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Common.Editor.csproj">
       <Project>{79dda033-0fff-c5e4-37ca-fd229af86632}</Project>
@@ -821,10 +809,6 @@
       <Project>{a2a26c0d-febb-a959-9772-25c958254718}</Project>
       <Name>Unity.RenderPipelines.Core.Runtime</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.ResourceManager.csproj">
-      <Project>{f0f47eb5-b37a-e065-280d-d2998fa1bc11}</Project>
-      <Name>Unity.ResourceManager</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.PlasticSCM.Editor.csproj">
       <Project>{12726271-000d-ecd8-e468-0e222a1f67fe}</Project>
       <Name>Unity.PlasticSCM.Editor</Name>
@@ -873,17 +857,9 @@
       <Project>{9ad1a4d2-94c3-c7d5-1f3c-6c0fa8e273bb}</Project>
       <Name>Unity.2D.Common.Runtime</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.ScriptableBuildPipeline.csproj">
-      <Project>{078c24ce-00bc-e90d-abc3-1eae0a4a6bbd}</Project>
-      <Name>Unity.ScriptableBuildPipeline</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.2D.SpriteShape.Editor.csproj">
       <Project>{0a1f89fb-7f75-1d3d-ba71-01fa867ab6bb}</Project>
       <Name>Unity.2D.SpriteShape.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ScriptableBuildPipeline.Editor.csproj">
-      <Project>{a0d95aae-5071-155c-764b-77aaff99a793}</Project>
-      <Name>Unity.ScriptableBuildPipeline.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Core.Editor.csproj">
       <Project>{c6d44c98-ced4-d87e-2953-a5789c2256d2}</Project>

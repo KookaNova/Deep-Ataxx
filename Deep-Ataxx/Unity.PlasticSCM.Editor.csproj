@@ -304,8 +304,8 @@
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.16\Editor\PlasticSCM\Views\Changesets\ChangesetListViewItem.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.16\Editor\PlasticSCM\Help\HelpLink.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.16\Editor\PlasticSCM\Views\ConfirmContinueWithPendingChangesDialog.cs" />
-     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.16\Editor\PlasticSCM\CollabMigration\MigrationProgressRender.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.16\Editor\PlasticSCM\UI\Progress\DrawProgressForOperations.cs" />
+     <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.16\Editor\PlasticSCM\CollabMigration\MigrationProgressRender.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.16\Editor\PlasticSCM\Tool\FindTool.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.16\Editor\PlasticSCM\CloudProjectDownloader\ParseArguments.cs" />
      <Compile Include="Library\PackageCache\com.unity.collab-proxy@1.15.16\Editor\PlasticSCM\CloudProjectDownloader\CommandLineArguments.cs" />

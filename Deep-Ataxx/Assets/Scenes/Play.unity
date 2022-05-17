@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PanelSettings: {fileID: 11400000, guid: 96bdfc673c03f4044adce359f250d77b, type: 2}
+  m_PanelSettings: {fileID: 11400000, guid: 3c3743b9585136245ae59a978fc9d6f9, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: b139a5c76d9ae244bad299e7f53e329a, type: 3}
   m_SortingOrder: 0
@@ -208,7 +208,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65866e035c8b40548ae7bfd8efebde1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 11400000, guid: 4039811b11fadb3428a1b6bc8e278a18, type: 2}
+  data: {fileID: 11400000, guid: b3d92b1b58159f3478e7cb1b3d7af90a, type: 2}
 --- !u!4 &498594683
 Transform:
   m_ObjectHideFlags: 0

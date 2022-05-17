@@ -12,10 +12,8 @@ public class GameUIManager : VisualElement
     public new class UxmlTraits : VisualElement.UxmlTraits{ }
 
     public GameUIManager(){
-        this.RegisterCallback<GeometryChangedEvent>(OnGeometryChanged);
+        RegisterCallback<GeometryChangedEvent>(OnGeometryChanged);
         gm = GameManager.FindObjectOfType<GameManager>();
-
-        
     }
 
     private void OnGeometryChanged(GeometryChangedEvent evt)
@@ -26,6 +24,8 @@ public class GameUIManager : VisualElement
         this.Q<Button>("Reset").RegisterCallback<ClickEvent>(ev => Reset());
         this.Q<Button>("Flag").RegisterCallback<ClickEvent>(ev => Reset());
         this.Q<Button>("Quit").RegisterCallback<ClickEvent>(ev => Quit());
+
+        UnregisterCallback<GeometryChangedEvent>(OnGeometryChanged);
     }
 
     private void Reset()
@@ -34,7 +34,7 @@ public class GameUIManager : VisualElement
     }
     
     private void Quit(){
-        SceneManager.LoadScene("Home");
+        SceneManager.LoadSceneAsync("Home", LoadSceneMode.Single);
     }
 
     public void ChangeTurn(){

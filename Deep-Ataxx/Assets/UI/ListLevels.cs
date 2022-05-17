@@ -6,19 +6,17 @@ using UnityEngine.UIElements;
 
 public class ListLevels : MonoBehaviour
 {
-    PersistentData data;
+    [SerializeField] PlayerPersistantChoice data;
     public Level[] levelList;
 
     VisualElement root;
     VisualElement twoPlayerMenu;
     ScrollView twoPlayerList;
-
     GridGenControl[] gridSource;
     
 
     private void Awake() {
         root = FindObjectOfType<UIDocument>().rootVisualElement;
-        data = FindObjectOfType<PersistentData>();
         twoPlayerMenu = root?.Q("TwoPlayerMenu");
         twoPlayerList = twoPlayerMenu.Q<ScrollView>("2PLevelList");
 

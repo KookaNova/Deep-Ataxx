@@ -5,8 +5,9 @@ namespace Cox.Infection.Management{
     public class BoardGenerator : MonoBehaviour
     {
         GameManager gm;
-        public Level level;
+        public PlayerPersistantChoice data;
 
+        Level level;
         Vector2 offset = Vector2.zero;
         TileObject[,] grid;
         float cameraOffset = 2;
@@ -16,8 +17,8 @@ namespace Cox.Infection.Management{
         private void Awake() {
             var root = FindObjectOfType<UIDocument>().rootVisualElement;
             root.Q<Button>("Flag").RegisterCallback<ClickEvent>(ev => level.isFlagged = !level.isFlagged);
+            level = data.selectedLevel;
             gm = FindObjectOfType<GameManager>();
-            level = FindObjectOfType<PersistentData>().selectedLevel;
             GenerateBoard();
         }
 
