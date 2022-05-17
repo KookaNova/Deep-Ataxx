@@ -16,7 +16,7 @@ public class ListLevels : MonoBehaviour
     
 
     private void Awake() {
-        root = FindObjectOfType<UIDocument>().rootVisualElement;
+        root = GetComponent<UIDocument>().rootVisualElement;
         twoPlayerMenu = root?.Q("TwoPlayerMenu");
         twoPlayerList = twoPlayerMenu.Q<ScrollView>("2PLevelList");
 
@@ -33,7 +33,5 @@ public class ListLevels : MonoBehaviour
             grid.RegisterCallback<ClickEvent>(ev => data.selectedLevel = grid.selectedLevel);
             index++;
         }
-        
-
     }
 }
