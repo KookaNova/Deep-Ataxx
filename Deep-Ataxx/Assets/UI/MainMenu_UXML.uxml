@@ -6,7 +6,7 @@
                 <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Textures/Logo.DeepAtaxx.png?fileID=2800000&amp;guid=9d4f88bdff2342a47b410bf48c4a7698&amp;type=3#Logo.DeepAtaxx&apos;); flex-grow: 1; -unity-background-scale-mode: scale-and-crop; height: 100px;" />
             </ui:VisualElement>
             <ui:VisualElement name="Center" style="flex-grow: 1; justify-content: flex-end;">
-                <ui:VisualElement name="Buttons" style="margin-left: 10%; margin-right: 10%; justify-content: flex-end; align-items: stretch; flex-grow: 1;">
+                <ui:VisualElement name="Buttons" style="margin-left: 10%; margin-right: 10%; justify-content: flex-end; align-items: stretch; flex-grow: 0.9; flex-shrink: 0;">
                     <ui:Button text="Story Play" display-tooltip-when-elided="true" name="Story" class="button1 menuText" />
                     <ui:Button text="2-Player Mode" display-tooltip-when-elided="true" name="TwoPlayer" class="button1 menuText" />
                     <ui:Button text="Arcade Play" display-tooltip-when-elided="true" name="Arcade" class="button1 menuText" />
