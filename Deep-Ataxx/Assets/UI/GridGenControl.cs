@@ -93,16 +93,28 @@ public class GridGenControl : VisualElement
         if(!level.redFirst)firstMove.text = "Green First";
         Label size = new Label(level.columns + "x" + level.rows);
         size.AddToClassList("menuText2");
-        
         firstMove.AddToClassList("menuText2");
         descriptionBox.Add(title);
         descriptionBox.Add(opponent);
         descriptionBox.Add(firstMove);
         descriptionBox.Add(size);
+
+        //is the level flagged?
+        if(level.isFlagged){
+            VisualElement yellowFlag = new VisualElement();
+            yellowFlag.style.width = 20;
+            yellowFlag.style.height = 20;
+            yellowFlag.style.marginRight = 10;
+            yellowFlag.style.backgroundColor = new StyleColor(Color.yellow);
+            gridContainer.Add(yellowFlag);
+            yellowFlag.SendToBack();
+
+        }
     }
 
     void SetupStyle(){
         gridContainer = new VisualElement();
+        gridContainer.style.alignItems = Align.Center;
         Add(gridContainer);
         descriptionBox = new VisualElement();
         Add(descriptionBox);

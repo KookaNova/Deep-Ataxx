@@ -10,7 +10,6 @@ namespace Cox.Infection.Management{
         public List<PieceComponent> greenPieces = new List<PieceComponent>();
         [HideInInspector] public bool redsTurn = true;
         GameUIManager gameUI;
-
         TileObject[] allTiles;
 
         public void StartGame(){

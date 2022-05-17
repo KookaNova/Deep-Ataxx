@@ -52,6 +52,7 @@
      <Compile Include="Assets\Script\CharacterObject.cs" />
      <Compile Include="Assets\PersistentData.cs" />
      <None Include="Assets\UI\GameScreen.uxml" />
+     <None Include="Assets\AddressableAssetsData\link.xml" />
      <None Include="Assets\UI\MainStyle.uss" />
      <None Include="Assets\UI\MainMenu_UXML.uxml" />
     <Reference Include="UnityEngine">

@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Cox.Infection.Management{
     public class BoardGenerator : MonoBehaviour
@@ -16,6 +14,8 @@ namespace Cox.Infection.Management{
         
 
         private void Awake() {
+            var root = FindObjectOfType<UIDocument>().rootVisualElement;
+            root.Q<Button>("Flag").RegisterCallback<ClickEvent>(ev => level.isFlagged = !level.isFlagged);
             gm = FindObjectOfType<GameManager>();
             level = FindObjectOfType<PersistentData>().selectedLevel;
             GenerateBoard();

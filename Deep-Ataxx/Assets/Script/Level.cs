@@ -11,6 +11,7 @@ namespace Cox.Infection.Management{
         public int columns = 7;
         public int rows = 7;
         public bool redFirst = true;
+        public bool isFlagged = false;
         public CharacterObject opponent;
         public TileObject tile;
         public PieceComponent piece;

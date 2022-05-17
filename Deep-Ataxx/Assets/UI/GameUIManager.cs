@@ -24,6 +24,7 @@ public class GameUIManager : VisualElement
         this.Q("GC").style.backgroundColor = new StyleColor(ColorManager.green);
 
         this.Q<Button>("Reset").RegisterCallback<ClickEvent>(ev => Reset());
+        this.Q<Button>("Flag").RegisterCallback<ClickEvent>(ev => Reset());
         this.Q<Button>("Quit").RegisterCallback<ClickEvent>(ev => Quit());
     }
 
