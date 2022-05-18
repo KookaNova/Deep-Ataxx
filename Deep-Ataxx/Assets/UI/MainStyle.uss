@@ -16,18 +16,6 @@
     -unity-background-image-tint-color: rgb(255, 255, 255);
 }
 
-.button1:focus {
-    color: rgb(255, 255, 255);
-    background-color: rgb(255, 0, 112);
-    transition-duration: 0.1s;
-    scale: 1.03 1.03;
-    border-left-color: rgb(25, 25, 25);
-    border-right-color: rgb(25, 25, 25);
-    border-top-color: rgb(25, 25, 25);
-    border-bottom-color: rgb(25, 25, 25);
-    -unity-background-image-tint-color: rgb(255, 255, 255);
-}
-
 .button1 {
     color: rgb(0, 200, 150);
     background-color: rgb(35, 35, 35);
@@ -79,10 +67,23 @@
     padding-right: 3px;
     padding-top: 3px;
     padding-bottom: 3px;
-    color: rgba(229, 229, 229, 255);
+    color: rgb(229, 229, 229);
 }
 
 .gridClass:focus {
     background-color: rgb(111, 115, 144);
     transition-duration: 0.25s;
+}
+
+.panel {
+    background-color: rgba(26, 24, 50, 255);
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: rgba(238, 238, 238, 255);
 }

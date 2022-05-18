@@ -27,7 +27,7 @@
                 <ui:Label text="2-Player" display-tooltip-when-elided="true" class="title" style="-unity-text-align: upper-center; font-size: 36px; color: rgb(0, 200, 150); text-shadow: 1px 1px 1px rgba(0, 0, 45, 0.9); -unity-text-outline-color: rgb(0, 0, 40);" />
             </ui:VisualElement>
             <ui:VisualElement name="Center" style="flex-grow: 1; justify-content: flex-end;">
-                <ui:ScrollView name="2PLevelList" touch-scroll-type="Elastic" vertical-scroller-visibility="Hidden" horizontal-scroller-visibility="Hidden" elasticity="0.01" style="flex-grow: 0.9;" />
+                <ui:ScrollView name="2PLevelList" touch-scroll-type="Elastic" vertical-scroller-visibility="Hidden" horizontal-scroller-visibility="Hidden" style="flex-grow: 0.9;" />
                 <ui:VisualElement name="Buttons" style="margin-left: 10%; margin-right: 10%; justify-content: flex-end; align-items: stretch; flex-grow: 0.25; flex-shrink: 0.1;">
                     <ui:Button text="Play" display-tooltip-when-elided="true" name="Play" class="button1 menuText" />
                 </ui:VisualElement>

@@ -8,7 +8,7 @@ namespace Cox.Infection.Management{
     {
         public List<PieceComponent> redPieces = new List<PieceComponent>();
         public List<PieceComponent> greenPieces = new List<PieceComponent>();
-        [HideInInspector] public bool redsTurn = true;
+        public bool redsTurn = true;
         GameUIManager gameUI;
         TileObject[] allTiles;
 
@@ -16,6 +16,8 @@ namespace Cox.Infection.Management{
             var root = FindObjectOfType<UIDocument>().rootVisualElement;
             gameUI = root.Q<GameUIManager>();
             allTiles = FindObjectsOfType<TileObject>();
+
+            
             redsTurn = true;
             gameUI.ChangeTurn();
             CheckTeams();
@@ -46,12 +48,22 @@ namespace Cox.Infection.Management{
             PlayabilityCheck();
             gameUI.UpdateScore();
 
-            if(redPieces.Count == 0 || greenPieces.Count == 0 || redPieces.Count + greenPieces.Count == allTiles.Length){
-                GameOver();
+            if(redPieces.Count == 0 || greenPieces.Count == 0){
+                GameOver("GameOver: Loser has no pieces left.");
             }
         }
 
-       public void PlayabilityCheck(){
+        public void PlayabilityCheck(){
+            //first check if there are empty tiles;
+            int emptyTiles = 0;
+            foreach(var tile in allTiles){
+                if(tile.isDisabled)continue;
+                if(tile.piece)continue;
+                emptyTiles++;
+            }
+            if(emptyTiles == 0)GameOver("GameOver: No empty tiles left");
+
+            //Make pieces playable
             switch(redsTurn) {
                 case true:
                     foreach(var piece in redPieces){
@@ -73,7 +85,8 @@ namespace Cox.Infection.Management{
             
         }
 
-        void GameOver(){
+        void GameOver(string reason){
+            Debug.Log(reason);
             string winner = null;
             if(redPieces.Count > greenPieces.Count){
                 winner = "RED";

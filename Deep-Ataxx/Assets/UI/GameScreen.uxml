@@ -1,7 +1,25 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/MainStyle.uss?fileID=7433441132597879392&amp;guid=8608c9f4c9ce0fc4b8306d735e94bea8&amp;type=3#MainStyle" />
     <GameUIManager style="flex-grow: 1;">
-        <ui:VisualElement name="Screen" style="flex-grow: 1; justify-content: space-between; margin-left: 1%; margin-right: 1%; margin-top: 5%; margin-bottom: 1%;">
+        <ui:VisualElement name="GameOver" style="flex-grow: 1; visibility: visible; display: none; overflow: hidden; flex-shrink: 1; background-color: rgba(0, 0, 0, 0.58); justify-content: center;">
+            <ui:VisualElement name="WinContainer" class="panel" style="justify-content: flex-start; align-items: center; flex-direction: column;">
+                <ui:VisualElement name="Scores" style="flex-direction: row; justify-content: center; width: 50%; height: 33%;">
+                    <ui:VisualElement name="Red" style="background-color: rgb(197, 0, 0); border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
+                        <ui:Label text="02" display-tooltip-when-elided="true" name="RedFinal" class="scoreText" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Green" style="background-color: rgb(0, 135, 18); border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
+                        <ui:Label text="02" display-tooltip-when-elided="true" name="GreenFinal" class="scoreText" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:Label text="GRAY WINS." display-tooltip-when-elided="true" name="WinText" class="title" />
+                <ui:VisualElement name="Buttons" style="justify-content: center; align-items: flex-end; flex-direction: row;">
+                    <ui:Button text="Reset" display-tooltip-when-elided="true" name="Reset" class="button1" />
+                    <ui:Button text="View Board" display-tooltip-when-elided="true" name="ViewBoard" class="button1" style="flex-grow: 1; padding-left: 18px; padding-right: 14px;" />
+                    <ui:Button text="Quit" display-tooltip-when-elided="true" name="Quit" class="button1" style="flex-grow: 1; padding-left: 18px; padding-right: 14px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="PlayScreen" style="flex-grow: 1; justify-content: space-between; margin-left: 1%; margin-right: 1%; margin-top: 5%; margin-bottom: 1%; overflow: hidden; display: flex;">
             <ui:Label text="Gray&apos;s Turn" display-tooltip-when-elided="true" name="ActivePlayer" class="scoreText" style="-unity-text-align: upper-center; font-size: 24%;" />
             <ui:VisualElement name="Top" style="flex-grow: 1; align-items: flex-start; flex-direction: row; justify-content: center;">
                 <ui:VisualElement name="Scores" style="flex-direction: row; flex-grow: 1; height: 33%; align-items: auto; justify-content: center;">
@@ -16,7 +34,7 @@
             <ui:VisualElement name="Center" style="flex-grow: 3;" />
             <ui:VisualElement name="Bottom" style="flex-grow: 1; align-items: flex-end; justify-content: space-between; flex-direction: row;">
                 <ui:Button text="Quit" display-tooltip-when-elided="true" name="Quit" class="button1 menuText" style="flex-grow: 0.1; width: 25%;" />
-                <ui:Button text="FLAG" display-tooltip-when-elided="true" name="Flag" class="button1" style="flex-grow: 0; width: 18%; background-color: rgba(178, 173, 90, 255); font-size: 16px; color: rgb(99, 0, 43); padding-left: 2px; padding-right: 2px; padding-top: 2px; padding-bottom: 2px;" />
+                <ui:Button text="FLAG" display-tooltip-when-elided="true" name="Flag" class="button1" style="flex-grow: 0; width: 18%; background-color: rgb(178, 173, 90); font-size: 16px; color: rgb(99, 0, 43); padding-left: 2px; padding-right: 2px; padding-top: 2px; padding-bottom: 2px;" />
                 <ui:Button text="Reset" display-tooltip-when-elided="true" name="Reset" class="button1 menuText" style="flex-grow: 0.1; width: 25%;" />
             </ui:VisualElement>
         </ui:VisualElement>

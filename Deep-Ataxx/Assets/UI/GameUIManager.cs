@@ -1,12 +1,14 @@
 using UnityEngine.UIElements;
 using Cox.Infection.Management;
 using Cox.Infection.Utilities;
-using System;
 using UnityEngine.SceneManagement;
 
 public class GameUIManager : VisualElement
 {
     GameManager gm;
+
+    VisualElement gameOver;
+    VisualElement playScreen;
 
     public new class UxmlFactory : UxmlFactory<GameUIManager, UxmlTraits> { }
     public new class UxmlTraits : VisualElement.UxmlTraits{ }
@@ -18,22 +20,34 @@ public class GameUIManager : VisualElement
 
     private void OnGeometryChanged(GeometryChangedEvent evt)
     {
-        this.Q("RC").style.backgroundColor = new StyleColor(ColorManager.red);
-        this.Q("GC").style.backgroundColor = new StyleColor(ColorManager.green);
+        gameOver = this.Q("GameOver");
+        playScreen = this.Q("PlayScreen");
+        playScreen.Q("RC").style.backgroundColor = new StyleColor(ColorManager.red);
+        playScreen.Q("GC").style.backgroundColor = new StyleColor(ColorManager.green);
 
-        this.Q<Button>("Reset").RegisterCallback<ClickEvent>(ev => Reset());
-        this.Q<Button>("Flag").RegisterCallback<ClickEvent>(ev => Reset());
-        this.Q<Button>("Quit").RegisterCallback<ClickEvent>(ev => Quit());
-
-        UnregisterCallback<GeometryChangedEvent>(OnGeometryChanged);
+        playScreen.Q<Button>("Reset").RegisterCallback<ClickEvent>(ev => Reset());
+        playScreen.Q<Button>("Flag").RegisterCallback<ClickEvent>(ev => Reset());
+        playScreen.Q<Button>("Quit").RegisterCallback<ClickEvent>(ev => Quit());
     }
+
+    void DeactivateAllScreens(){
+        gameOver.style.display  = DisplayStyle.None;
+        playScreen.style.display = DisplayStyle.None;
+    }
+    void ActivateScreen(VisualElement screen){
+        DeactivateAllScreens();
+        screen.style.display = DisplayStyle.Flex;
+    }
+
 
     private void Reset()
     {
+        UnregisterCallback<GeometryChangedEvent>(OnGeometryChanged);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     
     private void Quit(){
+        UnregisterCallback<GeometryChangedEvent>(OnGeometryChanged);
         SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
     }
 
@@ -48,6 +62,21 @@ public class GameUIManager : VisualElement
     }
 
     public void GameOver(string winner){
-        this.Q<Label>("ActivePlayer").text = winner + " WINS.";
+        ActivateScreen(gameOver);
+        gameOver.Q<Label>("WinText").text = winner + " WINS.";
+        gameOver.Q("Red").style.backgroundColor = new StyleColor(ColorManager.red);
+        gameOver.Q("Green").style.backgroundColor = new StyleColor(ColorManager.green);
+        gameOver.Q<Label>("RedFinal").text = gm.redPieces.Count.ToString("00");
+        gameOver.Q<Label>("GreenFinal").text = gm.greenPieces.Count.ToString("00");
+        gameOver.Q<Button>("Reset").RegisterCallback<ClickEvent>(ev => Reset());
+        gameOver?.Q<Button>("ViewBoard").RegisterCallback<ClickEvent>(ev => {
+            DeactivateAllScreens();
+            ActivateScreen(playScreen);
+            this.Q<Label>("ActivePlayer").text = winner + " WINS.";
+            
+            
+        });
+        gameOver.Q<Button>("Quit").RegisterCallback<ClickEvent>(ev => Quit());
     }
+
 }
