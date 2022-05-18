@@ -5,6 +5,6 @@ public class StartUp : MonoBehaviour
 {
     void OnEnable()
     {
-        SceneManager.LoadSceneAsync("Home", LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync("Home", LoadSceneMode.Additive);
     }
 }

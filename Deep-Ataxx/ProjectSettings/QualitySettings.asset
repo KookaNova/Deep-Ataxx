@@ -204,7 +204,7 @@ QualitySettings:
     antiAliasing: 0
     softParticles: 1
     softVegetation: 1
-    realtimeReflectionProbes: 1
+    realtimeReflectionProbes: 0
     billboardsFaceCameraPosition: 1
     vSyncCount: 0
     lodBias: 2
@@ -216,9 +216,9 @@ QualitySettings:
     streamingMipmapsMaxLevelReduction: 2
     streamingMipmapsMaxFileIORequests: 1024
     particleRaycastBudget: 4096
-    asyncUploadTimeSlice: 2
+    asyncUploadTimeSlice: 8
     asyncUploadBufferSize: 16
-    asyncUploadPersistentBuffer: 1
+    asyncUploadPersistentBuffer: 0
     resolutionScalingFixedDPIFactor: 1
     customRenderPipeline: {fileID: 11400000, guid: 68c6d71da6bd2a8468993a10b77101aa, type: 2}
     excludedTargetPlatforms: []

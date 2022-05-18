@@ -34,7 +34,7 @@ public class GameUIManager : VisualElement
     }
     
     private void Quit(){
-        SceneManager.LoadSceneAsync("Home", LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
     }
 
     public void ChangeTurn(){

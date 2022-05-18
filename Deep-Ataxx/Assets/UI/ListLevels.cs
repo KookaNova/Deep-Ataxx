@@ -16,7 +16,7 @@ public class ListLevels : MonoBehaviour
     
 
     private void Awake() {
-        root = GetComponent<UIDocument>().rootVisualElement;
+        root = FindObjectOfType<UIDocument>().rootVisualElement;
         twoPlayerMenu = root?.Q("TwoPlayerMenu");
         twoPlayerList = twoPlayerMenu.Q<ScrollView>("2PLevelList");
 
