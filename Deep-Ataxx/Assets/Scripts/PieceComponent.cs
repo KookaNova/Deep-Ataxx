@@ -11,6 +11,7 @@ namespace Cox.Infection.Management{
         public PieceComponent prefab;
         public Team team;
         public TileObject homeTile;
+        public List<TileObject> playableTiles = new List<TileObject>();
         TileObject endTile;
 
         GameManager gm;
@@ -18,8 +19,6 @@ namespace Cox.Infection.Management{
         LineRenderer lr;
         PlayerHelper player;
         Animator animator;
-
-        
 
         private void Awake() {
             gm = FindObjectOfType<GameManager>();
@@ -46,7 +45,20 @@ namespace Cox.Infection.Management{
             }
         }
 
-        void MovementCheck(){
+        public bool CheckPlayability(){
+            isPlayable = false;
+            playableTiles.Clear();
+            playableTiles.TrimExcess();
+            foreach(var tile in homeTile.reachableTiles){
+                if(tile.isDisabled || tile.piece)continue;
+                playableTiles.Add(tile); //this list may become helpful for AI, that's why we're adding it in and hints. We could also highlight a piece's potential moves.
+            }
+            if(playableTiles.Count > 0)isPlayable = true;
+            return isPlayable;
+        }
+
+        #region  Movement
+        void PieceMoved(){
             if(homeTile.gridPosition == endTile.gridPosition){
                 ReturnToHome();
             }
@@ -94,13 +106,14 @@ namespace Cox.Infection.Management{
 
         }
         void Infect(){
-            foreach(var tile in homeTile.neighbors){
+            foreach(var tile in homeTile.adjacentTiles){
                 if(tile.piece == null)continue;
                 tile.piece.ChangeTeam(team);
                 tile.piece.isPlayable = false;
             }
             gm.EndTurn();
         }
+        #endregion
 
         #region Inputs
         private void OnMouseEnter() {
@@ -127,7 +140,7 @@ namespace Cox.Infection.Management{
             animator.SetBool("isSelected", false);
             player.selectedPiece = null;
             endTile = player.hoveredTile;
-            MovementCheck();
+            PieceMoved();
 
         }
         private void OnMouseDrag() {

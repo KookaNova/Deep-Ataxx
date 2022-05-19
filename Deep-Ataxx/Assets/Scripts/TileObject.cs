@@ -10,7 +10,8 @@ namespace Cox.Infection.Management{
         public bool isDisabled = false;
         public PieceComponent piece = null;
         public Vector2Int gridPosition;
-        public List<TileObject> neighbors;
+        public List<TileObject> adjacentTiles;
+        public List<TileObject> reachableTiles;
         public GameObject blockade;
 
         private void Awake() {
@@ -27,7 +28,10 @@ namespace Cox.Infection.Management{
             foreach(var tile in tiles){
                 if(tile == this)continue;
                 if(Vector2Int.Distance(gridPosition, tile.gridPosition) < 2){
-                    neighbors.Add(tile);
+                    adjacentTiles.Add(tile);
+                }
+                if(Vector2Int.Distance(gridPosition, tile.gridPosition) < 3){
+                    reachableTiles.Add(tile);
                 }
             }
         }

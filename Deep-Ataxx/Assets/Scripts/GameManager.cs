@@ -30,19 +30,19 @@ namespace Cox.Infection.Management{
         }
 
         public void CheckTeams(){
+            //clear lists
             redPieces.Clear();
             redPieces.TrimExcess();
             greenPieces.Clear();
             greenPieces.TrimExcess();
+            //recreate lists (this is simply the easiest way to recount everything).
             var allPieces = FindObjectsOfType<PieceComponent>();
             for(int i = 0; i < allPieces.Length; i++){
                 if(allPieces[i].team == Team.RedTeam){
                     redPieces.Add(allPieces[i]);
-
                 }
                 else if(allPieces[i].team == Team.GreenTeam){
                     greenPieces.Add(allPieces[i]);
-
                 }
             }
             PlayabilityCheck();
@@ -61,26 +61,32 @@ namespace Cox.Infection.Management{
                 if(tile.piece)continue;
                 emptyTiles++;
             }
-            if(emptyTiles == 0)GameOver("GameOver: No empty tiles left");
+            if(emptyTiles == 0){
+                GameOver("GameOver: No empty tiles left");
+                return; //ends game if tiles are empty
+            }
 
             //Make pieces playable
+            int playableTiles = 0;
             switch(redsTurn) {
                 case true:
                     foreach(var piece in redPieces){
-                        piece.isPlayable = true;
+                        if(piece.CheckPlayability())playableTiles++;
                     }
                     foreach(var piece in greenPieces){
                         piece.isPlayable = false;
                     }
-                    break;
+                    if(playableTiles < 1)EndTurn();
+                break;
                 case false:
                     foreach(var piece in redPieces){
                         piece.isPlayable = false;
                     }
                     foreach(var piece in greenPieces){
-                        piece.isPlayable = true;
+                        if(piece.CheckPlayability())playableTiles++;
                     }
-                    break;
+                    if(playableTiles < 1)EndTurn();
+                break;
             }
             
         }

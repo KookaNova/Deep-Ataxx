@@ -17,6 +17,7 @@ MonoBehaviour:
   columns: 5
   rows: 5
   redFirst: 0
+  isFlagged: 0
   opponent: {fileID: 0}
   tile: {fileID: 6591126127158432252, guid: 8942f259f5f68324d93062015a43984e, type: 3}
   piece: {fileID: 4928824779748932212, guid: 2009623556d0a6949b1b001d59da7041, type: 3}
