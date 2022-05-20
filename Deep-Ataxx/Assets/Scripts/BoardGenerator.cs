@@ -23,9 +23,10 @@ namespace Cox.Infection.Management{
         }
 
         void GenerateBoard(){
-            offset = new Vector2(level.columns/2, level.rows/2);
-
-            grid = new TileObject[level.columns,level.rows];
+            offset = new Vector2(level.columns/2, level.rows/2); //offset the board to 0,0 in the scene
+            string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //create an alphabet for the notation;
+            //generate the board
+            grid = new TileObject[level.columns,level.rows]; 
             for(int i = 0; i < level.columns; i++){
                 for(int j = 0; j < level.rows; j++){
                     TileObject newTile = Instantiate(level.tile, new Vector3((i - offset.x)* level.padding,(-j + offset.y) * level.padding,0), Quaternion.identity);
@@ -39,12 +40,13 @@ namespace Cox.Infection.Management{
                             }
                         }
                     }
-                    
                     newTile.transform.SetParent(transform);
-                    newTile.name = "Tile[" + i + "," + j + "]";
+                    //Assigns a name with our battleship-like notation
+                    char letter = alphabet[i];
+                    newTile.name = letter.ToString() + j;
                 }
             }
-            //allow tiles to know about grid
+            //allow tiles to know about their neighbors after the grid is completed.
             foreach(var tile in grid){
                 tile.FindNeighbors();
             }
@@ -56,10 +58,10 @@ namespace Cox.Infection.Management{
         void PositionCamera(){
             //makes sure board is always on screen.
             if(level.rows > level.columns){
-                Camera.main.orthographicSize = level.columns + 2 + ((level.rows - level.columns) * 0.5f);
+                Camera.main.orthographicSize = level.columns + 2.2f + ((level.rows - level.columns) * 0.5f);
             }
             else{
-                Camera.main.orthographicSize = level.columns + 2;
+                Camera.main.orthographicSize = level.columns + 2.2f;
             }
             //centers board to screen with offset.
             Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y + cameraOffset, -10);
