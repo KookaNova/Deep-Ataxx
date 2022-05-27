@@ -19,6 +19,7 @@ public class ListLevels : MonoBehaviour
         root = FindObjectOfType<UIDocument>().rootVisualElement;
         twoPlayerMenu = root?.Q("TwoPlayerMenu");
         twoPlayerList = twoPlayerMenu.Q<ScrollView>("2PLevelList");
+        root?.Q<Button>("Options").RegisterCallback<ClickEvent>(ev => data.enableAI = !data.enableAI);
 
         CreateLevelList();
     }

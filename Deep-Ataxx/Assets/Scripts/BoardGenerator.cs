@@ -19,6 +19,7 @@ namespace Cox.Infection.Management{
             root.Q<Button>("Flag").RegisterCallback<ClickEvent>(ev => level.isFlagged = !level.isFlagged);
             level = data.selectedLevel;
             gm = FindObjectOfType<GameManager>();
+            gm.data = data;
             GenerateBoard();
         }
 
@@ -71,16 +72,18 @@ namespace Cox.Infection.Management{
             //Places red starter pieces
             for(int i = 0; i < level.redPositions.Length; i++){
                 var p = Instantiate(level.piece, grid[level.redPositions[i].x, level.redPositions[i].y].transform.position, Quaternion.identity);
-                p.ChangeTeam(Team.RedTeam);
+                p.ChangeTeam(0);
                 p.homeTile = grid[level.redPositions[i].x, level.redPositions[i].y];
                 p.homeTile.piece = p;
+                p.name = p.homeTile.name;
             }
             //Places blue starter pieces
             for(int i = 0; i < level.greenPositions.Length; i++){
                 var p = Instantiate(level.piece, grid[level.greenPositions[i].x, level.greenPositions[i].y].transform.position, Quaternion.identity);
-                p.ChangeTeam(Team.GreenTeam);
+                p.ChangeTeam(1);
                 p.homeTile = grid[level.greenPositions[i].x, level.greenPositions[i].y];
                 p.homeTile.piece = p;
+                p.name = p.homeTile.name;
             }
 
             gm.StartGame();

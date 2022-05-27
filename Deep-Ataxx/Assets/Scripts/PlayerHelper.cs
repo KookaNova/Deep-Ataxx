@@ -7,6 +7,13 @@ namespace Cox.Infection.Management{
     {
         public PieceComponent selectedPiece;
         public TileObject hoveredTile;
+        public bool isSinglePlayer;
+        public int singleTurn = 0;
+
+        public void AssignSingleTurn(int turn){
+            singleTurn = turn;
+
+        }
 
     }
 }

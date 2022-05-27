@@ -8,49 +8,65 @@ namespace Cox.Infection.Management{
     {
         public List<PieceComponent> redPieces = new List<PieceComponent>();
         public List<PieceComponent> greenPieces = new List<PieceComponent>();
-        public bool redsTurn = true;
+        public List<PieceComponent> redPlayable = new List<PieceComponent>();
+        public List<PieceComponent> greenPlayable = new List<PieceComponent>();
+        
+        public int turnNumber = 0;
+        public PlayerPersistantChoice data;
+        public OpponentBehaviour opponent;
+
         GameUIManager gameUI;
+        PlayerHelper player;
         TileObject[] allTiles;
 
         public void StartGame(){
             var root = FindObjectOfType<UIDocument>().rootVisualElement;
             gameUI = root.Q<GameUIManager>();
             allTiles = FindObjectsOfType<TileObject>();
+            player = FindObjectOfType<PlayerHelper>();
+            opponent = FindObjectOfType<OpponentBehaviour>();
 
-            
-            redsTurn = true;
-            gameUI.ChangeTurn();
+            if(data.invertFirstTurn)turnNumber = 1;
+            if(data.enableAI){
+                player.AssignSingleTurn(data.playerTurn);
+            }
             CheckTeams();
         }
 
         public void EndTurn(){
-            redsTurn = !redsTurn; //must be first
-            CheckTeams();
-            gameUI.ChangeTurn();
-        }
-
-        public void CheckTeams(){
             //clear lists
             redPieces.Clear();
             redPieces.TrimExcess();
             greenPieces.Clear();
             greenPieces.TrimExcess();
+            //Change turn
+            if(turnNumber == 0){
+                turnNumber = 1;
+            }
+            else{
+                turnNumber = 0;
+            }
+            Debug.Log("Current Turn = " + turnNumber);
+            CheckTeams();
+        }
+
+        public void CheckTeams(){
+            gameUI.ChangeTurn();
             //recreate lists (this is simply the easiest way to recount everything).
             var allPieces = FindObjectsOfType<PieceComponent>();
             for(int i = 0; i < allPieces.Length; i++){
-                if(allPieces[i].team == Team.RedTeam){
+                if(allPieces[i].moveTurn == 0){
                     redPieces.Add(allPieces[i]);
                 }
-                else if(allPieces[i].team == Team.GreenTeam){
+                else if(allPieces[i].moveTurn == 1){
                     greenPieces.Add(allPieces[i]);
                 }
             }
-            PlayabilityCheck();
-            gameUI.UpdateScore();
-
             if(redPieces.Count == 0 || greenPieces.Count == 0){
                 GameOver("GameOver: Loser has no pieces left.");
             }
+            gameUI.UpdateScore(); //Use piece counts to update scoreboard
+            PlayabilityCheck(); //check the playability of each piece
         }
 
         public void PlayabilityCheck(){
@@ -65,29 +81,38 @@ namespace Cox.Infection.Management{
                 GameOver("GameOver: No empty tiles left");
                 return; //ends game if tiles are empty
             }
+            redPlayable.Clear();
+            redPlayable.TrimExcess();
+            greenPlayable.Clear();
+            greenPlayable.TrimExcess();
 
             //Make pieces playable
-            int playableTiles = 0;
-            switch(redsTurn) {
-                case true:
+            switch(turnNumber) {
+                case 0:
                     foreach(var piece in redPieces){
-                        if(piece.CheckPlayability())playableTiles++;
+                        if(piece.CheckPlayability())redPlayable.Add(piece);
                     }
                     foreach(var piece in greenPieces){
                         piece.isPlayable = false;
                     }
-                    if(playableTiles < 1)EndTurn();
+                    if(redPlayable.Count < 1)EndTurn();
                 break;
-                case false:
+                case 1:
                     foreach(var piece in redPieces){
                         piece.isPlayable = false;
                     }
                     foreach(var piece in greenPieces){
-                        if(piece.CheckPlayability())playableTiles++;
+                        if(piece.CheckPlayability())greenPlayable.Add(piece);
                     }
-                    if(playableTiles < 1)EndTurn();
+                    if(greenPlayable.Count < 1)EndTurn();
+                break;
+                default:
+                    turnNumber = 0;
+                    PlayabilityCheck();
                 break;
             }
+
+            if(data.enableAI && opponent.moveTurn == turnNumber)StartCoroutine(BeginAITurn());
             
         }
 
@@ -103,6 +128,12 @@ namespace Cox.Infection.Management{
 
             gameUI.GameOver(winner);
 
+        }
+
+        public IEnumerator BeginAITurn(){
+            yield return new WaitForSeconds(1);
+            if(turnNumber == 0)opponent.FindMoves(redPlayable);
+            if(turnNumber == 1)opponent.FindMoves(greenPlayable);
         }
     }
 }

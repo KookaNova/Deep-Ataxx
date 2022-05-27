@@ -18,7 +18,7 @@
             </ui:VisualElement>
             <ui:VisualElement name="Bottom" style="flex-grow: 0.2; align-items: flex-end; justify-content: space-between; flex-direction: row;">
                 <ui:VisualElement name="Buttons" style="flex-direction: row; justify-content: space-between; flex-shrink: 1; flex-grow: 1;">
-                    <ui:Button display-tooltip-when-elided="true" class="button1" style="background-image: url(&apos;project://database/Assets/Textures/UI.Gear.png?fileID=2800000&amp;guid=fd7a589b84cc66a49ab2484f77fa0427&amp;type=3#UI.Gear&apos;); -unity-background-scale-mode: scale-to-fit; flex-grow: 0.1; align-items: stretch; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; margin-left: 11px; margin-right: 11px; margin-bottom: 11px;" />
+                    <ui:Button display-tooltip-when-elided="true" name="Options" class="button1" style="background-image: url(&apos;project://database/Assets/Textures/UI.Gear.png?fileID=2800000&amp;guid=fd7a589b84cc66a49ab2484f77fa0427&amp;type=3#UI.Gear&apos;); -unity-background-scale-mode: scale-to-fit; flex-grow: 0.1; align-items: stretch; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; margin-left: 11px; margin-right: 11px; margin-bottom: 11px;" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

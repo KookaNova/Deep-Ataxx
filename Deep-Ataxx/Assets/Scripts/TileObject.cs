@@ -26,7 +26,7 @@ namespace Cox.Infection.Management{
         public void FindNeighbors(){
             TileObject[] tiles = FindObjectsOfType<TileObject>();
             foreach(var tile in tiles){
-                if(tile == this)continue;
+                if(this == tile)continue;
                 if(Vector2Int.Distance(gridPosition, tile.gridPosition) < 2){
                     adjacentTiles.Add(tile);
                 }

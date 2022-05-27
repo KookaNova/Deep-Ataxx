@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: Player Persistant Data
   m_EditorClassIdentifier: 
   selectedLevel: {fileID: 11400000, guid: 7929c3e37448bf34ab3d09bb43141279, type: 2}
+  enableAI: 0
+  invertFirstTurn: 0
+  playerTurn: 1
