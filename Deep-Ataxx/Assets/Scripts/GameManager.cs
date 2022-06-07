@@ -174,6 +174,9 @@ namespace Cox.Infection.Management{
             redPieces.TrimExcess();
             greenPieces.Clear();
             greenPieces.TrimExcess();
+            foreach(var tile in allTiles){
+                tile.piece = null;
+            }
 
 		    for(int i = 0; i < history[undoIndex].redPositions.Length; i++){
                 TileObject tile = FindTileByName(history[undoIndex].redTileNames[i]);
@@ -182,6 +185,7 @@ namespace Cox.Infection.Management{
                 redPieces.Add(p);
                 p.homeTile = tile;
                 p.name = tile.name + ".piece";
+                p.homeTile.piece = p;
             }
             for(int i = 0; i < history[undoIndex].greenPositions.Length; i++){
                 TileObject tile = FindTileByName(history[undoIndex].greenTileNames[i]);
@@ -190,6 +194,7 @@ namespace Cox.Infection.Management{
                 greenPieces.Add(p);
                 p.homeTile = tile;
                 p.name = tile.name + ".piece";
+                p.homeTile.piece = p;
             }
             if(turnNumber == 0){
                 turnNumber = 1;

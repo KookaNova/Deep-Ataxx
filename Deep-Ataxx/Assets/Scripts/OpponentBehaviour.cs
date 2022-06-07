@@ -64,7 +64,7 @@ namespace Cox.Infection.Management{
         }
         private IEnumerator MakeMove(){
             yield return new WaitForSeconds(1);
-            finalMove.PerformMove();
+            if(gm.turnNumber == moveTurn)finalMove.PerformMove();
 
         }
 

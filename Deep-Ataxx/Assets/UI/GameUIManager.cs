@@ -54,7 +54,7 @@ public class GameUIManager : VisualElement
 
     public void ChangeTurn(){
         if(gm.turnNumber == 0)this.Q<Label>("ActivePlayer").text = "Red's Turn";
-        if(gm.turnNumber == 0)this.Q<Label>("ActivePlayer").text = "Green's Turn";
+        if(gm.turnNumber == 1)this.Q<Label>("ActivePlayer").text = "Green's Turn";
     }
 
     public void UpdateScore(){
