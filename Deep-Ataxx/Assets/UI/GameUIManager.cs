@@ -2,6 +2,7 @@ using UnityEngine.UIElements;
 using Cox.Infection.Management;
 using Cox.Infection.Utilities;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameUIManager : VisualElement
 {
@@ -26,7 +27,7 @@ public class GameUIManager : VisualElement
         playScreen.Q("GC").style.backgroundColor = new StyleColor(ColorManager.green);
 
         playScreen.Q<Button>("Reset").RegisterCallback<ClickEvent>(ev => Reset());
-        playScreen.Q<Button>("Flag").RegisterCallback<ClickEvent>(ev => Reset());
+        playScreen.Q<Button>("Undo").RegisterCallback<ClickEvent>(ev => gm.Undo());
         playScreen.Q<Button>("Quit").RegisterCallback<ClickEvent>(ev => Quit());
     }
 

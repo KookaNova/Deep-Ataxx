@@ -34,7 +34,7 @@
             <ui:VisualElement name="Center" style="flex-grow: 3;" />
             <ui:VisualElement name="Bottom" style="flex-grow: 1; align-items: flex-end; justify-content: space-between; flex-direction: row;">
                 <ui:Button text="Quit" display-tooltip-when-elided="true" name="Quit" class="button1 menuText" style="flex-grow: 0.1; width: 25%;" />
-                <ui:Button text="FLAG" display-tooltip-when-elided="true" name="Flag" class="button1" style="flex-grow: 0; width: 18%; background-color: rgb(178, 173, 90); font-size: 16px; color: rgb(99, 0, 43); padding-left: 2px; padding-right: 2px; padding-top: 2px; padding-bottom: 2px;" />
+                <ui:Button text="UNDO" display-tooltip-when-elided="true" name="Undo" class="button1" style="flex-grow: 0; width: 18%; background-color: rgb(178, 173, 90); font-size: 16px; color: rgb(99, 0, 43); padding-left: 2px; padding-right: 2px; padding-top: 2px; padding-bottom: 2px;" />
                 <ui:Button text="Reset" display-tooltip-when-elided="true" name="Reset" class="button1 menuText" style="flex-grow: 0.1; width: 25%;" />
             </ui:VisualElement>
         </ui:VisualElement>

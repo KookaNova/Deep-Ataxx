@@ -93,7 +93,7 @@ namespace Cox.Infection.Management{
             homeTile = endTile;
             endTile = null;
             homeTile.piece = this;
-            name = homeTile.name;
+            name = homeTile.name + ".piece";
             transform.position = homeTile.transform.position;
             Infect();
         }
@@ -102,7 +102,7 @@ namespace Cox.Infection.Management{
             transform.position = homeTile.transform.position;
             var p = Instantiate(prefab, endTile.transform.position, Quaternion.identity);
             p.homeTile = endTile;
-            p.name = p.homeTile.name;
+            p.name = p.homeTile.name + ".piece";
             endTile.piece = p;
             p.moveTurn = moveTurn;
             endTile = null;
@@ -123,6 +123,7 @@ namespace Cox.Infection.Management{
 
         #region Inputs
         private void OnMouseEnter() {
+            player.hoveredTile = this.homeTile;
             if(!isPlayable)return;
             if(player.isSinglePlayer){
                 if(player.singleTurn != moveTurn)return;
@@ -176,6 +177,13 @@ namespace Cox.Infection.Management{
             endTile = move.endTile;
             Debug.Log("Ai move received.");
             PieceMoved();
+        }
+
+        public void SetPositionByTileObject(TileObject newHomeTile){
+            Debug.Log("Piece" + this.name + "is attempting to move to " + newHomeTile);
+            homeTile.piece = null;
+            homeTile = newHomeTile;
+            transform.position = homeTile.transform.position;
         }
         
         #endregion

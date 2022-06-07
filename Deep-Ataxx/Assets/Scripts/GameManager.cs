@@ -17,7 +17,11 @@ namespace Cox.Infection.Management{
 
         GameUIManager gameUI;
         PlayerHelper player;
-        TileObject[] allTiles;
+        public TileObject[] allTiles;
+
+        //Undo
+        public List<BoardState> history = new List<BoardState>();
+	    public int undoIndex = 0;
 
         public void StartGame(){
             var root = FindObjectOfType<UIDocument>().rootVisualElement;
@@ -26,7 +30,8 @@ namespace Cox.Infection.Management{
             player = FindObjectOfType<PlayerHelper>();
             opponent = FindObjectOfType<OpponentBehaviour>();
 
-            if(data.invertFirstTurn)turnNumber = 1;
+
+
             if(data.enableAI){
                 player.AssignSingleTurn(data.playerTurn);
             }
@@ -62,10 +67,13 @@ namespace Cox.Infection.Management{
                     greenPieces.Add(allPieces[i]);
                 }
             }
+
             if(redPieces.Count == 0 || greenPieces.Count == 0){
                 GameOver("GameOver: Loser has no pieces left.");
             }
             gameUI.UpdateScore(); //Use piece counts to update scoreboard
+            //Save new board after finding all pieces
+            SaveBoardState();
             PlayabilityCheck(); //check the playability of each piece
         }
 
@@ -77,6 +85,7 @@ namespace Cox.Infection.Management{
                 if(tile.piece)continue;
                 emptyTiles++;
             }
+
             if(emptyTiles == 0){
                 GameOver("GameOver: No empty tiles left");
                 return; //ends game if tiles are empty
@@ -113,7 +122,6 @@ namespace Cox.Infection.Management{
             }
 
             if(data.enableAI && opponent.moveTurn == turnNumber)StartCoroutine(BeginAITurn());
-            
         }
 
         void GameOver(string reason){
@@ -129,6 +137,84 @@ namespace Cox.Infection.Management{
             gameUI.GameOver(winner);
 
         }
+
+        #region Board States and Undo
+        public void SaveBoardState(){
+		    //Clear redo possibilities
+		    if(undoIndex > 0){
+                int start = undoIndex;
+                history.Insert(0,history[start]);
+                history.RemoveAt(start+1);
+                while(undoIndex > 0){
+                    history.RemoveAt(undoIndex);
+                    undoIndex--;
+                }
+                
+            }
+
+            BoardState newBoard = new BoardState(redPieces, greenPieces);
+		    history.Insert(0, newBoard); //Add new board state at 0
+		    undoIndex = 0; //Set index back to 0
+	    }
+
+        public void Undo(){
+            if(history.Count == 0)return;
+            undoIndex++;
+            if(undoIndex >= history.Count){
+                undoIndex--;
+                return;
+            }
+            foreach(var piece in redPieces){
+                Destroy(piece.gameObject);
+            }
+            foreach(var piece in greenPieces){
+                Destroy(piece.gameObject);
+            }
+            redPieces.Clear();
+            redPieces.TrimExcess();
+            greenPieces.Clear();
+            greenPieces.TrimExcess();
+
+		    for(int i = 0; i < history[undoIndex].redPositions.Length; i++){
+                TileObject tile = FindTileByName(history[undoIndex].redTileNames[i]);
+                var p = Instantiate(data.selectedLevel.piece, tile.transform.position, Quaternion.identity);
+                p.ChangeTeam(0);
+                redPieces.Add(p);
+                p.homeTile = tile;
+                p.name = tile.name + ".piece";
+            }
+            for(int i = 0; i < history[undoIndex].greenPositions.Length; i++){
+                TileObject tile = FindTileByName(history[undoIndex].greenTileNames[i]);
+                var p = Instantiate(data.selectedLevel.piece, tile.transform.position, Quaternion.identity);
+                p.ChangeTeam(1);
+                greenPieces.Add(p);
+                p.homeTile = tile;
+                p.name = tile.name + ".piece";
+            }
+            if(turnNumber == 0){
+                turnNumber = 1;
+            }
+            else{
+                turnNumber = 0;
+            }
+            PlayabilityCheck();
+        }
+        /// <summary>
+        /// Finds the first tile with the given string name.
+        /// </summary>
+        public TileObject FindTileByName(string tileName){
+            TileObject foundTile = null;
+            foreach(var tile in allTiles){
+                if(tile.name == tileName){
+                    foundTile = tile;
+                    break;
+                }
+            }
+            return foundTile;
+
+        }
+
+        #endregion
 
         public IEnumerator BeginAITurn(){
             yield return new WaitForSeconds(1);
