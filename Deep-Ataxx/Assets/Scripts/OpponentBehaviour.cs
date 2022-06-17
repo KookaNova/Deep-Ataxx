@@ -11,14 +11,17 @@ namespace Cox.Infection.Management{
         List<AIMove> moves = new List<AIMove>();
         List<PieceComponent> playablePieces;
 
+
         AIMove finalMove;
         
-
         private void Awake() {
             gm = FindObjectOfType<GameManager>();
         }
 
         public void FindMoves(List<PieceComponent> pieces){
+            if(gm.isGameOver)return; //Don't move if the game is over.
+
+            int iterations = opponent.thinkDepth;
             moves.Clear();
             moves.TrimExcess();
             Debug.Log("Finding a move...");
@@ -37,6 +40,10 @@ namespace Cox.Infection.Management{
                 }
             }
             FinalDecision();
+        }
+
+        public void FindFutureMoves(){
+            
         }
 
         void FinalDecision(){
@@ -63,8 +70,12 @@ namespace Cox.Infection.Management{
             
         }
         private IEnumerator MakeMove(){
-            yield return new WaitForSeconds(1);
-            if(gm.turnNumber == moveTurn)finalMove.PerformMove();
+            if(gm.turnNumber != moveTurn || gm.isGameOver) yield break;
+            finalMove.piece.homeTile.SelectTile(true);
+            yield return new WaitForSeconds(0.5f);
+            finalMove.piece.homeTile.SelectTile(false);
+            if(gm.turnNumber != moveTurn || gm.isGameOver) yield break;
+            finalMove.PerformMove();
 
         }
 

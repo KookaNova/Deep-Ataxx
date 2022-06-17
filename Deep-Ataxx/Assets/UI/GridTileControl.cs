@@ -49,10 +49,10 @@ public class GridTileControl : VisualElement
             style.backgroundColor = new StyleColor(Color.black);
         }
         else if(gridState == 1){
-            style.backgroundColor = new StyleColor(ColorManager.red);
+            style.backgroundColor = new StyleColor(ColorManager.playerOne);
         }
         else if(gridState == 2){
-            style.backgroundColor = new StyleColor(ColorManager.green);
+            style.backgroundColor = new StyleColor(ColorManager.playerTwo);
         }
         else if(gridState == 3){
             style.backgroundColor = new StyleColor(Color.blue);

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cox.Infection.Utilities;
 using UnityEngine;
 
 namespace Cox.Infection.Management{
@@ -13,9 +14,12 @@ namespace Cox.Infection.Management{
         public List<TileObject> adjacentTiles;
         public List<TileObject> reachableTiles;
         public GameObject blockade;
+        public SpriteRenderer sr;
 
         private void Awake() {
             player = FindObjectOfType<PlayerHelper>();
+            sr = GetComponent<SpriteRenderer>();
+            sr.color = ColorManager.tileColor;
             blockade.SetActive(false);
         }
 
@@ -42,6 +46,17 @@ namespace Cox.Infection.Management{
                 blockade.SetActive(true);
             }
 
+        }
+
+        public void SelectTile(bool isSelected){
+            foreach(var tile in reachableTiles){
+                if(isSelected)tile.sr.color = ColorManager.reachableTile;
+                if(!isSelected)tile.sr.color = ColorManager.tileColor;
+            }
+            foreach(var tile in adjacentTiles){
+                if(isSelected)tile.sr.color = ColorManager.adjacentTile;
+                if(!isSelected)tile.sr.color = ColorManager.tileColor;
+            }
         }
     }
 }

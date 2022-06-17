@@ -23,8 +23,8 @@ public class GameUIManager : VisualElement
     {
         gameOver = this.Q("GameOver");
         playScreen = this.Q("PlayScreen");
-        playScreen.Q("RC").style.backgroundColor = new StyleColor(ColorManager.red);
-        playScreen.Q("GC").style.backgroundColor = new StyleColor(ColorManager.green);
+        playScreen.Q("RC").style.backgroundColor = new StyleColor(ColorManager.playerOne);
+        playScreen.Q("GC").style.backgroundColor = new StyleColor(ColorManager.playerTwo);
 
         playScreen.Q<Button>("Reset").RegisterCallback<ClickEvent>(ev => Reset());
         playScreen.Q<Button>("Undo").RegisterCallback<ClickEvent>(ev => gm.Undo());
@@ -65,8 +65,8 @@ public class GameUIManager : VisualElement
     public void GameOver(string winner){
         ActivateScreen(gameOver);
         gameOver.Q<Label>("WinText").text = winner + " WINS.";
-        gameOver.Q("Red").style.backgroundColor = new StyleColor(ColorManager.red);
-        gameOver.Q("Green").style.backgroundColor = new StyleColor(ColorManager.green);
+        gameOver.Q("Red").style.backgroundColor = new StyleColor(ColorManager.playerOne);
+        gameOver.Q("Green").style.backgroundColor = new StyleColor(ColorManager.playerTwo);
         gameOver.Q<Label>("RedFinal").text = gm.redPieces.Count.ToString("00");
         gameOver.Q<Label>("GreenFinal").text = gm.greenPieces.Count.ToString("00");
         gameOver.Q<Button>("Reset").RegisterCallback<ClickEvent>(ev => Reset());

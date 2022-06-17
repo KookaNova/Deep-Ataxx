@@ -18,6 +18,7 @@ namespace Cox.Infection.Management{
         GameUIManager gameUI;
         PlayerHelper player;
         public TileObject[] allTiles;
+        public bool isGameOver = false;
 
         //Undo
         public List<BoardState> history = new List<BoardState>();
@@ -125,6 +126,7 @@ namespace Cox.Infection.Management{
         }
 
         void GameOver(string reason){
+            isGameOver = true;
             Debug.Log(reason);
             string winner = null;
             if(redPieces.Count > greenPieces.Count){
@@ -202,6 +204,7 @@ namespace Cox.Infection.Management{
             else{
                 turnNumber = 0;
             }
+            isGameOver = false;
             PlayabilityCheck();
         }
         /// <summary>

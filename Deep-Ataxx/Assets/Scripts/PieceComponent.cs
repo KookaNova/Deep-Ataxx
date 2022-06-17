@@ -35,14 +35,14 @@ namespace Cox.Infection.Management{
             moveTurn = newMoveTurn;
 
             if(moveTurn == 0){
-                sr.color = ColorManager.red; //sets color
-                lr.startColor = ColorManager.red;
-                lr.endColor = ColorManager.red;
+                sr.color = ColorManager.playerOne; //sets color
+                lr.startColor = ColorManager.playerOne;
+                lr.endColor = ColorManager.playerOne;
             }
             if(moveTurn == 1){
-                sr.color = ColorManager.green; //sets color
-                lr.startColor = ColorManager.green;
-                lr.endColor = ColorManager.green;
+                sr.color = ColorManager.playerTwo; //sets color
+                lr.startColor = ColorManager.playerTwo;
+                lr.endColor = ColorManager.playerTwo;
             }
         }
 
@@ -145,6 +145,7 @@ namespace Cox.Infection.Management{
             lr.SetPosition(0, transform.position);
             lr.enabled = true;
             animator.SetBool("isSelected", true);
+            homeTile.SelectTile(true);
         }
 
         private void OnMouseUp() {
@@ -156,7 +157,9 @@ namespace Cox.Infection.Management{
             animator.SetBool("isSelected", false);
             player.selectedPiece = null;
             endTile = player.hoveredTile;
+            homeTile.SelectTile(false);
             PieceMoved();
+            
 
         }
         private void OnMouseDrag() {
