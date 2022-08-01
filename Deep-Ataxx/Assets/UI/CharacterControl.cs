@@ -9,6 +9,8 @@ public class CharacterControl : VisualElement
     VisualElement pictureContainer;
     VisualElement descriptionBox;
 
+    CharacterObject thisCharacter;
+
     int columns = 7, rows = 7; //These are only for testing purposes
     public new class UxmlFactory : UxmlFactory<CharacterControl> { }
 

@@ -5,7 +5,7 @@ namespace Cox.Infection.Management{
     public class BoardGenerator : MonoBehaviour
     {
         GameManager gm;
-        public PlayerPersistantChoice data;
+        public PlayerPersistentChoice data;
 
         Level level;
         Vector2 offset = Vector2.zero;

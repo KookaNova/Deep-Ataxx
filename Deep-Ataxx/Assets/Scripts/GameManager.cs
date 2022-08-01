@@ -12,7 +12,7 @@ namespace Cox.Infection.Management{
         public List<PieceComponent> greenPlayable = new List<PieceComponent>();
         
         public int turnNumber = 0;
-        public PlayerPersistantChoice data;
+        public PlayerPersistentChoice data;
         public OpponentBehaviour opponent;
 
         GameUIManager gameUI;

@@ -5,7 +5,7 @@ using Cox.Infection.Management;
 public class HomeMenuManager : VisualElement
 {
 
-    public PlayerPersistantChoice data;
+    public PlayerPersistentChoice data;
 
     VisualElement m_home;
     VisualElement m_story;
@@ -38,11 +38,13 @@ public class HomeMenuManager : VisualElement
         m_home?.Q<Button>("b-arcade").RegisterCallback<ClickEvent>(ev => OpenMenu(m_arcade));
 
         m_arcade?.Q<Button>("b-arcade-classic").RegisterCallback<ClickEvent>(ev => {
-            //code to select mode
+            data.selectedMode = PlayerPersistentChoice.Mode.arcadeClassic;
+            data.SelectRandomLevel();
             OpenMenu(m_character_select, m_arcade);
             });
         m_arcade?.Q<Button>("b-arcade-untimed").RegisterCallback<ClickEvent>(ev => {
-            //code to select mode
+            data.selectedMode = PlayerPersistentChoice.Mode.arcadeUntimed;
+            data.SelectRandomLevel();
             OpenMenu(m_character_select, m_arcade);
             });
 

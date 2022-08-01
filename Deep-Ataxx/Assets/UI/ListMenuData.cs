@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class ListMenuData : MonoBehaviour
 {
-    [SerializeField] PlayerPersistantChoice data;
+    [SerializeField] PlayerPersistentChoice data;
     public Level[] levelList;
     public CharacterObject[] characterList;
 
@@ -21,6 +21,9 @@ public class ListMenuData : MonoBehaviour
     
 
     private void Awake() {
+        data.levelList = levelList;
+        data.characterList = characterList;
+
         root = FindObjectOfType<UIDocument>().rootVisualElement;
         root.Q<HomeMenuManager>().data = data;
 
@@ -44,6 +47,7 @@ public class ListMenuData : MonoBehaviour
             gridSource[index] = grid;
             twoPlayerList.Add(grid);
             grid.RegisterCallback<FocusEvent>(ev => data.selectedLevel = grid.selectedLevel);
+            grid.RegisterCallback<ClickEvent>(ev => data.selectedLevel = grid.selectedLevel);
             index++;
         }
     }
@@ -54,6 +58,8 @@ public class ListMenuData : MonoBehaviour
         foreach(CharacterObject character in characterList){
             var control = new CharacterControl(character);
             arcadeCharacterList.Add(control);
+            control.RegisterCallback<FocusEvent>(ev => data.opponent = character);
+            control.RegisterCallback<ClickEvent>(ev => data.opponent = character);
             index++;
         }
     }

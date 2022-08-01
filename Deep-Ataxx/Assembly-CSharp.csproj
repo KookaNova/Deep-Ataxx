@@ -36,6 +36,8 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\UI\CharacterControl.cs" />
+     <Compile Include="Assets\UI\ListMenuData.cs" />
      <Compile Include="Assets\UI\GridGenControl.cs" />
      <Compile Include="Assets\Scripts\PlayerHelper.cs" />
      <Compile Include="Assets\Scripts\CharacterObject.cs" />
@@ -43,7 +45,7 @@
      <Compile Include="Assets\Scripts\ColorManager.cs" />
      <Compile Include="Assets\Scripts\BoardState.cs" />
      <Compile Include="Assets\UI\GridVector2Control.cs" />
-     <Compile Include="Assets\Scripts\PlayerPersistantChoice.cs" />
+     <Compile Include="Assets\Scripts\PlayerPersistentChoice.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\StartUp.cs" />
      <Compile Include="Assets\Scripts\Level.cs" />
@@ -53,8 +55,6 @@
      <Compile Include="Assets\UI\GameUIManager.cs" />
      <Compile Include="Assets\Scripts\TileObject.cs" />
      <Compile Include="Assets\Scripts\PieceComponent.cs" />
-     <Compile Include="Assets\UI\CharacterControl.cs" />
-     <Compile Include="Assets\UI\ListMenuData.cs" />
      <None Include="Assets\UI\GameScreen_UXML.uxml" />
      <None Include="Assets\UI\Title.uxml" />
      <None Include="Assets\UI\MainStyle.uss" />
