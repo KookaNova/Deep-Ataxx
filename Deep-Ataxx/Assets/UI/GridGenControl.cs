@@ -86,7 +86,6 @@ public class GridGenControl : VisualElement
         Label title = new Label(level.levelName);
         title.AddToClassList("menuText");
         Label opponent = new Label("Red Haze");
-        if(level.opponent!=null) opponent.text = level.opponent.name;
         opponent.AddToClassList("menuText2");
         Label firstMove = new Label();
         if(level.redFirst)firstMove.text = "Red First";

@@ -76,7 +76,7 @@
 }
 
 .panel {
-    background-color: rgba(26, 24, 50, 255);
+    background-color: rgb(26, 24, 50);
     margin-left: 5px;
     margin-right: 5px;
     margin-top: 5px;
@@ -85,5 +85,10 @@
     padding-right: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
-    color: rgba(238, 238, 238, 255);
+    color: rgb(238, 238, 238);
+}
+
+.characterIcon {
+    flex-grow: 1;
+    height: 100%;
 }

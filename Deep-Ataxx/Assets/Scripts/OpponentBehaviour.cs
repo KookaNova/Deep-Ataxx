@@ -20,8 +20,7 @@ namespace Cox.Infection.Management{
 
         public void FindMoves(List<PieceComponent> pieces){
             if(gm.isGameOver)return; //Don't move if the game is over.
-
-            int iterations = opponent.thinkDepth;
+            
             moves.Clear();
             moves.TrimExcess();
             Debug.Log("Finding a move...");

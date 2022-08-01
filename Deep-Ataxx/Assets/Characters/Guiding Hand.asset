@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32732a1c3275ccd469e62255387676fd, type: 3}
-  m_Name: Player Persistant Data
+  m_Script: {fileID: 11500000, guid: 45df59105fc06864394bf54e3c720728, type: 3}
+  m_Name: Guiding Hand
   m_EditorClassIdentifier: 
-  selectedLevel: {fileID: 11400000, guid: 30142ba93fffd8f488220d541c654fab, type: 2}
-  enableAI: 1
-  invertFirstTurn: 0
-  playerTurn: 1
+  art: {fileID: 2800000, guid: 27babddd3c19afc4b94294f63d0fb046, type: 3}
+  bio: Slight guidance to the plague.
+  thinkDepth: 1
+  aggression: 0
+  stress: 0

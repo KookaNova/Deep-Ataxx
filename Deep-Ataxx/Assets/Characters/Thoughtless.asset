@@ -10,7 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45df59105fc06864394bf54e3c720728, type: 3}
-  m_Name: Misty Terror
+  m_Name: Thoughtless
   m_EditorClassIdentifier: 
-  art: {fileID: 0}
-  bio: A devilish haze.
+  art: {fileID: 2800000, guid: 27babddd3c19afc4b94294f63d0fb046, type: 3}
+  bio: The disease as it naturally spreads.
+  thinkDepth: 0
+  aggression: 0
+  stress: 0

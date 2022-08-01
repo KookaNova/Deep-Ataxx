@@ -38,7 +38,6 @@
   <ItemGroup>
      <Compile Include="Assets\UI\GridGenControl.cs" />
      <Compile Include="Assets\Scripts\PlayerHelper.cs" />
-     <Compile Include="Assets\UI\MenuHelper.cs" />
      <Compile Include="Assets\Scripts\CharacterObject.cs" />
      <Compile Include="Assets\UI\HomeMenuManager.cs" />
      <Compile Include="Assets\Scripts\ColorManager.cs" />
@@ -52,9 +51,10 @@
      <Compile Include="Assets\Scripts\OpponentBehaviour.cs" />
      <Compile Include="Assets\Scripts\BoardGenerator.cs" />
      <Compile Include="Assets\UI\GameUIManager.cs" />
-     <Compile Include="Assets\UI\ListLevels.cs" />
      <Compile Include="Assets\Scripts\TileObject.cs" />
      <Compile Include="Assets\Scripts\PieceComponent.cs" />
+     <Compile Include="Assets\UI\CharacterControl.cs" />
+     <Compile Include="Assets\UI\ListMenuData.cs" />
      <None Include="Assets\UI\GameScreen_UXML.uxml" />
      <None Include="Assets\UI\Title.uxml" />
      <None Include="Assets\UI\MainStyle.uss" />

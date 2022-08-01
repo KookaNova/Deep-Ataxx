@@ -12,7 +12,6 @@ namespace Cox.Infection.Management{
         public int rows = 7;
         public bool redFirst = true;
         public bool isFlagged = false;
-        public CharacterObject opponent;
         public TileObject tile;
         public PieceComponent piece;
         public Vector2Int[] redPositions, greenPositions, blockPositions;
