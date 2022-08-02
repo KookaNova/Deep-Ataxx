@@ -19,6 +19,7 @@ namespace Cox.Infection.Management{
             level = data.selectedLevel;
             gm = FindObjectOfType<GameManager>();
             gm.data = data;
+            gm.boardSize = new Vector2Int(data.selectedLevel.rows, data.selectedLevel.columns); //finds the max for these.
             GenerateBoard();
         }
 

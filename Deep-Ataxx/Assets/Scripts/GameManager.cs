@@ -13,6 +13,7 @@ namespace Cox.Infection.Management{
         
         public int turnNumber = 0;
         public int emptyTiles;
+        public Vector2Int boardSize = Vector2Int.zero;
         public PlayerPersistentChoice data;
         public OpponentBehaviour opponent;
 
@@ -181,8 +182,8 @@ namespace Cox.Infection.Management{
                 tile.piece = null;
             }
 
-		    for(int i = 0; i < history[undoIndex].redPositions.Length; i++){
-                TileObject tile = FindTileByName(history[undoIndex].redTileNames[i]);
+		    for(int i = 0; i < history[undoIndex].p1_Positions.Length; i++){
+                TileObject tile = FindTileByName(history[undoIndex].p1_TileNames[i]);
                 var p = Instantiate(data.selectedLevel.piece, tile.transform.position, Quaternion.identity);
                 p.ChangeTeam(0);
                 redPieces.Add(p);
@@ -190,8 +191,8 @@ namespace Cox.Infection.Management{
                 p.name = tile.name + ".piece";
                 p.homeTile.piece = p;
             }
-            for(int i = 0; i < history[undoIndex].greenPositions.Length; i++){
-                TileObject tile = FindTileByName(history[undoIndex].greenTileNames[i]);
+            for(int i = 0; i < history[undoIndex].p2_Positions.Length; i++){
+                TileObject tile = FindTileByName(history[undoIndex].p2_TileNames[i]);
                 var p = Instantiate(data.selectedLevel.piece, tile.transform.position, Quaternion.identity);
                 p.ChangeTeam(1);
                 greenPieces.Add(p);
@@ -227,8 +228,8 @@ namespace Cox.Infection.Management{
 
         public IEnumerator BeginAITurn(){
             yield return new WaitForSeconds(1);
-            if(turnNumber == 0)opponent.FindMoves(redPlayable);
-            if(turnNumber == 1)opponent.FindMoves(greenPlayable);
+            /*if(turnNumber == 0)opponent.FindMoves(redPlayable);
+            if(turnNumber == 1)opponent.FindMoves(greenPlayable);*/ //Return when AI is better
         }
     }
 }

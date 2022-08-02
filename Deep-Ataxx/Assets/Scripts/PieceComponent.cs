@@ -176,12 +176,6 @@ namespace Cox.Infection.Management{
             return new Vector3(screenPosition.x, screenPosition.y, 5);
         }
 
-        public void AIMovement(AIMove move){
-            endTile = move.endTile;
-            Debug.Log("Ai move received.");
-            PieceMoved();
-        }
-
         public void SetPositionByTileObject(TileObject newHomeTile){
             Debug.Log("Piece" + this.name + "is attempting to move to " + newHomeTile);
             homeTile.piece = null;
