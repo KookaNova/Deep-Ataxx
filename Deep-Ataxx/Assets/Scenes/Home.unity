@@ -5110,7 +5110,7 @@ GameObject:
   - component: {fileID: 1910237390}
   - component: {fileID: 1910237389}
   m_Layer: 0
-  m_Name: List Levels
+  m_Name: List Menu Data
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5129,7 +5129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: b3d92b1b58159f3478e7cb1b3d7af90a, type: 2}
-  levelList:
+  arcadeLevels:
   - {fileID: 11400000, guid: 7929c3e37448bf34ab3d09bb43141279, type: 2}
   - {fileID: 11400000, guid: e6de4299d85f70643b85f56ea011f7a6, type: 2}
   - {fileID: 11400000, guid: ddebe537fc119104b87f66fb6d30afe9, type: 2}

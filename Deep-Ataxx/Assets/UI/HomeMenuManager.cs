@@ -15,9 +15,6 @@ public class HomeMenuManager : VisualElement
 
     VisualElement back_destination;
 
-    
-
-
     public new class UxmlFactory : UxmlFactory<HomeMenuManager, UxmlTraits> { }
     public new class UxmlTraits : VisualElement.UxmlTraits{ }
 
@@ -33,9 +30,20 @@ public class HomeMenuManager : VisualElement
         m_arcade = this?.Q("m-arcade");
         m_character_select = this?.Q("m-character-select");
 
-        m_home?.Q<Button>("b-story").RegisterCallback<ClickEvent>(ev => OpenMenu(m_story));
-        m_home?.Q<Button>("b-two-player").RegisterCallback<ClickEvent>(ev => OpenMenu(m_twoPlayer));
-        m_home?.Q<Button>("b-arcade").RegisterCallback<ClickEvent>(ev => OpenMenu(m_arcade));
+        m_home?.Q<Button>("b-story").RegisterCallback<ClickEvent>(ev => {
+            data.enableAI = true;
+            data.selectedMode = PlayerPersistentChoice.Mode.story;
+            OpenMenu(m_story);
+            });
+        m_home?.Q<Button>("b-two-player").RegisterCallback<ClickEvent>(ev => {
+            data.enableAI = false;
+            data.selectedMode = PlayerPersistentChoice.Mode.twoPlayer;
+            OpenMenu(m_twoPlayer);
+            });
+        m_home?.Q<Button>("b-arcade").RegisterCallback<ClickEvent>(ev => {
+            data.enableAI = true;
+            OpenMenu(m_arcade);
+            });
 
         m_arcade?.Q<Button>("b-arcade-classic").RegisterCallback<ClickEvent>(ev => {
             data.selectedMode = PlayerPersistentChoice.Mode.arcadeClassic;
@@ -47,6 +55,8 @@ public class HomeMenuManager : VisualElement
             data.SelectRandomLevel();
             OpenMenu(m_character_select, m_arcade);
             });
+
+        m_character_select?.Q<Button>("b-play").RegisterCallback<ClickEvent>(ev => SceneLoader("Play"));
 
 
         

@@ -7,8 +7,9 @@ using UnityEngine.UIElements;
 public class ListMenuData : MonoBehaviour
 {
     [SerializeField] PlayerPersistentChoice data;
-    public Level[] levelList;
+    public Level[] arcadeLevels; //used for arcade mode
     public CharacterObject[] characterList;
+    public LevelPlaylist[] zones;
 
     VisualElement root;
 
@@ -21,7 +22,7 @@ public class ListMenuData : MonoBehaviour
     
 
     private void Awake() {
-        data.levelList = levelList;
+        data.levelList = arcadeLevels;
         data.characterList = characterList;
 
         root = FindObjectOfType<UIDocument>().rootVisualElement;
@@ -41,8 +42,8 @@ public class ListMenuData : MonoBehaviour
 
     public void CreateLevelList(){
         int index = 0;
-        gridSource = new  GridGenControl[levelList.Length];
-        foreach(Level level in levelList){
+        gridSource = new  GridGenControl[arcadeLevels.Length];
+        foreach(Level level in arcadeLevels){
             var grid = new GridGenControl(level);
             gridSource[index] = grid;
             twoPlayerList.Add(grid);
@@ -62,5 +63,9 @@ public class ListMenuData : MonoBehaviour
             control.RegisterCallback<ClickEvent>(ev => data.opponent = character);
             index++;
         }
+    }
+
+    private void CreateZoneList(){
+        
     }
 }

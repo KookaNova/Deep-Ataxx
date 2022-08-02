@@ -55,6 +55,7 @@
      <Compile Include="Assets\UI\GameUIManager.cs" />
      <Compile Include="Assets\Scripts\TileObject.cs" />
      <Compile Include="Assets\Scripts\PieceComponent.cs" />
+     <Compile Include="Assets\Scripts\LevelPlaylist.cs" />
      <None Include="Assets\UI\GameScreen_UXML.uxml" />
      <None Include="Assets\UI\Title.uxml" />
      <None Include="Assets\UI\MainStyle.uss" />
