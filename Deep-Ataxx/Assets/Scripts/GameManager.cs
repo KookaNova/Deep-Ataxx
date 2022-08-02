@@ -228,8 +228,7 @@ namespace Cox.Infection.Management{
 
         public IEnumerator BeginAITurn(){
             yield return new WaitForSeconds(1);
-            /*if(turnNumber == 0)opponent.FindMoves(redPlayable);
-            if(turnNumber == 1)opponent.FindMoves(greenPlayable);*/ //Return when AI is better
+            opponent.PlanBoard();
         }
     }
 }

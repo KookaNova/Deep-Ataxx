@@ -12,11 +12,16 @@ public struct BoardState
 	public Vector2Int[] p2_Positions;
 	public string[] p1_TileNames {get;}
 	public string[] p2_TileNames {get;}
+	public Vector2Int[] allOccupiedTiles {get;}
 	
 	//Simply stores the positions of the current board.
 	public BoardState(Vector2Int[] _p1_positions,Vector2Int[] _p2_positions){
 		p1_Positions = _p1_positions;
 		p2_Positions = _p2_positions;
+
+		allOccupiedTiles = new Vector2Int[p1_Positions.Length + p2_Positions.Length];
+		p1_Positions.CopyTo(allOccupiedTiles, 0);
+		p2_Positions.CopyTo(allOccupiedTiles, p1_Positions.Length);
 
 		string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //create an alphabet for the notation;
 		p1_TileNames = new string[p1_Positions.Length];
@@ -34,6 +39,13 @@ public struct BoardState
 	public BoardState(List<PieceComponent> p1_pieces, List<PieceComponent> p2_pieces){
 		p1_Positions = new Vector2Int[p1_pieces.Count];
 		p2_Positions = new Vector2Int[p2_pieces.Count];
+
+		allOccupiedTiles = new Vector2Int[p1_Positions.Length + p2_Positions.Length];
+		p1_Positions.CopyTo(allOccupiedTiles, 0);
+		p2_Positions.CopyTo(allOccupiedTiles, p1_Positions.Length);
+
+		Debug.Log(allOccupiedTiles.Length);
+
 		for(int i = 0; i < p1_pieces.Count; i++){
 			var piece = p1_pieces[i];
 			p1_Positions[i] = piece.homeTile.gridPosition;

@@ -20,21 +20,14 @@ namespace Cox.Infection.Management{
         
         private void Awake() {
             gm = FindObjectOfType<GameManager>();
+            opponent = gm.data.opponent;
         }
 
         //create board states and picture the board.
-        public void ImaginingTheBoard(){
-            depthLevel = opponent.thinkDepth;
+        public void PlanBoard(){
+            depthLevel = opponent.thinkDepth; //will be used to add depth
             BoardState board = gm.history[gm.undoIndex]; //current board stored by gm
             FindMove(board);
-
-            while(depthLevel > 0){
-                //create board
-                //find moves
-                //subtract depth
-                depthLevel--;
-
-            }
         }
 
         public void FindMove(BoardState board){
@@ -44,16 +37,39 @@ namespace Cox.Infection.Management{
             if(moveTurn == 0){
                 foreach(var tilePos in board.p1_Positions){
                     Tile tile = new Tile(tilePos);
+                    bool isPlayable = false;
                     foreach(var neighbor in tile.reachablePositions){
                         if(neighbor.x < 0 || neighbor.y <0 || neighbor.x >= gm.boardSize.x || neighbor.y >= gm.boardSize.y){
                             continue;
                         }
-                        playableTiles.Add(tile);
-                        Debug.Log(tile + " is playable.");
+                        foreach(var occupiedTile in board.allOccupiedTiles){
+                            if(neighbor == occupiedTile){
+                                continue;
+                            }
+                        }
+                        isPlayable = true;
+                        //add a move to the tile
+                        
                     }
+                    if(isPlayable){
+                       playableTiles.Add(tile); 
+                    }
+                    
+                    Debug.Log(tile.position + " is playable.");
                 }
             }
             //select end action for playable tiles.
+
+            
+            /*
+            //Find more moves at increasing depth
+            while(depthLevel > 0){
+                //create board
+                //find moves
+                //subtract depth
+                depthLevel--;
+
+            }*/
 
 
         }
