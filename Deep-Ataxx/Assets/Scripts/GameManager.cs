@@ -12,6 +12,7 @@ namespace Cox.Infection.Management{
         public List<PieceComponent> greenPlayable = new List<PieceComponent>();
         
         public int turnNumber = 0;
+        public int emptyTiles;
         public PlayerPersistentChoice data;
         public OpponentBehaviour opponent;
 
@@ -80,7 +81,7 @@ namespace Cox.Infection.Management{
 
         public void PlayabilityCheck(){
             //first check if there are empty tiles;
-            int emptyTiles = 0;
+            emptyTiles = 0;
             foreach(var tile in allTiles){
                 if(tile.isDisabled)continue;
                 if(tile.piece)continue;

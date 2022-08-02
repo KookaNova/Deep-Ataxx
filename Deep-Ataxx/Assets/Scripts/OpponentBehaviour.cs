@@ -7,7 +7,9 @@ namespace Cox.Infection.Management{
     {
         GameManager gm;
         CharacterObject opponent;
+
         public int moveTurn = 0;
+
         List<AIMove> moves = new List<AIMove>();
         List<PieceComponent> playablePieces;
 
@@ -20,9 +22,12 @@ namespace Cox.Infection.Management{
 
         public void FindMoves(List<PieceComponent> pieces){
             if(gm.isGameOver)return; //Don't move if the game is over.
-            
-            moves.Clear();
+
+            //clear previous moves
+            moves.Clear(); 
             moves.TrimExcess();
+
+            //find a new move
             Debug.Log("Finding a move...");
             foreach(var piece in pieces){
                 for(int i = 0; i < piece.playableTiles.Count; i++){
@@ -33,7 +38,21 @@ namespace Cox.Infection.Management{
                     }
                     else{
                         move.AssignPoints();
-                        moves.Add(move);
+                        if(gm.emptyTiles == 1){ //condition for when the final move is at hand. Probably should be cleaned up.
+                            bool badMove = true;
+                            foreach(var tile in move.piece.homeTile.adjacentTiles){
+                                if(move.endTile == tile){
+                                    badMove = false;
+                                    break;
+                                }
+                            }
+                            if(badMove)move.points -= 90;
+                            moves.Add(move);
+                        }
+                        else{
+                            moves.Add(move);
+                        }
+                        
                     }
                     
                 }
@@ -46,18 +65,19 @@ namespace Cox.Infection.Management{
         }
 
         void FinalDecision(){
-            finalMove = null;
-            Debug.Log("Making a move.");
+            finalMove = null; //erase previous final move
+
+            Debug.Log("Making a move."); //pick a favorite potential move and select as a final move
             foreach(var move in moves){
-                if(finalMove == null){
+                if(finalMove == null){ //first move is selected in case no later moves are better
                     finalMove = move;
                     continue;
                 }
-                if(move.points > finalMove.points){
+                if(move.points > finalMove.points){ //select move if it's better than the current final move
                     finalMove = move;
                     continue;
                 }
-                if(move.points == finalMove.points){
+                if(move.points == finalMove.points){ //randomly select between moves of equal value to determine final
                     int randomize = Random.Range(0,2);
                     if(randomize > 0){
                         finalMove = move;
@@ -70,11 +90,11 @@ namespace Cox.Infection.Management{
         }
         private IEnumerator MakeMove(){
             if(gm.turnNumber != moveTurn || gm.isGameOver) yield break;
-            finalMove.piece.homeTile.SelectTile(true);
+            finalMove.piece.homeTile.SelectTile(true); //select the piece from the final move. Used for visuals.
             yield return new WaitForSeconds(0.5f);
             finalMove.piece.homeTile.SelectTile(false);
             if(gm.turnNumber != moveTurn || gm.isGameOver) yield break;
-            finalMove.PerformMove();
+            finalMove.PerformMove(); //perform move.
 
         }
 
@@ -91,15 +111,18 @@ namespace Cox.Infection.Management{
         }
 
         public void AssignPoints(/*add values to help assign points*/){
+            //Assess adjacent tiles for point gains and losses
             foreach(var tile in endTile.adjacentTiles){
                 if(tile.piece == null)continue;
                 if(tile.piece.moveTurn != piece.moveTurn){
-                    points += 1; //plus aggression
+                    //if the end tile can take pieces, add a point.
+                    points += 1;
                 }
             }
             foreach(var tile in piece.homeTile.adjacentTiles){
                 if(tile.piece == null)continue;
                 if(tile.piece.moveTurn == piece.moveTurn){
+                    //for each adjacent piece that belongs to the ai, subtract a point if the move would leave it open to be taken.
                     for(int i = 0; i < tile.piece.homeTile.reachableTiles.Count; i++){
                         if(tile.piece.homeTile.reachableTiles[i].piece == null)continue;
                         if(tile.piece.homeTile.reachableTiles[i].piece.moveTurn != piece.moveTurn){
@@ -109,6 +132,7 @@ namespace Cox.Infection.Management{
                 }
             }
             foreach(var tile in piece.homeTile.adjacentTiles){
+                //add a point if a hop isn't performed
                 if(endTile == tile)points += 1;
             }
         }
@@ -117,6 +141,12 @@ namespace Cox.Infection.Management{
             Debug.Log("Performing move " + piece.homeTile.name + " to " + endTile.name);
             piece.AIMovement(this);
         }
+        /*
+        public void PerformMove(BoardState board){
+            Debug.Log("Performing theoretical move.");
+
+
+        }*/
         
     }
 }

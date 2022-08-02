@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cox.Infection.Management;
 
+/// <summary>
+/// Applications in the undo feature and the AI. Used to save a state the board is in and access it again.
+/// </summary>
 public struct BoardState
 {
 	public Vector2Int[] redPositions;
