@@ -9,11 +9,11 @@ namespace Cox.Infection.Management{
         CharacterObject opponent;
 
         public int moveTurn = 0;
-
         private int depthLevel = 0;
 
+        Vector2Int[] friendlyPositions, enemyPositions;
+
         List<AIMove> moves = new List<AIMove>();
-        List<PieceComponent> playablePieces;
 
 
         AIMove finalMove;
@@ -24,72 +24,104 @@ namespace Cox.Infection.Management{
         }
 
         //create board states and picture the board.
-        public void PlanBoard(){
-            depthLevel = opponent.thinkDepth; //will be used to add depth
-            BoardState board = gm.history[gm.undoIndex]; //current board stored by gm
+        public void PlanBoard(BoardState board){
+            depthLevel = 0;
             FindMove(board);
         }
 
         public void FindMove(BoardState board){
-            List<Tile> playableTiles = new List<Tile>();
-
-            //find all tiles that are capable of being played.
+            //find all tiles with pieces that are capable of being played for the correct player.
             if(moveTurn == 0){
-                foreach(var tilePos in board.p1_Positions){
-                    Tile tile = new Tile(tilePos);
-                    bool isPlayable = false;
-                    foreach(var neighbor in tile.reachablePositions){
-                        if(neighbor.x < 0 || neighbor.y <0 || neighbor.x >= gm.boardSize.x || neighbor.y >= gm.boardSize.y){
-                            continue;
-                        }
-                        foreach(var occupiedTile in board.allOccupiedTiles){
-                            if(neighbor == occupiedTile){
-                                continue;
-                            }
-                        }
-                        isPlayable = true;
-                        //add a move to the tile
-                        
+                friendlyPositions = board.p1_Positions; //P1 friendly
+                enemyPositions = board.p2_Positions;
+            }
+            else{
+                friendlyPositions = board.p2_Positions; //P2 friendly
+                enemyPositions = board.p1_Positions;
+            }
+            //Determine if a tile has valid movements
+            foreach(var tilePos in friendlyPositions){
+                Tile tile = new Tile(tilePos);
+                List<Tile> validEndTiles = new List<Tile>(); //valid end tiles for potential moves
+                //Find valid end positions for movements
+                foreach(var possibleEndTile in tile.reachablePositions){
+                    bool isValid = true;
+                    //Check if end position is on the board
+                    if(possibleEndTile.x < 0 || possibleEndTile.y < 0 || possibleEndTile.x >= gm.boardSize.x || possibleEndTile.y >= gm.boardSize.y){
+                        isValid = false;
+                        continue;
                     }
-                    if(isPlayable){
-                       playableTiles.Add(tile); 
+                    //Check if end tile is valid
+                    foreach(var invalidTile in board.invalidTiles){
+                        if(possibleEndTile == invalidTile){
+                            isValid = false;
+                        }
+                    }
+                    if(isValid){
+                        validEndTiles.Add(new Tile(possibleEndTile));
+                    }
+                }
+                if(validEndTiles.Count > 0){
+                    foreach(var et in validEndTiles){
+                        AIMove move = new AIMove(tile, et, friendlyPositions, enemyPositions);
+                        if(depthLevel == 0)move.isPrimeMove = true; //if the move is surface level, it is prime.
+                        moves.Add(move);
                     }
                     
-                    Debug.Log(tile.position + " is playable.");
                 }
             }
-            //select end action for playable tiles.
 
-            
-            /*
-            //Find more moves at increasing depth
-            while(depthLevel > 0){
-                //create board
-                //find moves
-                //subtract depth
-                depthLevel--;
-
-            }*/
-
-
+            PickMove();
         }
 
+        void PickMove(){
+            //pick a final move to perform based on points
+            AIMove final = null;
+            foreach(var move in moves){
+                if(final == null){
+                    final = move;
+                    continue;
+                    }
+                if(move.points > final.points){
+                    final = move;
+                    continue;
+                    }
+                if(move.points == final.points){
+                    int ran = Random.Range(0,2);
+                    if(ran > 0)final = move;
+                }
+            }
+            moves.Clear();
+            moves.TrimExcess();
+            PerformMove(final);
+        }
 
+        void PerformMove(AIMove move){
+            foreach(var tile in gm.allTiles){
+                if(tile.gridPosition == move.tile.position){
+                    foreach(var t in tile.reachableTiles){
+                        if(t.gridPosition == move.endTile.position){
+                            tile.piece.AIMovement(t);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public class Tile{
         public Vector2Int position;
-        public Vector2Int[] adjacentPositions = new Vector2Int[7];
-        public Vector2Int[] reachablePositions = new Vector2Int[23];
+        public Vector2Int[] adjacentPositions {get;} = new Vector2Int[7];
+        public Vector2Int[] reachablePositions {get;} = new Vector2Int[23];
 
         public Tile(Vector2Int _position){
             position = _position;
             adjacentPositions = FindAdjacentPositions(position);
             reachablePositions = FindReachablePositions(position);
-
-            
         }
 
+        #region FindNeighboringTiles
         Vector2Int[] FindAdjacentPositions(Vector2Int _position){
             //Find adjacent positions clockwise from bottom left
             List<Vector2Int> adjacentList = new List<Vector2Int>();
@@ -106,7 +138,6 @@ namespace Cox.Infection.Management{
                         continue;
                     }
                     adjacentList.Add(pos);
-                    Debug.LogFormat("Tile {0}: adjacent {1}.", position, pos);
                     
                 }
                 x++;
@@ -134,14 +165,59 @@ namespace Cox.Infection.Management{
             }
             return reachableList.ToArray();
         }
+        #endregion
     }
 
     public class AIMove{
-        public Vector2Int startTile;
-        public Vector2Int endTile;
+        public Tile tile;
+        public Tile endTile;
+        public int points = 0;
+        public bool isPrimeMove = false;
+        public bool isHop = false;
 
-        public AIMove(Vector2Int startTile){
+        private Vector2Int[] friends, enemies;
 
+        /// <summary>
+        /// Using a given tile and end tile, we create moves and calculate points based on the positions of friendly tiles
+        /// and enemy tiles.
+        /// </summary>
+        public AIMove(Tile mainTile, Tile _endTile, Vector2Int[] _friendlyPositions, Vector2Int[] _enemyPositions){
+            tile = mainTile;
+            endTile = _endTile;
+            friends = _friendlyPositions;
+            enemies = _enemyPositions;
+            CalculatePoints();
+        }
+
+        void CalculatePoints(){
+            if(Vector2Int.Distance(tile.position, endTile.position) >= 2){
+                isHop = true;
+                //piece would hop, lose point for every exposed friendly tile
+                foreach(var adjacent in tile.adjacentPositions){
+                    foreach(var friendly in friends){
+                        if(adjacent == friendly){
+                            points -= 1; //written this way so we can add a defensive multiplier if desired.
+                        }
+                    }
+                }
+
+                //add points when the end tile has adjacent enemies
+                foreach(var adjacent in endTile.adjacentPositions){
+                    foreach(var enemy in enemies){
+                        if(adjacent == enemy){
+                            points += 1;//times multiplier for aggression
+                        }
+                    }
+                }
+
+                //
+
+                //In the future (if desired), we can add points to favor the middle by comparing numbers to the max columns/2 and rows/2. Add a number to closer to that you are.
+
+            }
+            else{
+                points++;
+            }
         }
     }
 }

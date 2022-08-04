@@ -8,7 +8,6 @@ namespace Cox.Infection.Management{
     public class PieceComponent : MonoBehaviour
     {
         public bool isPlayable;
-        public bool isAIPiece;
         public PieceComponent prefab;
         public TileObject homeTile;
         public List<TileObject> playableTiles = new List<TileObject>();
@@ -83,7 +82,7 @@ namespace Cox.Infection.Management{
 
         }
         void ReturnToHome(string reason){
-            Debug.Log("Piece returned. Invalid move. " + reason);
+            Debug.Log("Piece returned. Invalid move: " + homeTile.name + " to " + endTile.name + ". " + reason);
             endTile = null;
             transform.position = homeTile.transform.position;
         }
@@ -174,6 +173,12 @@ namespace Cox.Infection.Management{
         Vector3 GetMousePosition(){
             var screenPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             return new Vector3(screenPosition.x, screenPosition.y, 5);
+        }
+
+        public void AIMovement(TileObject _endTile){
+            endTile = _endTile;
+            Debug.Log("AI: " + this.name + " is attempting to move to " + _endTile);
+            PieceMoved();
         }
 
         public void SetPositionByTileObject(TileObject newHomeTile){

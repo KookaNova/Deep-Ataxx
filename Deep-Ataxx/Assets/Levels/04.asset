@@ -17,16 +17,16 @@ MonoBehaviour:
   columns: 7
   rows: 7
   redFirst: 1
-  opponent: {fileID: 0}
+  isFlagged: 0
   tile: {fileID: 6591126127158432252, guid: 8942f259f5f68324d93062015a43984e, type: 3}
   piece: {fileID: 4928824779748932212, guid: 2009623556d0a6949b1b001d59da7041, type: 3}
-  redPositions:
+  p1_Positions:
   - {x: 0, y: 0}
   - {x: 6, y: 6}
-  greenPositions:
+  p2_Positions:
   - {x: 0, y: 6}
   - {x: 6, y: 0}
-  blockPositions:
+  block_Positions:
   - {x: 2, y: 3}
   - {x: 3, y: 2}
   - {x: 3, y: 4}

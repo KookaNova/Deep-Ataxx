@@ -14,7 +14,7 @@ namespace Cox.Infection.Management{
         public bool isFlagged = false;
         public TileObject tile;
         public PieceComponent piece;
-        public Vector2Int[] redPositions, greenPositions, blockPositions;
+        public Vector2Int[] p1_Positions, p2_Positions, block_Positions;
     }
 }
 

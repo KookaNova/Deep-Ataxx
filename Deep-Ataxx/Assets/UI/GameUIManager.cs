@@ -58,8 +58,8 @@ public class GameUIManager : VisualElement
     }
 
     public void UpdateScore(){
-        this.Q<Label>("RedCounter").text = gm.redPieces.Count.ToString("00");
-        this.Q<Label>("GreenCounter").text = gm.greenPieces.Count.ToString("00");
+        this.Q<Label>("RedCounter").text = gm.p1_Pieces.Count.ToString("00");
+        this.Q<Label>("GreenCounter").text = gm.p2_Pieces.Count.ToString("00");
     }
 
     public void GameOver(string winner){
@@ -67,8 +67,8 @@ public class GameUIManager : VisualElement
         gameOver.Q<Label>("WinText").text = winner + " WINS.";
         gameOver.Q("Red").style.backgroundColor = new StyleColor(ColorManager.playerOne);
         gameOver.Q("Green").style.backgroundColor = new StyleColor(ColorManager.playerTwo);
-        gameOver.Q<Label>("RedFinal").text = gm.redPieces.Count.ToString("00");
-        gameOver.Q<Label>("GreenFinal").text = gm.greenPieces.Count.ToString("00");
+        gameOver.Q<Label>("RedFinal").text = gm.p1_Pieces.Count.ToString("00");
+        gameOver.Q<Label>("GreenFinal").text = gm.p2_Pieces.Count.ToString("00");
         gameOver.Q<Button>("Reset").RegisterCallback<ClickEvent>(ev => Reset());
         gameOver?.Q<Button>("ViewBoard").RegisterCallback<ClickEvent>(ev => {
             DeactivateAllScreens();

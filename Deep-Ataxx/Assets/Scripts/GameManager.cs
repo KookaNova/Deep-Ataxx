@@ -6,10 +6,11 @@ using UnityEngine.UIElements;
 namespace Cox.Infection.Management{
     public class GameManager : MonoBehaviour
     {
-        public List<PieceComponent> redPieces = new List<PieceComponent>();
-        public List<PieceComponent> greenPieces = new List<PieceComponent>();
-        public List<PieceComponent> redPlayable = new List<PieceComponent>();
-        public List<PieceComponent> greenPlayable = new List<PieceComponent>();
+        public List<PieceComponent> p1_Pieces = new List<PieceComponent>();
+        public List<PieceComponent> p2_Pieces = new List<PieceComponent>();
+        public List<PieceComponent> p1_Playable = new List<PieceComponent>();
+        public List<PieceComponent> p2_Playable = new List<PieceComponent>();
+        public Vector2Int[] blockedSpaces;
         
         public int turnNumber = 0;
         public int emptyTiles;
@@ -33,20 +34,19 @@ namespace Cox.Infection.Management{
             player = FindObjectOfType<PlayerHelper>();
             opponent = FindObjectOfType<OpponentBehaviour>();
 
-
-
             if(data.enableAI){
                 player.AssignSingleTurn(data.playerTurn);
             }
+            SaveBoardState();
             CheckTeams();
         }
 
         public void EndTurn(){
             //clear lists
-            redPieces.Clear();
-            redPieces.TrimExcess();
-            greenPieces.Clear();
-            greenPieces.TrimExcess();
+            p1_Pieces.Clear();
+            p1_Pieces.TrimExcess();
+            p2_Pieces.Clear();
+            p2_Pieces.TrimExcess();
             //Change turn
             if(turnNumber == 0){
                 turnNumber = 1;
@@ -64,19 +64,19 @@ namespace Cox.Infection.Management{
             var allPieces = FindObjectsOfType<PieceComponent>();
             for(int i = 0; i < allPieces.Length; i++){
                 if(allPieces[i].moveTurn == 0){
-                    redPieces.Add(allPieces[i]);
+                    p1_Pieces.Add(allPieces[i]);
                 }
                 else if(allPieces[i].moveTurn == 1){
-                    greenPieces.Add(allPieces[i]);
+                    p2_Pieces.Add(allPieces[i]);
                 }
             }
+            //Save new board after finding all pieces
+            SaveBoardState();
 
-            if(redPieces.Count == 0 || greenPieces.Count == 0){
+            if(p1_Pieces.Count == 0 || p2_Pieces.Count == 0){
                 GameOver("GameOver: Loser has no pieces left.");
             }
             gameUI.UpdateScore(); //Use piece counts to update scoreboard
-            //Save new board after finding all pieces
-            SaveBoardState();
             PlayabilityCheck(); //check the playability of each piece
         }
 
@@ -93,30 +93,30 @@ namespace Cox.Infection.Management{
                 GameOver("GameOver: No empty tiles left");
                 return; //ends game if tiles are empty
             }
-            redPlayable.Clear();
-            redPlayable.TrimExcess();
-            greenPlayable.Clear();
-            greenPlayable.TrimExcess();
+            p1_Playable.Clear();
+            p1_Playable.TrimExcess();
+            p2_Playable.Clear();
+            p2_Playable.TrimExcess();
 
             //Make pieces playable
             switch(turnNumber) {
                 case 0:
-                    foreach(var piece in redPieces){
-                        if(piece.CheckPlayability())redPlayable.Add(piece);
+                    foreach(var piece in p1_Pieces){
+                        if(piece.CheckPlayability())p1_Playable.Add(piece);
                     }
-                    foreach(var piece in greenPieces){
+                    foreach(var piece in p2_Pieces){
                         piece.isPlayable = false;
                     }
-                    if(redPlayable.Count < 1)EndTurn();
+                    if(p1_Playable.Count < 1)EndTurn();
                 break;
                 case 1:
-                    foreach(var piece in redPieces){
+                    foreach(var piece in p1_Pieces){
                         piece.isPlayable = false;
                     }
-                    foreach(var piece in greenPieces){
-                        if(piece.CheckPlayability())greenPlayable.Add(piece);
+                    foreach(var piece in p2_Pieces){
+                        if(piece.CheckPlayability())p2_Playable.Add(piece);
                     }
-                    if(greenPlayable.Count < 1)EndTurn();
+                    if(p2_Playable.Count < 1)EndTurn();
                 break;
                 default:
                     turnNumber = 0;
@@ -131,7 +131,7 @@ namespace Cox.Infection.Management{
             isGameOver = true;
             Debug.Log(reason);
             string winner = null;
-            if(redPieces.Count > greenPieces.Count){
+            if(p1_Pieces.Count > p2_Pieces.Count){
                 winner = "RED";
             }
             else{
@@ -156,7 +156,7 @@ namespace Cox.Infection.Management{
                 
             }
 
-            BoardState newBoard = new BoardState(redPieces, greenPieces);
+            BoardState newBoard = new BoardState(p1_Pieces, p2_Pieces, blockedSpaces);
 		    history.Insert(0, newBoard); //Add new board state at 0
 		    undoIndex = 0; //Set index back to 0
 	    }
@@ -168,16 +168,16 @@ namespace Cox.Infection.Management{
                 undoIndex--;
                 return;
             }
-            foreach(var piece in redPieces){
+            foreach(var piece in p1_Pieces){
                 Destroy(piece.gameObject);
             }
-            foreach(var piece in greenPieces){
+            foreach(var piece in p2_Pieces){
                 Destroy(piece.gameObject);
             }
-            redPieces.Clear();
-            redPieces.TrimExcess();
-            greenPieces.Clear();
-            greenPieces.TrimExcess();
+            p1_Pieces.Clear();
+            p1_Pieces.TrimExcess();
+            p2_Pieces.Clear();
+            p2_Pieces.TrimExcess();
             foreach(var tile in allTiles){
                 tile.piece = null;
             }
@@ -186,7 +186,7 @@ namespace Cox.Infection.Management{
                 TileObject tile = FindTileByName(history[undoIndex].p1_TileNames[i]);
                 var p = Instantiate(data.selectedLevel.piece, tile.transform.position, Quaternion.identity);
                 p.ChangeTeam(0);
-                redPieces.Add(p);
+                p1_Pieces.Add(p);
                 p.homeTile = tile;
                 p.name = tile.name + ".piece";
                 p.homeTile.piece = p;
@@ -195,7 +195,7 @@ namespace Cox.Infection.Management{
                 TileObject tile = FindTileByName(history[undoIndex].p2_TileNames[i]);
                 var p = Instantiate(data.selectedLevel.piece, tile.transform.position, Quaternion.identity);
                 p.ChangeTeam(1);
-                greenPieces.Add(p);
+                p2_Pieces.Add(p);
                 p.homeTile = tile;
                 p.name = tile.name + ".piece";
                 p.homeTile.piece = p;
@@ -228,7 +228,7 @@ namespace Cox.Infection.Management{
 
         public IEnumerator BeginAITurn(){
             yield return new WaitForSeconds(1);
-            opponent.PlanBoard();
+            opponent.PlanBoard(history[undoIndex]);
         }
     }
 }

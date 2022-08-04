@@ -105,27 +105,27 @@ public class GridVector2Control : VisualElement
     }
 
     void SetTileStates(){
-        var redPositions = so.FindProperty("redPositions");
-        var greenPositions = so.FindProperty("greenPositions");
-        var blockPositions = so.FindProperty("blockPositions");
+        var p1_Positions = so.FindProperty("p1_Positions");
+        var p2_Positions = so.FindProperty("p2_Positions");
+        var block_Positions = so.FindProperty("block_Positions");
 
-        for(int i = 0; i < redPositions.arraySize; i++){
+        for(int i = 0; i < p1_Positions?.arraySize; i++){
             foreach(var tile in grid){
-                if(redPositions.GetArrayElementAtIndex(i).vector2IntValue == tile.gridPlace){
+                if(p1_Positions.GetArrayElementAtIndex(i).vector2IntValue == tile.gridPlace){
                     tile.SetState(1);
                 }
             }
         }
-        for(int i = 0; i < greenPositions.arraySize; i++){
+        for(int i = 0; i < p2_Positions?.arraySize; i++){
             foreach(var tile in grid){
-                if(greenPositions.GetArrayElementAtIndex(i).vector2IntValue == tile.gridPlace){
+                if(p2_Positions.GetArrayElementAtIndex(i).vector2IntValue == tile.gridPlace){
                     tile.SetState(2);
                 }
             }
         }
-        for(int i = 0; i < blockPositions.arraySize; i++){
+        for(int i = 0; i < block_Positions?.arraySize; i++){
             foreach(var tile in grid){
-                if(blockPositions.GetArrayElementAtIndex(i).vector2IntValue == tile.gridPlace){
+                if(block_Positions.GetArrayElementAtIndex(i).vector2IntValue == tile.gridPlace){
                     tile.SetState(3);
                 }
             }
@@ -156,20 +156,20 @@ public class GridVector2Control : VisualElement
     }
 
     void ApplyGridChanges(){
-        var redPositions = so.FindProperty("redPositions");
-        redPositions.arraySize = red.Count;
-        for(int i = 0; i < redPositions.arraySize; i++){
-            redPositions.GetArrayElementAtIndex(i).vector2IntValue = red[i].gridPlace;
+        var p1_Positions = so.FindProperty("p1_Positions");
+        p1_Positions.arraySize = red.Count;
+        for(int i = 0; i < p1_Positions.arraySize; i++){
+            p1_Positions.GetArrayElementAtIndex(i).vector2IntValue = red[i].gridPlace;
         }
-        var greenPositions = so.FindProperty("greenPositions");
-        greenPositions.arraySize = green.Count;
-        for(int i = 0; i < greenPositions.arraySize; i++){
-            greenPositions.GetArrayElementAtIndex(i).vector2IntValue = green[i].gridPlace;
+        var p2_Positions = so.FindProperty("p2_Positions");
+        p2_Positions.arraySize = green.Count;
+        for(int i = 0; i < p2_Positions.arraySize; i++){
+            p2_Positions.GetArrayElementAtIndex(i).vector2IntValue = green[i].gridPlace;
         }
-        var blockPositions = so.FindProperty("blockPositions");
-        blockPositions.arraySize = block.Count;
-        for(int i = 0; i < blockPositions.arraySize; i++){
-            blockPositions.GetArrayElementAtIndex(i).vector2IntValue = block[i].gridPlace;
+        var block_Positions = so.FindProperty("block_Positions");
+        block_Positions.arraySize = block.Count;
+        for(int i = 0; i < block_Positions.arraySize; i++){
+            block_Positions.GetArrayElementAtIndex(i).vector2IntValue = block[i].gridPlace;
         }
 
         so.ApplyModifiedProperties();

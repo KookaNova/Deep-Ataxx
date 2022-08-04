@@ -71,13 +71,13 @@ public class GridGenControl : VisualElement
                 grid[i,j] = tile;
                 tile.gridPlace = new Vector2Int(i,j);
 
-                foreach(var position in level.redPositions){
+                foreach(var position in level.p1_Positions){
                     if(tile.gridPlace == position)tile.SetState(1);
                 }
-                foreach(var position in level.greenPositions){
+                foreach(var position in level.p2_Positions){
                     if(tile.gridPlace == position)tile.SetState(2);
                 }
-                foreach(var position in level.blockPositions){
+                foreach(var position in level.block_Positions){
                     if(tile.gridPlace == position)tile.SetState(3);
                 }
             }
