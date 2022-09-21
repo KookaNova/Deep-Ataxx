@@ -82,6 +82,7 @@ namespace Cox.Infection.Management{
             gameUI.UpdateScore(); //Use piece counts to update scoreboard
             if(p1_Pieces.Count == 0 || p2_Pieces.Count == 0){
                 GameOver("GameOver: Loser has no pieces left.");
+                return;
             }
             
             PlayabilityCheck(); //check the playability of each piece
@@ -144,8 +145,12 @@ namespace Cox.Infection.Management{
             else{
                 winner = "GREEN";
             }
-
+            foreach(var tile in allTiles){
+                tile.isDisabled = true;
+                if(tile.piece)tile.piece.isPlayable = false;
+            }
             gameUI.GameOver(winner);
+            
 
         }
 
