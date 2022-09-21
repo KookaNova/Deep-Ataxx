@@ -13,8 +13,6 @@ namespace Cox.Infection.Management{
         TileObject[,] grid;
         float cameraOffset = 2;
 
-        
-
         private void Awake() {
             var root = FindObjectOfType<UIDocument>().rootVisualElement;
             level = data.selectedLevel;

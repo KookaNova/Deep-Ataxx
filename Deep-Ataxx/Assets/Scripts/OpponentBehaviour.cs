@@ -37,11 +37,6 @@ namespace Cox.Infection.Management{
                 friendlyPositions = boardState.p2_Positions; //P2 friendly
                 enemyPositions = boardState.p1_Positions;
             }
-            Debug.Log("Friendly Positions: " + friendlyPositions.Length);
-            Debug.Log("Invalid Positions: " + board.invalidTiles.Length);
-            foreach(var inv in board.invalidTiles){
-                Debug.Log(inv);
-            }
             //Determine if a tile has valid movements
             foreach(var selectedPosition in friendlyPositions){
                 Tile selectedTile = new Tile(selectedPosition, allTiles); //select a positions to make a tile out of.
@@ -57,19 +52,16 @@ namespace Cox.Infection.Management{
                     //Tiles that are occupied are invalid
                     foreach(var invalid in boardState.invalidTiles){
                         if(endTile == invalid){
-                            Debug.Log(endTile + " == " + invalid + ", removing.");
                             validEndPositions.Remove(endTile);
                         }
                     }
                 }
                 if(validEndPositions.Count <=0){
-                    Debug.Log(selectedPosition + " has no playable moves.");
                     continue;
                 }
                 //Create a "move" for each valid end position with the given start tile.
                 foreach(var end in validEndPositions){
                     moves.Add(new AIMove(selectedTile, new Tile(end, allTiles), friendlyPositions, enemyPositions));
-                    Debug.LogFormat("Creating move with selected tile {0} and end tile {1}. Potential moves: {2}.", selectedPosition, end, moves.Count);
                 }
             }
             //Decide on which move is best
@@ -88,7 +80,6 @@ namespace Cox.Infection.Management{
                     continue;
                     }
                 if(move.points > final.points){
-                    Debug.LogFormat("Move {0} is greater than {1}, overriding final.", move.points, final.points);
                     final = move;
                     continue;
                     }

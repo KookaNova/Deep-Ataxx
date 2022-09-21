@@ -52,8 +52,8 @@ public class BoardState
 
 		invalidTiles = new Vector2Int[p1_Positions.Length + p2_Positions.Length + blockedTiles.Length];
 		p1_Positions.CopyTo(invalidTiles, 0);
-		p2_Positions.CopyTo(invalidTiles, 0);
-		blockedTiles.CopyTo(invalidTiles, 0); 
+		p2_Positions.CopyTo(invalidTiles, p1_Positions.Length);
+		blockedTiles.CopyTo(invalidTiles, p1_Positions.Length + p2_Positions.Length); 
 
 		emptyTiles = allTiles.Length - invalidTiles.Length;
 

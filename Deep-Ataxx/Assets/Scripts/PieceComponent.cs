@@ -124,7 +124,7 @@ namespace Cox.Infection.Management{
         private void OnMouseEnter() {
             player.hoveredTile = this.homeTile;
             if(!isPlayable)return;
-            if(player.isSinglePlayer){
+            if(gm.data.enableAI){
                 if(player.singleTurn != moveTurn)return;
             }
             animator.SetBool("isHovered", true);
@@ -137,7 +137,7 @@ namespace Cox.Infection.Management{
 
         private void OnMouseDown() {
             if(!isPlayable)return;
-            if(player.isSinglePlayer){
+            if(gm.data.enableAI){
                 if(player.singleTurn != moveTurn)return;
             }
             player.selectedPiece = this;
@@ -149,7 +149,7 @@ namespace Cox.Infection.Management{
 
         private void OnMouseUp() {
             if(!isPlayable)return; 
-            if(player.isSinglePlayer){
+            if(gm.data.enableAI){
                 if(player.singleTurn != moveTurn)return;
             }
             lr.enabled = false;
@@ -163,7 +163,7 @@ namespace Cox.Infection.Management{
         }
         private void OnMouseDrag() {
             if(!isPlayable)return;
-            if(player.isSinglePlayer){
+            if(gm.data.enableAI){
                 if(player.singleTurn != moveTurn)return;
             }
             lr.SetPosition(1, GetMousePosition());
