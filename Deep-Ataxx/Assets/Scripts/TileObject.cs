@@ -6,18 +6,15 @@ using UnityEngine;
 namespace Cox.Infection.Management{
     public class TileObject : MonoBehaviour
     {
-        public enum tileState{
-            p1,
-            p2,
-            blocked
-        }
-
         PlayerHelper player;
 
+        public bool isDisabled = false;
         public PieceComponent piece = null;
         public Vector2Int gridPosition;
         public List<TileObject> adjacentTiles;
         public List<TileObject> reachableTiles;
+
+        
         public GameObject blockade;
         public SpriteRenderer sr;
 
@@ -65,5 +62,4 @@ namespace Cox.Infection.Management{
         }
     }
 }
-
 

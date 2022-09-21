@@ -21,11 +21,13 @@ namespace Cox.Infection.Management{
         GameUIManager gameUI;
         PlayerHelper player;
         public TileObject[] allTiles;
+        public Vector2Int[] allTilePositions;
         public bool isGameOver = false;
 
         //Undo
         public List<BoardState> history = new List<BoardState>();
 	    public int undoIndex = 0;
+        int turns = 0;
 
         public void StartGame(){
             var root = FindObjectOfType<UIDocument>().rootVisualElement;
@@ -33,6 +35,11 @@ namespace Cox.Infection.Management{
             allTiles = FindObjectsOfType<TileObject>();
             player = FindObjectOfType<PlayerHelper>();
             opponent = FindObjectOfType<OpponentBehaviour>();
+            allTilePositions = new Vector2Int[allTiles.Length];
+            
+            for(int i = 0; i < allTiles.Length; i++){
+                allTilePositions[i] = allTiles[i].gridPosition;
+            }
 
             if(data.enableAI){
                 player.AssignSingleTurn(data.playerTurn);
@@ -72,11 +79,11 @@ namespace Cox.Infection.Management{
             }
             //Save new board after finding all pieces
             SaveBoardState();
-
+            gameUI.UpdateScore(); //Use piece counts to update scoreboard
             if(p1_Pieces.Count == 0 || p2_Pieces.Count == 0){
                 GameOver("GameOver: Loser has no pieces left.");
             }
-            gameUI.UpdateScore(); //Use piece counts to update scoreboard
+            
             PlayabilityCheck(); //check the playability of each piece
         }
 
@@ -156,9 +163,10 @@ namespace Cox.Infection.Management{
                 
             }
 
-            BoardState newBoard = new BoardState(p1_Pieces, p2_Pieces, blockedSpaces);
+            BoardState newBoard = new BoardState(p1_Pieces, p2_Pieces, blockedSpaces, allTilePositions);
 		    history.Insert(0, newBoard); //Add new board state at 0
 		    undoIndex = 0; //Set index back to 0
+            turns++;
 	    }
 
         public void Undo(){

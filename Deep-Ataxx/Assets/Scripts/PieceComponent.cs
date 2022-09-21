@@ -176,9 +176,10 @@ namespace Cox.Infection.Management{
         }
 
         public void AIMovement(TileObject _endTile){
-            endTile = _endTile;
             Debug.Log("AI: " + this.name + " is attempting to move to " + _endTile);
-            PieceMoved();
+            endTile = _endTile;
+            StartCoroutine(AIPerform());
+            
         }
 
         public void SetPositionByTileObject(TileObject newHomeTile){
@@ -186,6 +187,25 @@ namespace Cox.Infection.Management{
             homeTile.piece = null;
             homeTile = newHomeTile;
             transform.position = homeTile.transform.position;
+        }
+
+        IEnumerator AIPerform(){
+            lr.SetPosition(0, transform.position);
+            lr.enabled = true;
+            animator.SetBool("isSelected", true);
+            homeTile.SelectTile(true);
+            lr.SetPosition(1, transform.position);
+
+            yield return new WaitForSecondsRealtime(.25f);
+
+            lr.SetPosition(1, endTile.gameObject.transform.position);
+
+            yield return new  WaitForSecondsRealtime(.75f);
+
+            lr.enabled = false;
+            animator.SetBool("isSelected", false);
+            homeTile.SelectTile(false);
+            PieceMoved();
         }
         
         #endregion
