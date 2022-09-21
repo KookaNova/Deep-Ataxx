@@ -22,10 +22,10 @@ MonoBehaviour:
   piece: {fileID: 4928824779748932212, guid: 2009623556d0a6949b1b001d59da7041, type: 3}
   p1_Positions:
   - {x: 0, y: 0}
+  - {x: 8, y: 8}
   p2_Positions:
   - {x: 0, y: 8}
   - {x: 8, y: 0}
-  - {x: 8, y: 8}
   block_Positions:
   - {x: 1, y: 2}
   - {x: 1, y: 6}
