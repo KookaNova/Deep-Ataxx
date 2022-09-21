@@ -52,11 +52,13 @@ namespace Cox.Infection.Management{
 
         public void SelectTile(bool isSelected){
             foreach(var tile in reachableTiles){
+                if(tile.isDisabled || tile.piece != null)continue;
                 if(isSelected)tile.sr.color = ColorManager.reachableTile;
                 if(!isSelected)tile.sr.color = ColorManager.tileColor;
             }
             foreach(var tile in adjacentTiles){
-                if(isSelected)tile.sr.color = ColorManager.adjacentTile;
+                if(tile.isDisabled || tile.piece != null)continue;
+                if(isSelected && piece != null)tile.sr.color = ColorManager.adjacentTile;
                 if(!isSelected)tile.sr.color = ColorManager.tileColor;
             }
         }
