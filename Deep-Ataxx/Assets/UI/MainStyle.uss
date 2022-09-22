@@ -18,7 +18,7 @@
 
 .button1 {
     color: rgb(0, 200, 150);
-    background-color: rgb(35, 35, 35);
+    background-color: rgba(17, 31, 55, 0.65);
     -unity-text-align: middle-center;
     border-left-color: rgb(106, 71, 86);
     border-right-color: rgb(106, 71, 86);

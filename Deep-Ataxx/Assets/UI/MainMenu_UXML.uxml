@@ -3,7 +3,7 @@
     <HomeMenuManager style="flex-grow: 1; margin-left: 5%; margin-right: 5%; margin-top: 5%; margin-bottom: 5%;">
         <ui:VisualElement name="m-home" style="flex-grow: 1; justify-content: space-between; display: flex;">
             <ui:VisualElement name="Top" style="flex-grow: 0.5;">
-                <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Textures/Logo.DeepAtaxx.png?fileID=2800000&amp;guid=9d4f88bdff2342a47b410bf48c4a7698&amp;type=3#Logo.DeepAtaxx&apos;); flex-grow: 1; -unity-background-scale-mode: scale-to-fit; height: 100px; margin-top: 35%;" />
+                <ui:VisualElement style="background-image: url(&apos;project://database/Assets/Textures/da-logo.png?fileID=2800000&amp;guid=96fb20f1dee591b47a85266c6b33f68b&amp;type=3#da-logo&apos;); flex-grow: 1; -unity-background-scale-mode: scale-to-fit; height: 100px; margin-top: 35%;" />
             </ui:VisualElement>
             <ui:VisualElement name="Center" style="flex-grow: 1; justify-content: flex-end;">
                 <ui:VisualElement name="Buttons" style="margin-left: 10%; margin-right: 10%; justify-content: flex-end; align-items: stretch; flex-grow: 0.9; flex-shrink: 0;">

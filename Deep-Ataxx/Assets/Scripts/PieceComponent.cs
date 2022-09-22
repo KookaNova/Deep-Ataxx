@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cox.Infection.Utilities;
+using UnityEngine.Rendering.Universal;
 
 namespace Cox.Infection.Management{
     [RequireComponent(typeof(SpriteRenderer))]
@@ -10,6 +11,7 @@ namespace Cox.Infection.Management{
         public bool isPlayable;
         public PieceComponent prefab;
         public TileObject homeTile;
+        public Light2D spotLight;
         public List<TileObject> playableTiles = new List<TileObject>();
         public int moveTurn;
         TileObject endTile;
@@ -34,11 +36,13 @@ namespace Cox.Infection.Management{
             moveTurn = newMoveTurn;
 
             if(moveTurn == 0){
+                spotLight.color = ColorManager.playerOne;
                 sr.color = ColorManager.playerOne; //sets color
                 lr.startColor = ColorManager.playerOne;
                 lr.endColor = ColorManager.playerOne;
             }
             if(moveTurn == 1){
+                spotLight.color = ColorManager.playerTwo;
                 sr.color = ColorManager.playerTwo; //sets color
                 lr.startColor = ColorManager.playerTwo;
                 lr.endColor = ColorManager.playerTwo;
