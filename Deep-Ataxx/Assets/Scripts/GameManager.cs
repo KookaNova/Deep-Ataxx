@@ -81,7 +81,7 @@ namespace Cox.Infection.Management{
             SaveBoardState();
             gameUI.UpdateScore(); //Use piece counts to update scoreboard
             if(p1_Pieces.Count == 0 || p2_Pieces.Count == 0){
-                GameOver("GameOver: Loser has no pieces left.");
+                StartCoroutine(GameOver("GameOver: Loser has no pieces left."));
                 return;
             }
             
@@ -98,7 +98,7 @@ namespace Cox.Infection.Management{
             }
 
             if(emptyTiles == 0){
-                GameOver("GameOver: No empty tiles left");
+                StartCoroutine(GameOver("GameOver: No empty tiles left"));
                 return; //ends game if tiles are empty
             }
             p1_Playable.Clear();
@@ -135,7 +135,7 @@ namespace Cox.Infection.Management{
             if(data.enableAI && opponent.moveTurn == turnNumber)StartCoroutine(BeginAITurn());
         }
 
-        void GameOver(string reason){
+        IEnumerator GameOver(string reason){
             isGameOver = true;
             Debug.Log(reason);
             string winner = null;
@@ -149,6 +149,8 @@ namespace Cox.Infection.Management{
                 tile.isDisabled = true;
                 if(tile.piece)tile.piece.isPlayable = false;
             }
+            gameUI.HideScore();
+            yield return new WaitForSecondsRealtime(1);
             gameUI.GameOver(winner);
             
 

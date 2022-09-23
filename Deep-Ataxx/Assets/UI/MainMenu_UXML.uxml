@@ -7,9 +7,9 @@
             </ui:VisualElement>
             <ui:VisualElement name="Center" style="flex-grow: 1; justify-content: flex-end;">
                 <ui:VisualElement name="Buttons" style="margin-left: 10%; margin-right: 10%; justify-content: flex-end; align-items: stretch; flex-grow: 0.9; flex-shrink: 0;">
-                    <ui:Button text="Story Mode" display-tooltip-when-elided="true" name="b-story" class="button1 menuText" />
-                    <ui:Button text="2-Player" display-tooltip-when-elided="true" name="b-two-player" class="button1 menuText" />
+                    <ui:Button text="Story Mode" display-tooltip-when-elided="true" name="b-story" class="button1 menuText" style="display: none;" />
                     <ui:Button text="Arcade Play" display-tooltip-when-elided="true" name="b-arcade" class="button1 menuText" style="display: flex;" />
+                    <ui:Button text="Two-Player" display-tooltip-when-elided="true" name="b-two-player" class="button1 menuText" />
                     <ui:VisualElement name="SmallerButtons" style="align-items: flex-start; justify-content: space-around; flex-shrink: 1; flex-direction: row; margin-top: -2px;">
                         <ui:Button text="Lore" display-tooltip-when-elided="true" name="b-lore" class="button1 menuText2" style="flex-grow: 0; width: 50%;" />
                         <ui:Button text="Credits" display-tooltip-when-elided="true" name="b-credits" class="button1 menuText2" style="flex-grow: 0; width: 50%;" />

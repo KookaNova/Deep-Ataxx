@@ -21,6 +21,7 @@ namespace Cox.Infection.Management{
         LineRenderer lr;
         PlayerHelper player;
         Animator animator;
+        Vector2 scale;
 
         private void Awake() {
             gm = FindObjectOfType<GameManager>();
@@ -30,6 +31,7 @@ namespace Cox.Infection.Management{
             lr.enabled = false;
             animator = GetComponent<Animator>();
             player = FindObjectOfType<PlayerHelper>();
+            
         }
 
         public void ChangeTeam(int newMoveTurn) {
@@ -200,11 +202,16 @@ namespace Cox.Infection.Management{
             homeTile.SelectTile(true);
             lr.SetPosition(1, transform.position);
 
-            yield return new WaitForSecondsRealtime(.25f);
+            yield return new WaitForSecondsRealtime(.1f);
+            while(lr.GetPosition(1) != endTile.gameObject.transform.position){
+                yield return new WaitForEndOfFrame();
+                Vector2 vel = new Vector2();
+                Vector2 movePos = Vector2.SmoothDamp(lr.GetPosition(1), endTile.gameObject.transform.position, ref vel, 5*Time.deltaTime, 25);
+                //Vector2 movePos = Vector3.Slerp(lr.GetPosition(1), endTile.gameObject.transform.position, 25 * Time.deltaTime);
+                lr.SetPosition(1, movePos);
+            }
 
-            lr.SetPosition(1, endTile.gameObject.transform.position);
-
-            yield return new  WaitForSecondsRealtime(.75f);
+            yield return new  WaitForSecondsRealtime(.5f);
 
             lr.enabled = false;
             animator.SetBool("isSelected", false);

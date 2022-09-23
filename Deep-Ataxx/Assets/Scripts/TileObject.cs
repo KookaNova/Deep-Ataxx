@@ -18,11 +18,21 @@ namespace Cox.Infection.Management{
         public GameObject blockade;
         public SpriteRenderer sr;
 
+        Vector2 scale;
+
         private void Awake() {
+            scale = transform.localScale;
             player = FindObjectOfType<PlayerHelper>();
             sr = GetComponent<SpriteRenderer>();
             sr.color = ColorManager.tileColor;
             blockade.SetActive(false);
+            transform.localScale = new Vector3(1,1,1);
+        }
+        void LateUpdate() {
+            if(transform.localScale.x > scale.x){
+                Vector2 newScale = Vector2.MoveTowards(transform.localScale, scale, 5 * Time.deltaTime);
+                transform.localScale = newScale;
+            }
         }
 
         private void OnMouseEnter() {

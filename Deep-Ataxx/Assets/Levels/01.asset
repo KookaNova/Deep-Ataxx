@@ -25,4 +25,5 @@ MonoBehaviour:
   p2_Positions:
   - {x: 4, y: 4}
   block_Positions:
-  - {x: 2, y: 2}
+  - {x: 1, y: 1}
+  - {x: 3, y: 3}

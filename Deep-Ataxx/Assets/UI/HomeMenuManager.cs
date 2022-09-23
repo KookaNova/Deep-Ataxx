@@ -57,14 +57,12 @@ public class HomeMenuManager : VisualElement
             });
 
         m_character_select?.Q<Button>("b-play").RegisterCallback<ClickEvent>(ev => SceneLoader("Play"));
-
-
-        
-
+ 
         m_twoPlayer?.Q<Button>("b-play").RegisterCallback<ClickEvent>(ev => SceneLoader("Play"));
 
         this?.Q<Button>("b-back").RegisterCallback<ClickEvent>(ev => OpenMenu(back_destination)); //universal back button
     }
+
 
     void CloseAll(){
         m_home.style.display = DisplayStyle.None;

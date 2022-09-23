@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -19,10 +20,11 @@ namespace Cox.Infection.Management{
             gm = FindObjectOfType<GameManager>();
             gm.data = data;
             gm.boardSize = new Vector2Int(data.selectedLevel.rows, data.selectedLevel.columns); //finds the max for these.
-            GenerateBoard();
+            StartCoroutine(GenerateBoard());
         }
 
-        void GenerateBoard(){
+        private IEnumerator GenerateBoard(){
+            PositionCamera();
             offset = new Vector2(level.columns/2, level.rows/2); //offset the board to 0,0 in the scene
             string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //create an alphabet for the notation;
             List<Vector2Int> blocks = new List<Vector2Int>();
@@ -30,6 +32,7 @@ namespace Cox.Infection.Management{
             grid = new TileObject[level.columns,level.rows]; 
             for(int i = 0; i < level.columns; i++){
                 for(int j = 0; j < level.rows; j++){
+                    yield return new WaitForSeconds(.05f);
                     TileObject newTile = Instantiate(level.tile, new Vector3((i - offset.x)* level.padding,(-j + offset.y) * level.padding,0), Quaternion.identity);
                     grid[i,j] = newTile;
                     newTile.gridPosition = new Vector2Int(i,j);
@@ -53,9 +56,7 @@ namespace Cox.Infection.Management{
             foreach(var tile in grid){
                 tile.FindNeighbors();
             }
-            
-            PositionCamera();
-            PlaceStarterPieces();
+            StartCoroutine(PlaceStarterPieces());
         }
 
         void PositionCamera(){
@@ -70,9 +71,10 @@ namespace Cox.Infection.Management{
             Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y + cameraOffset, -10);
         }
 
-        void PlaceStarterPieces(){
+        private IEnumerator PlaceStarterPieces(){
             //Places red starter pieces
             for(int i = 0; i < level.p1_Positions.Length; i++){
+                yield return new WaitForSeconds(.5f);
                 var p = Instantiate(level.piece, grid[level.p1_Positions[i].x, level.p1_Positions[i].y].transform.position, Quaternion.identity);
                 p.ChangeTeam(0);
                 p.homeTile = grid[level.p1_Positions[i].x, level.p1_Positions[i].y];
@@ -81,6 +83,7 @@ namespace Cox.Infection.Management{
             }
             //Places blue starter pieces
             for(int i = 0; i < level.p2_Positions.Length; i++){
+                yield return new WaitForSeconds(.1f);
                 var p = Instantiate(level.piece, grid[level.p2_Positions[i].x, level.p2_Positions[i].y].transform.position, Quaternion.identity);
                 p.ChangeTeam(1);
                 p.homeTile = grid[level.p2_Positions[i].x, level.p2_Positions[i].y];

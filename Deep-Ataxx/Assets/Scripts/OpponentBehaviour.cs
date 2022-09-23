@@ -113,6 +113,7 @@ namespace Cox.Infection.Management{
         public int points = 0;
         public bool isPrimeMove = false;
         public bool isHop = false;
+        public List<AIMove> subMoves = new List<AIMove>();
 
         private Vector2Int[] friends, enemies;
         /// <summary>
@@ -134,7 +135,12 @@ namespace Cox.Infection.Management{
                 foreach(var adjacent in tile.adjacentPositions){
                     foreach(var friendly in friends){
                         if(adjacent == friendly){
-                            points -= 1; //written this way so we can add a defensive multiplier if desired.
+                            foreach(var tile in tile.reachablePositions){
+                                foreach(var enemy in enemies){
+                                    if(tile == enemy)points -= 1; //written this way so we can add a defensive multiplier if desired.
+                                }
+                            }
+                            
                         }
                     }
                 }

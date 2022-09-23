@@ -61,9 +61,20 @@ public class GameUIManager : VisualElement
         this.Q<Label>("RedCounter").text = gm.p1_Pieces.Count.ToString("00");
         this.Q<Label>("GreenCounter").text = gm.p2_Pieces.Count.ToString("00");
     }
+    public void HideScore(){
+        this.Q<Label>("ActivePlayer").style.visibility = Visibility.Hidden;
+        playScreen.Q("RC").style.visibility = Visibility.Hidden;
+        playScreen.Q("GC").style.visibility = Visibility.Hidden;
+    }
+    public void RevealScore(){
+        this.Q<Label>("ActivePlayer").style.visibility = Visibility.Visible;
+        playScreen.Q("RC").style.visibility = Visibility.Visible;
+        playScreen.Q("GC").style.visibility = Visibility.Visible;
+    }
 
     public void GameOver(string winner){
         ActivateScreen(gameOver);
+        RevealScore();
         gameOver.Q<Label>("WinText").text = winner + " WINS.";
         gameOver.Q("Red").style.backgroundColor = new StyleColor(ColorManager.playerOne);
         gameOver.Q("Green").style.backgroundColor = new StyleColor(ColorManager.playerTwo);
