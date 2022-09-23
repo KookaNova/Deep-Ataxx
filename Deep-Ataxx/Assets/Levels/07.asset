@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb140986bffe8640bbd3d0a2f482bc8, type: 3}
   m_Name: 07
   m_EditorClassIdentifier: 
-  levelName: Bigger
+  levelName: Mandril
   padding: 1.27
   columns: 9
   rows: 9
@@ -21,21 +21,19 @@ MonoBehaviour:
   tile: {fileID: 6591126127158432252, guid: 8942f259f5f68324d93062015a43984e, type: 3}
   piece: {fileID: 4928824779748932212, guid: 2009623556d0a6949b1b001d59da7041, type: 3}
   p1_Positions:
-  - {x: 0, y: 0}
-  - {x: 8, y: 8}
+  - {x: 1, y: 0}
   p2_Positions:
-  - {x: 0, y: 8}
-  - {x: 8, y: 0}
+  - {x: 7, y: 0}
   block_Positions:
-  - {x: 1, y: 2}
-  - {x: 1, y: 6}
-  - {x: 2, y: 1}
-  - {x: 2, y: 7}
-  - {x: 3, y: 4}
-  - {x: 4, y: 3}
-  - {x: 4, y: 5}
-  - {x: 5, y: 4}
-  - {x: 6, y: 1}
-  - {x: 6, y: 7}
-  - {x: 7, y: 2}
-  - {x: 7, y: 6}
+  - {x: 0, y: 4}
+  - {x: 1, y: 4}
+  - {x: 3, y: 3}
+  - {x: 3, y: 5}
+  - {x: 4, y: 0}
+  - {x: 4, y: 1}
+  - {x: 4, y: 2}
+  - {x: 4, y: 6}
+  - {x: 5, y: 3}
+  - {x: 5, y: 5}
+  - {x: 7, y: 4}
+  - {x: 8, y: 4}

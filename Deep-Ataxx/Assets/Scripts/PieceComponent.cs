@@ -201,17 +201,14 @@ namespace Cox.Infection.Management{
             animator.SetBool("isSelected", true);
             homeTile.SelectTile(true);
             lr.SetPosition(1, transform.position);
-
-            yield return new WaitForSecondsRealtime(.1f);
+            yield return new WaitForSecondsRealtime(.15f);
             while(lr.GetPosition(1) != endTile.gameObject.transform.position){
-                yield return new WaitForEndOfFrame();
-                Vector2 vel = new Vector2();
-                Vector2 movePos = Vector2.SmoothDamp(lr.GetPosition(1), endTile.gameObject.transform.position, ref vel, 5*Time.deltaTime, 25);
-                //Vector2 movePos = Vector3.Slerp(lr.GetPosition(1), endTile.gameObject.transform.position, 25 * Time.deltaTime);
+                yield return new WaitForFixedUpdate();
+                Vector2 movePos = Vector2.Lerp(lr.GetPosition(1), endTile.gameObject.transform.position, .4f);
                 lr.SetPosition(1, movePos);
             }
 
-            yield return new  WaitForSecondsRealtime(.5f);
+            yield return new  WaitForSecondsRealtime(.25f);
 
             lr.enabled = false;
             animator.SetBool("isSelected", false);
