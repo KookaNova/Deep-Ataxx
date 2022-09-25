@@ -1,7 +1,26 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/MainStyle.uss?fileID=7433441132597879392&amp;guid=8608c9f4c9ce0fc4b8306d735e94bea8&amp;type=3#MainStyle" />
-    <GameUIManager style="flex-grow: 1;">
-        <ui:VisualElement name="GameOver" style="flex-grow: 1; visibility: visible; display: none; overflow: hidden; flex-shrink: 1; background-color: rgba(0, 0, 0, 0.58); justify-content: center;">
+    <GameUIManager style="flex-grow: 1; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;">
+        <ui:VisualElement name="PlayScreen" style="flex-grow: 1; justify-content: space-between; margin-left: 3%; margin-right: 3%; margin-top: 3%; margin-bottom: 3%; overflow: hidden; display: flex;">
+            <ui:VisualElement name="Top" style="flex-grow: 1; align-items: flex-start; flex-direction: row; justify-content: center;">
+                <ui:VisualElement name="Scores" style="flex-direction: row; flex-grow: 1; height: 33%; align-items: flex-start; justify-content: space-around;">
+                    <ui:VisualElement name="RC" class="score-box" style="flex-direction: row; background-color: rgb(118, 0, 0); flex-grow: 0; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; margin-left: 4px; margin-right: 4px; margin-top: 4px; margin-bottom: 4px; border-right-width: 25px; width: 25%;">
+                        <ui:Label text="00" display-tooltip-when-elided="true" name="RedCounter" class="scoreText" style="font-size: 24%; -unity-font-style: bold;" />
+                    </ui:VisualElement>
+                    <ui:Label text="Gray&apos;s Turn" display-tooltip-when-elided="true" name="ActivePlayer" class="scoreText" style="-unity-text-align: upper-center; font-size: 16%; -unity-font-style: bold; -unity-font: none; width: 45%; white-space: nowrap;" />
+                    <ui:VisualElement name="GC" class="score-box" style="justify-content: space-around; align-items: center; background-color: rgb(0, 10, 113); flex-grow: 0; flex-direction: row; flex-shrink: 1; margin-left: 4px; margin-right: 4px; margin-top: 4px; margin-bottom: 4px; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; border-left-width: 25px; width: 25%;">
+                        <ui:Label text="00" display-tooltip-when-elided="true" name="GreenCounter" class="scoreText" style="font-size: 24%; -unity-font-style: bold;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Center" style="flex-grow: 3;" />
+            <ui:VisualElement name="Bottom" style="flex-grow: 1; align-items: flex-end; justify-content: space-between; flex-direction: row;">
+                <ui:Button text="Quit" display-tooltip-when-elided="true" name="Quit" class="button1 menuText" style="flex-grow: 0.1; width: 25%;" />
+                <ui:Button text="UNDO" display-tooltip-when-elided="true" name="Undo" class="button1" style="flex-grow: 0; width: 18%; background-color: rgb(35, 57, 79); font-size: 16px; color: rgb(129, 122, 195); padding-left: 2px; padding-right: 2px; padding-top: 2px; padding-bottom: 2px; -unity-background-image-tint-color: rgba(0, 0, 0, 0);" />
+                <ui:Button text="Reset" display-tooltip-when-elided="true" name="Reset" class="button1 menuText" style="flex-grow: 0.1; width: 25%;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="GameOver" style="flex-grow: 1; visibility: visible; display: none; overflow: hidden; flex-shrink: 1; background-color: rgba(0, 0, 0, 0.58); justify-content: flex-start; margin-top: 25%;">
             <ui:VisualElement name="WinContainer" class="panel" style="justify-content: flex-start; align-items: center; flex-direction: column;">
                 <ui:VisualElement name="Scores" style="flex-direction: row; justify-content: center; width: 50%; height: 33%;">
                     <ui:VisualElement name="Red" style="background-color: rgb(197, 0, 0); border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
@@ -17,25 +36,6 @@
                     <ui:Button text="View Board" display-tooltip-when-elided="true" name="ViewBoard" class="button1" style="flex-grow: 1; padding-left: 18px; padding-right: 14px;" />
                     <ui:Button text="Quit" display-tooltip-when-elided="true" name="Quit" class="button1" style="flex-grow: 1; padding-left: 18px; padding-right: 14px;" />
                 </ui:VisualElement>
-            </ui:VisualElement>
-        </ui:VisualElement>
-        <ui:VisualElement name="PlayScreen" style="flex-grow: 1; justify-content: space-between; margin-left: 1%; margin-right: 1%; margin-top: 5%; margin-bottom: 1%; overflow: hidden; display: flex;">
-            <ui:Label text="Gray&apos;s Turn" display-tooltip-when-elided="true" name="ActivePlayer" class="scoreText" style="-unity-text-align: upper-center; font-size: 24%;" />
-            <ui:VisualElement name="Top" style="flex-grow: 1; align-items: flex-start; flex-direction: row; justify-content: center;">
-                <ui:VisualElement name="Scores" style="flex-direction: row; flex-grow: 1; height: 33%; align-items: auto; justify-content: center;">
-                    <ui:VisualElement name="RC" style="justify-content: space-around; align-items: center; flex-direction: row; background-color: rgb(118, 0, 0); flex-grow: 0; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; margin-left: 4px; margin-right: 4px; margin-top: 4px; margin-bottom: 4px;">
-                        <ui:Label text="00" display-tooltip-when-elided="true" name="RedCounter" class="scoreText" style="font-size: 36%;" />
-                    </ui:VisualElement>
-                    <ui:VisualElement name="GC" style="justify-content: space-around; align-items: center; background-color: rgb(0, 10, 113); flex-grow: 0; flex-direction: row; flex-shrink: 1; margin-left: 4px; margin-right: 4px; margin-top: 4px; margin-bottom: 4px; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
-                        <ui:Label text="00" display-tooltip-when-elided="true" name="GreenCounter" class="scoreText" style="font-size: 36%;" />
-                    </ui:VisualElement>
-                </ui:VisualElement>
-            </ui:VisualElement>
-            <ui:VisualElement name="Center" style="flex-grow: 3;" />
-            <ui:VisualElement name="Bottom" style="flex-grow: 1; align-items: flex-end; justify-content: space-between; flex-direction: row;">
-                <ui:Button text="Quit" display-tooltip-when-elided="true" name="Quit" class="button1 menuText" style="flex-grow: 0.1; width: 25%;" />
-                <ui:Button text="UNDO" display-tooltip-when-elided="true" name="Undo" class="button1" style="flex-grow: 0; width: 18%; background-color: rgb(178, 173, 90); font-size: 16px; color: rgb(99, 0, 43); padding-left: 2px; padding-right: 2px; padding-top: 2px; padding-bottom: 2px;" />
-                <ui:Button text="Reset" display-tooltip-when-elided="true" name="Reset" class="button1 menuText" style="flex-grow: 0.1; width: 25%;" />
             </ui:VisualElement>
         </ui:VisualElement>
     </GameUIManager>

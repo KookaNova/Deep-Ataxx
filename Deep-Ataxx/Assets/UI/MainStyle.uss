@@ -92,3 +92,20 @@
     flex-grow: 1;
     height: 100%;
 }
+
+.score-box {
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-left-color: rgba(46, 59, 84, 255);
+    border-right-color: rgba(46, 59, 84, 255);
+    border-top-color: rgba(46, 59, 84, 255);
+    border-bottom-color: rgba(46, 59, 84, 255);
+    align-items: center;
+    justify-content: space-around;
+}
