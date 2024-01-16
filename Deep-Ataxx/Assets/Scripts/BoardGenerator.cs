@@ -25,17 +25,19 @@ namespace Cox.Infection.Management{
 
         private IEnumerator GenerateBoard(){
             PositionCamera();
-            offset = new Vector2(level.columns/2, level.rows/2); //offset the board to 0,0 in the scene
+            offset = new Vector2(level.rows/2, level.columns/2); //offset the board to 0,0 in the scene
+
             string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //create an alphabet for the notation;
             List<Vector2Int> blocks = new List<Vector2Int>();
             //generate the board
-            grid = new TileObject[level.columns,level.rows]; 
-            for(int i = 0; i < level.columns; i++){
-                for(int j = 0; j < level.rows; j++){
+            grid = new TileObject[level.rows,level.columns]; 
+
+            for(int x = 0; x < level.rows; x++){
+                for(int y = 0; y < level.columns; y++){
                     yield return new WaitForSeconds(.05f);
-                    TileObject newTile = Instantiate(level.tile, new Vector3((i - offset.x)* level.padding,(-j + offset.y) * level.padding,0), Quaternion.identity);
-                    grid[i,j] = newTile;
-                    newTile.gridPosition = new Vector2Int(i,j);
+                    TileObject newTile = Instantiate(level.tile, new Vector3((x - offset.x)* level.padding,(-y + offset.y) * level.padding,0), Quaternion.identity);
+                    grid[x,y] = newTile;
+                    newTile.gridPosition = new Vector2Int(x,y);
                     //find blocked tiles and block them.
                     if(level.block_Positions != null){
                         foreach (var blockedPosition in level.block_Positions){
@@ -47,8 +49,8 @@ namespace Cox.Infection.Management{
                     }
                     newTile.transform.SetParent(transform);
                     //Assigns a name with our battleship-like notation
-                    char letter = alphabet[i];
-                    newTile.name = letter.ToString() + j;
+                    char letter = alphabet[x];
+                    newTile.name = letter.ToString() + y;
                 }
             }
             gm.blockedSpaces = blocks.ToArray();
