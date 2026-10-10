@@ -12,7 +12,7 @@ public class Level_Inspector : Editor
     public override VisualElement CreateInspectorGUI(){
 	    VisualElement customInspector = new VisualElement(); //Create new Visual Element as root
 	    m_InspectorAsset.CloneTree(customInspector); //Load and clone from public asset;
-        customInspector.Q<GridVector2Control>().so = serializedObject;
+        customInspector.Q<GridVector2Control>().serializedObject = serializedObject;
 
         VisualElement inspectorFoldout = customInspector.Q("Default_Inspector"); //Gets reference to default inspector
         InspectorElement.FillDefaultInspector(inspectorFoldout, serializedObject, this); //Fills defaults*/

@@ -4,16 +4,14 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Cox.Infection.Management;
 
-public class CharacterControl : VisualElement
+[UxmlElement]
+public partial class CharacterControl : VisualElement
 {
     VisualElement pictureContainer;
     VisualElement descriptionBox;
-
     CharacterObject thisCharacter;
 
     int columns = 7, rows = 7; //These are only for testing purposes
-    public new class UxmlFactory : UxmlFactory<CharacterControl> { }
-
     /// <summary>
     /// This variant of the grid is meant to be used specifically
     /// in the UI Builder to offer an easy visual display for the code.
@@ -44,7 +42,7 @@ public class CharacterControl : VisualElement
         pic.style.backgroundImage = character.art;
         pic.style.flexGrow = 1;
         pic.style.height = new StyleLength(Length.Percent(100));
-        pic.style.unityBackgroundScaleMode = ScaleMode.ScaleToFit;
+        // use USS or background-size properties (set in UXML/USS) to control image scaling
         Label charName = new Label(character.name);
         charName.AddToClassList("menuText");
         Label difficulty = new Label(character.thinkDepth.ToString());

@@ -30,11 +30,11 @@ namespace Cox.Infection.Management{
         int turns = 0;
 
         public void StartGame(){
-            var root = FindObjectOfType<UIDocument>().rootVisualElement;
+            var root = FindAnyObjectByType<UIDocument>()?.rootVisualElement;
             gameUI = root.Q<GameUIManager>();
-            allTiles = FindObjectsOfType<TileObject>();
-            player = FindObjectOfType<PlayerHelper>();
-            opponent = FindObjectOfType<OpponentBehaviour>();
+            allTiles = FindObjectsByType<TileObject>();
+            player = FindAnyObjectByType<PlayerHelper>();
+            opponent = FindAnyObjectByType<OpponentBehaviour>();
             allTilePositions = new Vector2Int[allTiles.Length];
             
             for(int i = 0; i < allTiles.Length; i++){
@@ -44,7 +44,6 @@ namespace Cox.Infection.Management{
             if(data.enableAI){
                 player.AssignSingleTurn(data.playerTurn);
             }
-            SaveBoardState();
             CheckTeams();
         }
 
@@ -68,7 +67,7 @@ namespace Cox.Infection.Management{
         public void CheckTeams(){
             gameUI.ChangeTurn();
             //recreate lists (this is simply the easiest way to recount everything).
-            var allPieces = FindObjectsOfType<PieceComponent>();
+            var allPieces = FindObjectsByType<PieceComponent>();
             for(int i = 0; i < allPieces.Length; i++){
                 if(allPieces[i].moveTurn == 0){
                     p1_Pieces.Add(allPieces[i]);
@@ -78,7 +77,7 @@ namespace Cox.Infection.Management{
                 }
             }
             //Save new board after finding all pieces
-            SaveBoardState();
+            //SaveBoardState();
             gameUI.UpdateScore(); //Use piece counts to update scoreboard
             if(p1_Pieces.Count == 0 || p2_Pieces.Count == 0){
                 StartCoroutine(GameOver("GameOver: Loser has no pieces left."));
@@ -131,119 +130,25 @@ namespace Cox.Infection.Management{
                     PlayabilityCheck();
                 break;
             }
-
-            if(data.enableAI && opponent.moveTurn == turnNumber)StartCoroutine(BeginAITurn());
         }
 
-        IEnumerator GameOver(string reason){
+        IEnumerator GameOver(string reason) {
             isGameOver = true;
             Debug.Log(reason);
             string winner = null;
-            if(p1_Pieces.Count > p2_Pieces.Count){
+            if (p1_Pieces.Count > p2_Pieces.Count) {
                 winner = "RED";
             }
-            else{
+            else {
                 winner = "GREEN";
             }
-            foreach(var tile in allTiles){
+            foreach (var tile in allTiles) {
                 tile.isDisabled = true;
-                if(tile.piece)tile.piece.isPlayable = false;
+                if (tile.piece) tile.piece.isPlayable = false;
             }
             gameUI.HideScore();
             yield return new WaitForSecondsRealtime(1);
             gameUI.GameOver(winner);
-            
-
-        }
-
-        #region Board States and Undo
-        public void SaveBoardState(){
-		    //Clear redo possibilities
-		    if(undoIndex > 0){
-                int start = undoIndex;
-                history.Insert(0,history[start]);
-                history.RemoveAt(start+1);
-                while(undoIndex > 0){
-                    history.RemoveAt(undoIndex);
-                    undoIndex--;
-                }
-                
-            }
-
-            BoardState newBoard = new BoardState(p1_Pieces, p2_Pieces, blockedSpaces, allTilePositions);
-		    history.Insert(0, newBoard); //Add new board state at 0
-		    undoIndex = 0; //Set index back to 0
-            turns++;
-	    }
-
-        public void Undo(){
-            if(history.Count == 0)return;
-            undoIndex++;
-            if(undoIndex >= history.Count){
-                undoIndex--;
-                return;
-            }
-            foreach(var piece in p1_Pieces){
-                Destroy(piece.gameObject);
-            }
-            foreach(var piece in p2_Pieces){
-                Destroy(piece.gameObject);
-            }
-            p1_Pieces.Clear();
-            p1_Pieces.TrimExcess();
-            p2_Pieces.Clear();
-            p2_Pieces.TrimExcess();
-            foreach(var tile in allTiles){
-                tile.piece = null;
-            }
-
-		    for(int i = 0; i < history[undoIndex].p1_Positions.Length; i++){
-                TileObject tile = FindTileByName(history[undoIndex].p1_TileNames[i]);
-                var p = Instantiate(data.selectedLevel.piece, tile.transform.position, Quaternion.identity);
-                p.ChangeTeam(0);
-                p1_Pieces.Add(p);
-                p.homeTile = tile;
-                p.name = tile.name + ".piece";
-                p.homeTile.piece = p;
-            }
-            for(int i = 0; i < history[undoIndex].p2_Positions.Length; i++){
-                TileObject tile = FindTileByName(history[undoIndex].p2_TileNames[i]);
-                var p = Instantiate(data.selectedLevel.piece, tile.transform.position, Quaternion.identity);
-                p.ChangeTeam(1);
-                p2_Pieces.Add(p);
-                p.homeTile = tile;
-                p.name = tile.name + ".piece";
-                p.homeTile.piece = p;
-            }
-            if(turnNumber == 0){
-                turnNumber = 1;
-            }
-            else{
-                turnNumber = 0;
-            }
-            isGameOver = false;
-            PlayabilityCheck();
-        }
-        /// <summary>
-        /// Finds the first tile with the given string name.
-        /// </summary>
-        public TileObject FindTileByName(string tileName){
-            TileObject foundTile = null;
-            foreach(var tile in allTiles){
-                if(tile.name == tileName){
-                    foundTile = tile;
-                    break;
-                }
-            }
-            return foundTile;
-
-        }
-
-        #endregion
-
-        public IEnumerator BeginAITurn(){
-            yield return new WaitForSeconds(1);
-            opponent.PlanBoard(history[undoIndex]);
         }
     }
 }

@@ -1,15 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Cox.Infection.Utilities;
 
 public class GridTileControl : VisualElement
 {
-    public Vector2Int gridPlace;
+    public Vector2Int locationOnGrid;
     public int gridState = 0; //0 clear, 1 red, 2 green, 3 blocked;
-
-    public new class UxmlFactory : UxmlFactory<GridTileControl> { }
 
     public GridTileControl(){
         style.backgroundColor = new StyleColor(Color.black);
@@ -19,8 +15,6 @@ public class GridTileControl : VisualElement
         style.marginLeft = new StyleLength(1);
         style.marginRight = new StyleLength(1);
         style.marginTop = new StyleLength(1);
-
-
     }
 
     public void IncrementState(){

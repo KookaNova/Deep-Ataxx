@@ -1,12 +1,11 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 #if UNITY_EDITOR
-public class GridVector2Control : VisualElement
+[UxmlElement]
+public partial class GridVector2Control : VisualElement
 {
     GridTileControl[,] grid = new GridTileControl[0,0];
     VisualElement[] containers = new VisualElement[0];
@@ -17,11 +16,16 @@ public class GridVector2Control : VisualElement
     VisualElement gridContainer;
     Label levelName;
 
-    public SerializedObject so;
+    public SerializedObject serializedObject;
     List<GridTileControl> red, green, block;
 
-    public new class UxmlFactory : UxmlFactory<GridVector2Control, UxmlTraits> { }
-
+    /// <summary>
+    /// Constructor that builds the runtime UI for the grid editor control.
+    /// It creates the visual container and label, adds a Reset button,
+    /// registers geometry/layout callbacks, and schedules an initial lookup
+    /// for the Columns and Rows slider controls so the grid can be generated
+    /// to match the serialized Level data (via the SerializedObject `so`).
+    /// </summary>
     public GridVector2Control(){
         gridContainer = new VisualElement();
         gridContainer.style.flexDirection = FlexDirection.Row;
@@ -35,8 +39,7 @@ public class GridVector2Control : VisualElement
 
         Add(gridContainer);
 
-
-        reset = new Button(() => ResetTiles());
+        reset = new Button(() => ResetTiles()); //creates a reset button and assigns the ResetTiles method to its click event
         reset.text = "Reset";
         Add(reset);
         
@@ -59,7 +62,7 @@ public class GridVector2Control : VisualElement
         columns = parent?.Q<SliderInt>("Columns");
         rows = parent?.Q<SliderInt>("Rows");
 
-        if(columns != null && rows != null && so != null){
+        if(columns != null && rows != null && serializedObject != null){
            GenerateGrid(columns.value, rows.value);
         } 
     }
@@ -83,7 +86,7 @@ public class GridVector2Control : VisualElement
             tile.UnregisterCallback<ContextClickEvent>(ev => GridRightClicked(tile));
             tile.RemoveFromHierarchy();
         }
-        //generate  grid
+        //generate grid
         containers = new VisualElement[_columns];
         grid = new GridTileControl[_columns,_rows];
         for(int i = 0; i < _columns; i++){
@@ -95,7 +98,7 @@ public class GridVector2Control : VisualElement
                 var tile = new GridTileControl();
                 this.Add(tile);
                 column.Add(tile);
-                tile.gridPlace = new Vector2Int(i,j);
+                tile.locationOnGrid = new Vector2Int(i,j);
                 grid[i,j] = tile;
                 tile.RegisterCallback<ClickEvent>(ev => GridLeftClicked(tile));
                 tile.RegisterCallback<ContextClickEvent>(ev => GridRightClicked(tile));
@@ -105,28 +108,13 @@ public class GridVector2Control : VisualElement
     }
 
     void SetTileStates(){
-        var p1_Positions = so.FindProperty("p1_Positions");
-        var p2_Positions = so.FindProperty("p2_Positions");
-        var block_Positions = so.FindProperty("block_Positions");
+        SerializedProperty piecePositions = serializedObject.FindProperty("piecePositions");
 
-        for(int i = 0; i < p1_Positions?.arraySize; i++){
+        for(int i = 0; i < piecePositions?.arraySize; i++){
             foreach(var tile in grid){
-                if(p1_Positions.GetArrayElementAtIndex(i).vector2IntValue == tile.gridPlace){
-                    tile.SetState(1);
-                }
-            }
-        }
-        for(int i = 0; i < p2_Positions?.arraySize; i++){
-            foreach(var tile in grid){
-                if(p2_Positions.GetArrayElementAtIndex(i).vector2IntValue == tile.gridPlace){
-                    tile.SetState(2);
-                }
-            }
-        }
-        for(int i = 0; i < block_Positions?.arraySize; i++){
-            foreach(var tile in grid){
-                if(block_Positions.GetArrayElementAtIndex(i).vector2IntValue == tile.gridPlace){
-                    tile.SetState(3);
+                Vector3Int piecePlace = piecePositions.GetArrayElementAtIndex(i).vector3IntValue;
+                if ( new Vector2Int(piecePlace.x, piecePlace.y) == tile.locationOnGrid){
+                    tile.SetState(piecePlace.z);
                 }
             }
         }
@@ -146,33 +134,42 @@ public class GridVector2Control : VisualElement
         red = new List<GridTileControl>();
         green = new List<GridTileControl>();
         block = new List<GridTileControl>();
-        foreach(var item in grid){
-            if(item.gridState == 0)continue;
-            if(item.gridState == 1)red.Add(item);
-            if(item.gridState == 2)green.Add(item);
-            if(item.gridState == 3)block.Add(item);
+        foreach(var cell in grid){
+            if(cell.gridState == 0)continue;
+            if(cell.gridState == 1)red.Add(cell);
+            if(cell.gridState == 2)green.Add(cell);
+            if(cell.gridState == 3)block.Add(cell);
         }
         ApplyGridChanges();
     }
 
     void ApplyGridChanges(){
-        var p1_Positions = so.FindProperty("p1_Positions");
-        p1_Positions.arraySize = red.Count;
-        for(int i = 0; i < p1_Positions.arraySize; i++){
-            p1_Positions.GetArrayElementAtIndex(i).vector2IntValue = red[i].gridPlace;
+        SerializedProperty piecePositions = serializedObject.FindProperty("piecePositions");
+
+        int total = red.Count + green.Count + block.Count;
+        piecePositions.arraySize = total;
+
+        int i = 0;
+        if (red != null) {
+            foreach (var t in red) {
+                piecePositions.GetArrayElementAtIndex(i).vector3IntValue = new Vector3Int(t.locationOnGrid.x, t.locationOnGrid.y, 1);
+                i++;
+            }
         }
-        var p2_Positions = so.FindProperty("p2_Positions");
-        p2_Positions.arraySize = green.Count;
-        for(int i = 0; i < p2_Positions.arraySize; i++){
-            p2_Positions.GetArrayElementAtIndex(i).vector2IntValue = green[i].gridPlace;
+        if (green != null) {
+            foreach (var t in green) {
+                piecePositions.GetArrayElementAtIndex(i).vector3IntValue = new Vector3Int(t.locationOnGrid.x, t.locationOnGrid.y, 2);
+                i++;
+            }
         }
-        var block_Positions = so.FindProperty("block_Positions");
-        block_Positions.arraySize = block.Count;
-        for(int i = 0; i < block_Positions.arraySize; i++){
-            block_Positions.GetArrayElementAtIndex(i).vector2IntValue = block[i].gridPlace;
+        if (block != null) {
+            foreach (var t in block) {
+                piecePositions.GetArrayElementAtIndex(i).vector3IntValue = new Vector3Int(t.locationOnGrid.x, t.locationOnGrid.y, 3);
+                i++;
+            }
         }
 
-        so.ApplyModifiedProperties();
+        serializedObject.ApplyModifiedProperties();
     }
 }
 #endif

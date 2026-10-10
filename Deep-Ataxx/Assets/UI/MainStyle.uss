@@ -25,11 +25,11 @@
     border-top-color: rgb(106, 71, 86);
     border-bottom-color: rgb(106, 71, 86);
     -unity-background-image-tint-color: rgb(0, 200, 150);
+    flex-grow: 1;
 }
 
 .menuText {
-    font-size: 24px;
-    -unity-font: url('project://database/Library/unity%20default%20resources?fileID=10102&guid=0000000000000000e000000000000000&type=0#Arial');
+    -unity-font: url("project://database/Library/unity%20default%20resources?fileID=10102&guid=0000000000000000e000000000000000&type=0#LegacyRuntime");
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.81);
     margin-left: 0;
     margin-right: 0;
@@ -39,11 +39,14 @@
     padding-right: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
+    font-size: 24px;
+    white-space: normal;
+    -unity-text-align: middle-center;
 }
 
 .menuText2 {
     font-size: 16px;
-    -unity-font: url('project://database/Library/unity%20default%20resources?fileID=10102&guid=0000000000000000e000000000000000&type=0#Arial');
+    -unity-font: url("project://database/Library/unity%20default%20resources?fileID=10102&guid=0000000000000000e000000000000000&type=0#LegacyRuntime");
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.81);
     padding-left: 3px;
     padding-right: 3px;

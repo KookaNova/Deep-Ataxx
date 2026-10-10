@@ -13,7 +13,7 @@ public class GridGenControl : VisualElement
 
     #region UI Builder Test Control Only
     int columns = 7, rows = 7; //These are only for testing purposes
-    public new class UxmlFactory : UxmlFactory<GridGenControl> { }
+    // UxmlFactory removed for compatibility with current UIElements API
 
     /// <summary>
     /// This variant of the grid is meant to be used specifically
@@ -31,7 +31,7 @@ public class GridGenControl : VisualElement
                 var tile = new GridTileControl();
                 columnContainer.Add(tile);
                 grid[i,j] = tile;
-                tile.gridPlace = new Vector2Int(i,j);
+                tile.locationOnGrid = new Vector2Int(i,j);
             }
         }
         //Add additional elements
@@ -61,24 +61,20 @@ public class GridGenControl : VisualElement
         SetupStyle();
         //Generate grid
         grid = new GridTileControl[level.columns, level.rows];
-        for(int i = 0; i < level.columns; i++){
-            var columnContainer = new VisualElement();
-            gridContainer.Add(columnContainer);
-            columnContainer.style.flexDirection = FlexDirection.Column;
-            for(int j = 0; j < level.rows; j++){
+        for(int y = level.rows; y > level.rows; y--){
+            var rowContainer = new VisualElement();
+            gridContainer.Add(rowContainer);
+            rowContainer.style.flexDirection = FlexDirection.Row;
+            for(int x = 0; x < level.columns; x++){
                 var tile = new GridTileControl();
-                columnContainer.Add(tile);
-                grid[i,j] = tile;
-                tile.gridPlace = new Vector2Int(i,j);
+                rowContainer.Add(tile);
+                tile = grid[x,y];
+                tile.locationOnGrid = new Vector2Int(x,y);
 
-                foreach(var position in level.p1_Positions){
-                    if(tile.gridPlace == position)tile.SetState(1);
-                }
-                foreach(var position in level.p2_Positions){
-                    if(tile.gridPlace == position)tile.SetState(2);
-                }
-                foreach(var position in level.block_Positions){
-                    if(tile.gridPlace == position)tile.SetState(3);
+                foreach(var position in level.piecePositions){
+                    if(tile.locationOnGrid == new Vector2(position.x, position.y)) {
+                        tile.SetState(position.z);
+                    }
                 }
             }
         }

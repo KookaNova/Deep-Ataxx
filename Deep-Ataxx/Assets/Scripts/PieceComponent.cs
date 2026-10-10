@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cox.Infection.Utilities;
-using UnityEngine.Rendering.Universal;
 
 namespace Cox.Infection.Management{
     [RequireComponent(typeof(SpriteRenderer))]
     public class PieceComponent : MonoBehaviour
     {
         public bool isPlayable;
-        public PieceComponent prefab;
+        [SerializeField] PieceComponent prefab;
         public TileObject homeTile;
-        public Light2D spotLight;
-        public List<TileObject> playableTiles = new List<TileObject>();
+        [SerializeField] UnityEngine.Rendering.Universal.Light2D spotLight;
+        List<TileObject> playableTiles = new List<TileObject>();
         public int moveTurn;
         TileObject endTile;
 
@@ -24,13 +23,13 @@ namespace Cox.Infection.Management{
         Vector2 scale;
 
         private void Awake() {
-            gm = FindObjectOfType<GameManager>();
+            gm = FindAnyObjectByType<GameManager>();
             sr = GetComponent<SpriteRenderer>();
             lr = GetComponentInChildren<LineRenderer>();
             lr.SetPosition(0, transform.position);
             lr.enabled = false;
             animator = GetComponent<Animator>();
-            player = FindObjectOfType<PlayerHelper>();
+            player = FindAnyObjectByType<PlayerHelper>();
             
         }
 

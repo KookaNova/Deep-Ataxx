@@ -7,9 +7,10 @@ using UnityEngine.UIElements;
 public class ListMenuData : MonoBehaviour
 {
     [SerializeField] PlayerPersistentChoice data;
-    public Level[] arcadeLevels; //used for arcade mode
-    public CharacterObject[] characterList;
-    public LevelPlaylist[] zones;
+    // These are set in the inspector and used only by this component to populate PlayerPersistentChoice.
+    [SerializeField] Level[] arcadeLevels; // used for arcade mode
+    [SerializeField] CharacterObject[] characterList;
+    [SerializeField] LevelPlaylist[] zones;
 
     VisualElement root;
 
@@ -25,12 +26,13 @@ public class ListMenuData : MonoBehaviour
         data.levelList = arcadeLevels;
         data.characterList = characterList;
 
-        root = FindObjectOfType<UIDocument>().rootVisualElement;
+        root = FindAnyObjectByType<UIDocument>().rootVisualElement;
         root.Q<HomeMenuManager>().data = data;
 
         twoPlayerMenu = root?.Q("m-two-player");
         twoPlayerList = twoPlayerMenu.Q<ScrollView>("list-levels");
         root?.Q<Button>("b-options").RegisterCallback<ClickEvent>(ev => data.enableAI = !data.enableAI);
+        twoPlayerList.Focus();
 
         CreateLevelList();
 

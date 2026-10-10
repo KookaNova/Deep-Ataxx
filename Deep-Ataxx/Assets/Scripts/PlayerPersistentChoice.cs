@@ -31,6 +31,4 @@ namespace Cox.Infection.Management{
             opponent = characterList[randInt];
         }
     }
-
 }
-

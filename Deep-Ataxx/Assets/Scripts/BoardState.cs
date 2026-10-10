@@ -8,6 +8,11 @@ using Cox.Infection.Management;
 /// </summary>
 public class BoardState
 {
+
+}
+
+
+/*{
 	public Vector2Int[] p1_Positions {get;}
 	public Vector2Int[] p2_Positions {get;}
 	public Vector2Int[] invalidTiles {get;}
@@ -61,7 +66,7 @@ public class BoardState
 	}
 
 	void AssignNames(){
-		string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //create an alphabet for the notation;
+		string alphabet = "abcdefghijklmnopqrstuvwxyz"; //create an alphabet for the notation;
 		p1_TileNames = new string[p1_Positions.Length];
 		p2_TileNames = new string[p2_Positions.Length];
 
@@ -72,7 +77,7 @@ public class BoardState
 			p2_TileNames[i] = alphabet[p2_Positions[i].x] + p2_Positions[i].y.ToString();
 		}
 	}
-}
+}*/
 
 public class Tile{
         public string name; //could be useful for prime moves and finding tile objects
@@ -111,4 +116,4 @@ public class Tile{
 
             
         }
-    }
+}

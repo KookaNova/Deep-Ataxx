@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32732a1c3275ccd469e62255387676fd, type: 3}
   m_Name: Player Persistant Data
   m_EditorClassIdentifier: 
-  selectedMode: 2
-  selectedLevel: {fileID: 11400000, guid: e6de4299d85f70643b85f56ea011f7a6, type: 2}
-  opponent: {fileID: 11400000, guid: 80692569e835c804c880e8bac07572db, type: 2}
-  enableAI: 1
+  selectedMode: 1
+  selectedLevel: {fileID: 11400000, guid: 4039811b11fadb3428a1b6bc8e278a18, type: 2}
+  opponent: {fileID: 11400000, guid: e194143ebf0424d48811075340b8a9f8, type: 2}
+  enableAI: 0
   invertFirstTurn: 0
   playerTurn: 1
   levelList:
@@ -26,8 +26,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4039811b11fadb3428a1b6bc8e278a18, type: 2}
   - {fileID: 11400000, guid: e1159e6c8b5ab7a49be1632a9ec92699, type: 2}
   - {fileID: 11400000, guid: 895f6d77ff60f694592c95bc58b2a5a4, type: 2}
-  - {fileID: 11400000, guid: 2be7df5058414444ba93bce917bb4c26, type: 2}
   - {fileID: 11400000, guid: d7fd11e68fee5a24f91bf74c8c78734d, type: 2}
+  - {fileID: 11400000, guid: aacf20ae4c9d7a748ac4632c051d6d50, type: 2}
   characterList:
   - {fileID: 11400000, guid: e194143ebf0424d48811075340b8a9f8, type: 2}
   - {fileID: 11400000, guid: 80692569e835c804c880e8bac07572db, type: 2}

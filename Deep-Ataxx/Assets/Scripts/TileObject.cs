@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using Cox.Infection.Utilities;
 using UnityEngine;
@@ -14,15 +13,14 @@ namespace Cox.Infection.Management{
         public List<TileObject> adjacentTiles;
         public List<TileObject> reachableTiles;
 
-        
-        public GameObject blockade;
-        public SpriteRenderer sr;
+        [SerializeField] GameObject blockade;
+        SpriteRenderer sr;
 
         Vector2 scale;
 
         private void Awake() {
             scale = transform.localScale;
-            player = FindObjectOfType<PlayerHelper>();
+            player = FindAnyObjectByType<PlayerHelper>();
             sr = GetComponent<SpriteRenderer>();
             sr.color = ColorManager.tileColor;
             blockade.SetActive(false);
@@ -40,7 +38,7 @@ namespace Cox.Infection.Management{
         }
 
         public void FindNeighbors(){
-            TileObject[] tiles = FindObjectsOfType<TileObject>();
+            TileObject[] tiles = FindObjectsByType<TileObject>();
             foreach(var tile in tiles){
                 if(this == tile)continue;
                 if(Vector2Int.Distance(gridPosition, tile.gridPosition) < 2){
