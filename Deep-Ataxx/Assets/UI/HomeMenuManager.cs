@@ -32,6 +32,7 @@ public partial class HomeMenuManager : VisualElement
         // UI Builder preview
         if (!Application.isPlaying)
         {
+            //return;
             // Ensure a sensible preview state so the UI Builder shows the main menu
             CloseAll();
             if (m_home != null) m_home.style.display = DisplayStyle.Flex;

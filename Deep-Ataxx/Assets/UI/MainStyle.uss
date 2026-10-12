@@ -58,7 +58,7 @@
 }
 
 .gridClass {
-    background-color: rgba(43, 43, 43, 0.73);
+    background-color: rgba(1, 41, 41, 0.73);
     margin-left: 5px;
     margin-right: 5px;
     margin-top: 5px;
@@ -74,7 +74,7 @@
 }
 
 .gridClass:focus {
-    background-color: rgb(111, 115, 144);
+    background-color: rgb(16, 72, 135);
     transition-duration: 0.25s;
 }
 
