@@ -10,32 +10,35 @@ namespace Cox.Infection.Management{
         public PlayerPersistentChoice data;
 
         Level level;
-        Vector2 offset = Vector2.zero;
         TileObject[,] grid;
-        float cameraOffset = 2;
+        float timeDelay = 2f;
         const string alphabet = "abcdefghijklmnopqrstuvwxyz"; //create an alphabet for the notation
 
         private void Awake() {
+
             var root = FindAnyObjectByType<UIDocument>()?.rootVisualElement;
             level = data.selectedLevel;
             gm = FindAnyObjectByType<GameManager>();
             gm.data = data;
             gm.boardSize = new Vector2Int(data.selectedLevel.rows, data.selectedLevel.columns); //finds the max for these.
+            timeDelay = 2f / (level.rows * level.columns);
             StartCoroutine(GenerateBoard());
         }
 
         private IEnumerator GenerateBoard(){
             PositionCamera();
-            offset = new Vector2(level.rows/2, level.columns/2); //offset the board to 0,0 in the scene
+            Vector2 offset = new Vector2(level.columns / 2, (level.rows / 2)+1); //offset the board to 0,0 in the scene, columns for the x, rows for y
+            float padding = 1.27f;
 
-            
+
             //generate the board
-            grid = new TileObject[level.columns,level.rows]; 
+            grid = new TileObject[level.columns, level.rows];
+            
 
-            for(int y = 0; y < level.rows; y++){
+            for (int y = 0; y < level.rows; y++){
                 for(int x = 0; x < level.columns; x++){
-                    yield return new WaitForSeconds(.075f);
-                    TileObject newTile = Instantiate(level.tile, new Vector3((x - offset.x)* level.padding,(-y + offset.y) * level.padding,0), Quaternion.identity);
+                    yield return new WaitForSeconds(timeDelay);
+                    TileObject newTile = Instantiate(level.tile, new Vector3((x - offset.x)* padding, (-y + offset.y)* padding, 0), Quaternion.identity);
                     grid[x,y] = newTile;
                     newTile.gridPosition = new Vector2Int(x,y);
                     newTile.transform.SetParent(transform);
@@ -53,22 +56,26 @@ namespace Cox.Infection.Management{
         }
 
         void PositionCamera(){
-            //makes sure board is always on screen.
-            if(level.rows > level.columns){
-                Camera.main.orthographicSize = level.columns + 2.2f + ((level.rows - level.columns) * 0.5f);
+            //makes sure board is always on screen. 
+            float zoom = 3.5f; //Higher number = Zoomed Out
+            if (level.rows > level.columns){
+                Camera.main.orthographicSize = level.columns + zoom;
             }
             else{
-                Camera.main.orthographicSize = level.columns + 2.2f;
+                Camera.main.orthographicSize = level.columns + zoom; 
             }
+
+
             //centers board to screen with offset.
-            Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y + cameraOffset, -10);
+            float cameraOffsetY = 2;
+            Camera.main.transform.position = new Vector3(0, transform.position.y + cameraOffsetY, -10);
         }
 
         private IEnumerator PlaceInitialPieces(){
             //Places pieces
             List<Vector2Int> blocks = new List<Vector2Int>();
             for (int i = 0; i < level.piecePositions.Length; i++){
-                yield return new WaitForSeconds(.5f);
+                yield return new WaitForSeconds(timeDelay*6.5f);
                 //create piece is z value matches
                 if (level.piecePositions[i].z < 3) {
                     var p = Instantiate(level.piece, grid[level.piecePositions[i].x, level.piecePositions[i].y].transform.position, Quaternion.identity);

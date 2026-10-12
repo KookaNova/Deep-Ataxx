@@ -10,7 +10,9 @@ namespace Cox.Infection.Management{
         public bool isPlayable;
         [SerializeField] PieceComponent prefab;
         public TileObject homeTile;
-        [SerializeField] UnityEngine.Rendering.Universal.Light2D spotLight;
+        [SerializeField] UnityEngine.Rendering.Universal.Light2D glowLight; //Adds glow
+        [SerializeField] UnityEngine.Rendering.Universal.Light2D normLight; //Light that uses normals
+
         List<TileObject> playableTiles = new List<TileObject>();
         public int moveTurn;
         TileObject endTile;
@@ -36,14 +38,16 @@ namespace Cox.Infection.Management{
         public void ChangeTeam(int newMoveTurn) {
             moveTurn = newMoveTurn;
 
-            if(moveTurn == 0){
-                spotLight.color = ColorManager.playerOne;
+            if(moveTurn == 0) {
+                glowLight.color = ColorManager.playerOne;
+                normLight.color = ColorManager.playerOne;
                 sr.color = ColorManager.playerOne; //sets color
                 lr.startColor = ColorManager.playerOne;
                 lr.endColor = ColorManager.playerOne;
             }
-            if(moveTurn == 1){
-                spotLight.color = ColorManager.playerTwo;
+            if(moveTurn == 1) {
+                glowLight.color = ColorManager.playerTwo;
+                normLight.color = ColorManager.playerTwo;
                 sr.color = ColorManager.playerTwo; //sets color
                 lr.startColor = ColorManager.playerTwo;
                 lr.endColor = ColorManager.playerTwo;

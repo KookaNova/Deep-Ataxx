@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: 07
   m_EditorClassIdentifier: 
   levelName: Mandril
-  padding: 1.27
   columns: 9
   rows: 9
   redFirst: 1
@@ -22,6 +21,8 @@ MonoBehaviour:
   piece: {fileID: 4928824779748932212, guid: 2009623556d0a6949b1b001d59da7041, type: 3}
   piecePositions:
   - {x: 1, y: 0, z: 1}
+  - {x: 7, y: 7, z: 1}
+  - {x: 1, y: 7, z: 2}
   - {x: 7, y: 0, z: 2}
   - {x: 0, y: 4, z: 3}
   - {x: 1, y: 4, z: 3}

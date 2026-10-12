@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player Persistant Data
   m_EditorClassIdentifier: 
   selectedMode: 1
-  selectedLevel: {fileID: 11400000, guid: 4039811b11fadb3428a1b6bc8e278a18, type: 2}
+  selectedLevel: {fileID: 11400000, guid: fbcdc040eee778b42b803e5f2ed9a0c2, type: 2}
   opponent: {fileID: 11400000, guid: e194143ebf0424d48811075340b8a9f8, type: 2}
   enableAI: 0
   invertFirstTurn: 0

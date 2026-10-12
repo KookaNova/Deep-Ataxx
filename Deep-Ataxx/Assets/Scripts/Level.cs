@@ -7,7 +7,6 @@ namespace Cox.Infection.Management{
     public class Level : ScriptableObject
     {
         public string levelName;
-        public float padding = 1.27f;
         public int columns = 7;
         public int rows = 7;
         public bool redFirst = true;
