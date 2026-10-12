@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Cox.Infection.Utilities;
 
 namespace Cox.Infection.Management{
@@ -14,7 +15,8 @@ namespace Cox.Infection.Management{
         [SerializeField] UnityEngine.Rendering.Universal.Light2D normLight; //Light that uses normals
 
         List<TileObject> playableTiles = new List<TileObject>();
-        public int moveTurn;
+        [FormerlySerializedAs("moveTurn")]
+        public int playerId;
         TileObject endTile;
 
         GameManager gm;
@@ -35,22 +37,45 @@ namespace Cox.Infection.Management{
             
         }
 
-        public void ChangeTeam(int newMoveTurn) {
-            moveTurn = newMoveTurn;
+        public void SetPlayerId(int newPlayerId) {
+            playerId = newPlayerId;
 
-            if(moveTurn == 0) {
+            if(playerId == 0) {
                 glowLight.color = ColorManager.playerOne;
                 normLight.color = ColorManager.playerOne;
                 sr.color = ColorManager.playerOne; //sets color
                 lr.startColor = ColorManager.playerOne;
                 lr.endColor = ColorManager.playerOne;
             }
-            if(moveTurn == 1) {
+            if(playerId == 1) {
                 glowLight.color = ColorManager.playerTwo;
                 normLight.color = ColorManager.playerTwo;
                 sr.color = ColorManager.playerTwo; //sets color
                 lr.startColor = ColorManager.playerTwo;
                 lr.endColor = ColorManager.playerTwo;
+            }
+        }
+
+        public void RestoreForUndo(TileObject tile, int restoredPlayerId)
+        {
+            endTile = null;
+            homeTile = tile;
+            tile.piece = this;
+            transform.position = tile.transform.position;
+            name = tile.name + ".piece";
+            SetPlayerId(restoredPlayerId);
+            isPlayable = false;
+
+            if (lr != null)
+            {
+                lr.enabled = false;
+                lr.SetPosition(0, transform.position);
+                lr.SetPosition(1, transform.position);
+            }
+            if (animator != null)
+            {
+                animator.SetBool("isSelected", false);
+                animator.SetBool("isHovered", false);
             }
         }
 
@@ -112,7 +137,7 @@ namespace Cox.Infection.Management{
             p.homeTile = endTile;
             p.name = p.homeTile.name + ".piece";
             endTile.piece = p;
-            p.moveTurn = moveTurn;
+            p.playerId = playerId;
             endTile = null;
             p.isPlayable = false;
             p.Infect();
@@ -122,7 +147,7 @@ namespace Cox.Infection.Management{
         void Infect(){
             foreach(var tile in homeTile.adjacentTiles){
                 if(tile.piece == null)continue;
-                tile.piece.ChangeTeam(moveTurn);
+                tile.piece.SetPlayerId(playerId);
                 tile.piece.isPlayable = false;
             }
             gm.EndTurn();
@@ -134,7 +159,7 @@ namespace Cox.Infection.Management{
             player.hoveredTile = this.homeTile;
             if(!isPlayable)return;
             if(gm.data.enableAI){
-                if(player.singleTurn != moveTurn)return;
+                if(player.controlledPlayerId != playerId)return;
             }
             animator.SetBool("isHovered", true);
         }
@@ -147,7 +172,7 @@ namespace Cox.Infection.Management{
         private void OnMouseDown() {
             if(!isPlayable)return;
             if(gm.data.enableAI){
-                if(player.singleTurn != moveTurn)return;
+                if(player.controlledPlayerId != playerId)return;
             }
             player.selectedPiece = this;
             lr.SetPosition(0, transform.position);
@@ -159,7 +184,7 @@ namespace Cox.Infection.Management{
         private void OnMouseUp() {
             if(!isPlayable)return; 
             if(gm.data.enableAI){
-                if(player.singleTurn != moveTurn)return;
+                if(player.controlledPlayerId != playerId)return;
             }
             lr.enabled = false;
             animator.SetBool("isSelected", false);
@@ -173,7 +198,7 @@ namespace Cox.Infection.Management{
         private void OnMouseDrag() {
             if(!isPlayable)return;
             if(gm.data.enableAI){
-                if(player.singleTurn != moveTurn)return;
+                if(player.controlledPlayerId != playerId)return;
             }
             lr.SetPosition(1, GetMousePosition());
             //transform.position = GetMousePosition();

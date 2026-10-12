@@ -39,8 +39,13 @@ public partial class GameUIManager : VisualElement
 
         var resetBtn = playScreen.Q<Button>("Reset");
         if (resetBtn != null) resetBtn.RegisterCallback<ClickEvent>(ev => Reset());
-        //var undoBtn = playScreen.Q<Button>("Undo");
-        //if (undoBtn != null) undoBtn.RegisterCallback<ClickEvent>(ev => gm.Undo());
+        var undoBtn = playScreen.Q<Button>("Undo");
+        if (undoBtn != null)
+        {
+            undoBtn.UnregisterCallback<ClickEvent>(OnUndoClicked);
+            undoBtn.RegisterCallback<ClickEvent>(OnUndoClicked);
+        }
+        RefreshUndoButton();
         var quitBtn = playScreen.Q<Button>("Quit");
         if (quitBtn != null) quitBtn.RegisterCallback<ClickEvent>(ev => Quit());
     }
@@ -66,9 +71,38 @@ public partial class GameUIManager : VisualElement
         SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
     }
 
+    private void OnUndoClicked(ClickEvent evt)
+    {
+        gm?.Undo();
+    }
+
+    public void RefreshUndoButton()
+    {
+        if (playScreen == null) return;
+
+        var undoButton = playScreen.Q<Button>("Undo");
+        if (undoButton != null)
+        {
+            bool canUndo = gm != null && gm.CanUndo;
+            undoButton.SetEnabled(canUndo);
+            undoButton.style.display = canUndo ? DisplayStyle.Flex : DisplayStyle.None;
+        }
+
+    }
+
+    public void ShowPlayScreen()
+    {
+        if (playScreen == null) return;
+
+        ActivateScreen(playScreen);
+        RevealScore();
+        ChangeTurn();
+        RefreshUndoButton();
+    }
+
     public void ChangeTurn(){
-        if(gm.turnNumber == 0)this.Q<Label>("ActivePlayer").text = "Red's Turn";
-        if(gm.turnNumber == 1)this.Q<Label>("ActivePlayer").text = "Green's Turn";
+        if(gm.currentPlayerId == 0)this.Q<Label>("ActivePlayer").text = "Red's Turn";
+        if(gm.currentPlayerId == 1)this.Q<Label>("ActivePlayer").text = "Green's Turn";
     }
 
     public void UpdateScore(){
@@ -99,8 +133,7 @@ public partial class GameUIManager : VisualElement
             DeactivateAllScreens();
             ActivateScreen(playScreen);
             this.Q<Label>("ActivePlayer").text = winner + " WINS.";
-            
-            
+            RefreshUndoButton();
         });
         gameOver.Q<Button>("Quit").RegisterCallback<ClickEvent>(ev => Quit());
     }

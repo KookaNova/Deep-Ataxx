@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Cox.Infection.Management{
     public class PlayerPersistentChoice : ScriptableObject
@@ -16,7 +17,8 @@ namespace Cox.Infection.Management{
         public CharacterObject opponent;
         public bool enableAI = false;
         public bool invertFirstTurn = false;
-        public int playerTurn = 1;
+        [FormerlySerializedAs("playerTurn")]
+        public int playerId = 1;
 
         //It might seem wasteful to store these here, but it's convenient for selecting levels from within levels in arcade mode.
         [HideInInspector] public Level[] levelList;

@@ -1,119 +1,150 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Cox.Infection.Management;
 
-/// <summary>
-/// Applications in the undo feature and the AI. Used to save a state the board is in and access it again.
-/// </summary>
-public class BoardState
+//Cell and Tile are used interchangeably. Cell is a newer choice
+public enum BoardCellKind : byte
 {
-
+	Empty,
+	Blocked,
+	Piece
 }
 
+public readonly struct BoardCell
+{
+	readonly int playerId;
 
-/*{
-	public Vector2Int[] p1_Positions {get;}
-	public Vector2Int[] p2_Positions {get;}
-	public Vector2Int[] invalidTiles {get;}
-	public Vector2Int[] allTiles {get;}
-	public int emptyTiles {get;}
+	public BoardCellKind Kind { get; }
+	public int PlayerId => Kind == BoardCellKind.Piece ? playerId : -1;
 
-	public string[] p1_TileNames;
-	public string[] p2_TileNames;
-	
-	//Simply stores the positions of the current board.
-	public BoardState(Vector2Int[] _p1_positions,Vector2Int[] _p2_positions, Vector2Int[] blockedTiles, Vector2Int[] _allTiles){
-		p1_Positions = _p1_positions;
-		p2_Positions = _p2_positions;
-		allTiles = _allTiles;
-
-		//problem located somewhere in here potentially. 0,0 is invalid twice
-
-		invalidTiles = new Vector2Int[p1_Positions.Length + p2_Positions.Length + blockedTiles.Length];
-		p1_Positions.CopyTo(invalidTiles, 0);
-		p2_Positions.CopyTo(invalidTiles, p1_Positions.Length);
-		blockedTiles.CopyTo(invalidTiles, p1_Positions.Length + p2_Positions.Length); 
-
-		emptyTiles = allTiles.Length - invalidTiles.Length;
-
-		AssignNames();
+	BoardCell(BoardCellKind kind, int playerId)
+	{
+		Kind = kind;
+		this.playerId = playerId;
 	}
 
-	//Creates a board state from given pieces
-	public BoardState(List<PieceComponent> p1_pieces, List<PieceComponent> p2_pieces, Vector2Int[] blockedTiles, Vector2Int[] _allTiles){
-		p1_Positions = new Vector2Int[p1_pieces.Count];
-		p2_Positions = new Vector2Int[p2_pieces.Count];
-		//convert to positions
-		for(int i = 0; i < p1_pieces.Count; i++){
-			var piece = p1_pieces[i];
-			p1_Positions[i] = piece.homeTile.gridPosition;
+	public static BoardCell Empty => new BoardCell(BoardCellKind.Empty, -1);
+	public static BoardCell Blocked => new BoardCell(BoardCellKind.Blocked, -1);
+
+	public static BoardCell ForPlayer(int playerId)
+	{
+		if (playerId < 0)
+		{
+			throw new ArgumentOutOfRangeException(nameof(playerId));
 		}
-		for(int i = 0; i < p2_pieces.Count; i++){
-			var piece = p2_pieces[i];
-			p2_Positions[i] = p2_pieces[i].homeTile.gridPosition;
+
+		return new BoardCell(BoardCellKind.Piece, playerId);
+	}
+}
+
+public sealed class BoardState
+{
+	readonly BoardCell[] cells;
+
+	public int Width { get; }
+	public int Height { get; }
+	public int CurrentPlayerId { get; }
+
+	public BoardState(int width, int height, BoardCell[] cells, int currentPlayerId)
+	{
+		if (width <= 0)
+		{
+			throw new ArgumentOutOfRangeException(nameof(width));
 		}
-		allTiles = _allTiles;
+		if (height <= 0)
+		{
+			throw new ArgumentOutOfRangeException(nameof(height));
+		}
+		if (cells == null)
+		{
+			throw new ArgumentNullException(nameof(cells));
+		}
+		if (cells.Length != (long)width * height)
+		{
+			throw new ArgumentException("Cell count must match the board dimensions.", nameof(cells));
+		}
+		if (currentPlayerId < 0)
+		{
+			throw new ArgumentOutOfRangeException(nameof(currentPlayerId));
+		}
 
-		invalidTiles = new Vector2Int[p1_Positions.Length + p2_Positions.Length + blockedTiles.Length];
-		p1_Positions.CopyTo(invalidTiles, 0);
-		p2_Positions.CopyTo(invalidTiles, p1_Positions.Length);
-		blockedTiles.CopyTo(invalidTiles, p1_Positions.Length + p2_Positions.Length); 
+		for (int i = 0; i < cells.Length; i++)
+		{
+			if (cells[i].Kind < BoardCellKind.Empty || cells[i].Kind > BoardCellKind.Piece ||
+				(cells[i].Kind == BoardCellKind.Piece && cells[i].PlayerId < 0))
+			{
+				throw new ArgumentException("The grid contains an invalid cell value.", nameof(cells));
+			}
+		}
 
-		emptyTiles = allTiles.Length - invalidTiles.Length;
-
-		AssignNames();
+		Width = width;
+		Height = height;
+		CurrentPlayerId = currentPlayerId;
+		this.cells = (BoardCell[])cells.Clone();
 	}
 
-	void AssignNames(){
-		string alphabet = "abcdefghijklmnopqrstuvwxyz"; //create an alphabet for the notation;
-		p1_TileNames = new string[p1_Positions.Length];
-		p2_TileNames = new string[p2_Positions.Length];
+	public BoardCell GetCell(int x, int y)
+	{
+		if (x < 0 || x >= Width)
+		{
+			throw new ArgumentOutOfRangeException(nameof(x));
+		}
+		if (y < 0 || y >= Height)
+		{
+			throw new ArgumentOutOfRangeException(nameof(y));
+		}
 
-		for(int i = 0; i < p1_TileNames.Length; i++){
-			p1_TileNames[i] = alphabet[p1_Positions[i].x] + p1_Positions[i].y.ToString();
-		}
-		for(int i = 0; i < p2_TileNames.Length; i++){
-			p2_TileNames[i] = alphabet[p2_Positions[i].x] + p2_Positions[i].y.ToString();
-		}
+		return cells[y * Width + x];
 	}
-}*/
 
-public class Tile{
-        public string name; //could be useful for prime moves and finding tile objects
-        public Vector2Int position;
-        public Vector2Int[] adjacentPositions = new Vector2Int[7];
-        public Vector2Int[] reachablePositions = new Vector2Int[23];
-        
+	public BoardCell[] CopyCells()
+	{
+		return (BoardCell[])cells.Clone();
+	}
 
-        public Tile(Vector2Int _position, Vector2Int[] allPlayableTiles){
-            position = _position;
-            FindNeighbors(position, allPlayableTiles);
-			
-			//assign name
-            string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //create an alphabet for the notation;
-            name = alphabet[position.x] + position.y.ToString();
-        }
+	public BoardState Copy()
+	{
+		return new BoardState(Width, Height, cells, CurrentPlayerId);
+	}
+}
 
-        void FindNeighbors(Vector2Int _position, Vector2Int[] allPlayableTiles){
-            //Find adjacent positions clockwise from bottom left
-            List<Vector2Int> adjacentList = new List<Vector2Int>();
-            List<Vector2Int> reachableList = new List<Vector2Int>();
+public class Tile
+{
+	public string name; //could be useful for prime moves and finding tile objects
+	public Vector2Int position;
+	public Vector2Int[] adjacentPositions = new Vector2Int[7];
+	public Vector2Int[] reachablePositions = new Vector2Int[23];
 
-            int x = _position.x - 1;
-            //finds adjacent tiles.
-            foreach(var tile in allPlayableTiles){
-                if(position == tile)continue;
-                if(Vector2Int.Distance(position, tile) < 2){
-                    adjacentList.Add(tile);
-                }
-                if(Vector2Int.Distance(position, tile) < 3){
-                    reachableList.Add(tile);
-                }
-            }
-            adjacentPositions = adjacentList.ToArray();
-            reachablePositions = reachableList.ToArray();
+	const string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //create an alphabet for the notation;
 
-            
-        }
+	public Tile(Vector2Int _position, Vector2Int[] allPlayableTiles)
+	{
+		position = _position;
+		FindNeighbors(position, allPlayableTiles);
+		name = alphabet[position.x] + position.y.ToString();
+	}
+
+	void FindNeighbors(Vector2Int _position, Vector2Int[] allPlayableTiles)
+	{
+		//Find adjacent positions clockwise from bottom left
+		List<Vector2Int> adjacentList = new List<Vector2Int>();
+		List<Vector2Int> reachableList = new List<Vector2Int>();
+
+		int x = _position.x - 1;
+		//finds adjacent tiles.
+		foreach (var tile in allPlayableTiles)
+		{
+			if (position == tile) continue;
+			if (Vector2Int.Distance(position, tile) < 2)
+			{
+				adjacentList.Add(tile);
+			}
+			if (Vector2Int.Distance(position, tile) < 3)
+			{
+				reachableList.Add(tile);
+			}
+		}
+		adjacentPositions = adjacentList.ToArray();
+		reachablePositions = reachableList.ToArray();
+	}
 }

@@ -79,7 +79,7 @@ namespace Cox.Infection.Management{
                 //create piece is z value matches
                 if (level.piecePositions[i].z < 3) {
                     var p = Instantiate(level.piece, grid[level.piecePositions[i].x, level.piecePositions[i].y].transform.position, Quaternion.identity);
-                    p.ChangeTeam(level.piecePositions[i].z-1); //sets color/team
+                    p.SetPlayerId(level.piecePositions[i].z-1); //sets playerID and thus color
                     p.homeTile = grid[level.piecePositions[i].x, level.piecePositions[i].y]; //uses input level to place correctly
                     p.homeTile.piece = p;
                     p.name = p.homeTile.name + ".piece";

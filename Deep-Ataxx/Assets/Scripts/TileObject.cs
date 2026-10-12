@@ -52,10 +52,7 @@ namespace Cox.Infection.Management{
 
         public void BlockTile(bool isBlocked){
             isDisabled = isBlocked;
-            if(isDisabled){
-                blockade.SetActive(true);
-            }
-
+            blockade.SetActive(isBlocked);
         }
 
         public void SelectTile(bool isSelected){

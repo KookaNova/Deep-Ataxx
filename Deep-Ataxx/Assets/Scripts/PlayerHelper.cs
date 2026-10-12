@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Cox.Infection.Management{
     public class PlayerHelper : MonoBehaviour
@@ -8,11 +9,11 @@ namespace Cox.Infection.Management{
         public PieceComponent selectedPiece;
         public TileObject hoveredTile;
         public bool isSinglePlayer;
-        public int singleTurn = 0;
+        [FormerlySerializedAs("singleTurn")]
+        public int controlledPlayerId = 0;
 
-        public void AssignSingleTurn(int turn){
-            singleTurn = turn;
-
+        public void AssignPlayerId(int playerId){
+            controlledPlayerId = playerId;
         }
 
     }
