@@ -15,5 +15,5 @@ MonoBehaviour:
   art: {fileID: 2800000, guid: 1f0bd0a7e24561944a681cccba59841b, type: 3}
   bio: Higher level.
   thinkDepth: 3
-  aggression: 2
+  aggression: 4
   stress: 0

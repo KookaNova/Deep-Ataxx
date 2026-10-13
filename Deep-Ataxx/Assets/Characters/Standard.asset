@@ -11,11 +11,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45df59105fc06864394bf54e3c720728, type: 3}
   m_Name: Standard
-  m_EditorClassIdentifier: 
-  art: {fileID: 2800000, guid: 37927f730abc54b49976c526fbac0fce, type: 3}
-  bio: 'Simple, but thoughtful
-
-'
-  thinkDepth: 1
-  aggression: 1
+  m_EditorClassIdentifier: Assembly-CSharp::Cox.Infection.Management.CharacterObject
+  art: {fileID: 0}
+  bio: Simple, but thoughtful
+  thinkDepth: 2
+  aggression: 2
   stress: 0

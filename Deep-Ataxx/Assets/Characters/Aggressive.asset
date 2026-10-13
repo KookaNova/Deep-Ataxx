@@ -15,5 +15,5 @@ MonoBehaviour:
   art: {fileID: 2800000, guid: 37927f730abc54b49976c526fbac0fce, type: 3}
   bio: Aggressive, but doesn't think too deeply.
   thinkDepth: 1
-  aggression: 4
+  aggression: 3
   stress: 0

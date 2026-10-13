@@ -15,5 +15,5 @@ MonoBehaviour:
   art: {fileID: 2800000, guid: 37927f730abc54b49976c526fbac0fce, type: 3}
   bio: Smart and mean.
   thinkDepth: 2
-  aggression: 5
+  aggression: 6
   stress: 0

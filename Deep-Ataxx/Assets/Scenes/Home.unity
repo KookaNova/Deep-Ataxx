@@ -2657,6 +2657,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aacf20ae4c9d7a748ac4632c051d6d50, type: 2}
   - {fileID: 11400000, guid: fbcdc040eee778b42b803e5f2ed9a0c2, type: 2}
   - {fileID: 11400000, guid: 17d6633698bf04e48a186a8ed4910ab4, type: 2}
+  - {fileID: 11400000, guid: 6ebdeb79774204e4096bda22f0c4ab0d, type: 2}
+  - {fileID: 11400000, guid: e76f19381888dde4aaf853b418f44abe, type: 2}
+  - {fileID: 11400000, guid: 1f510ad04704ef849aa8043df03d49ab, type: 2}
+  - {fileID: 11400000, guid: 39e6af4d18528e246b439b4034d0daf5, type: 2}
+  - {fileID: 11400000, guid: be5e9915aa80f204eaa6633177c9ff21, type: 2}
+  - {fileID: 11400000, guid: e3fe100124c0a5d4dbb74fcaa6e7cf93, type: 2}
+  - {fileID: 11400000, guid: 440ae3abc7a64184087b4fc5cf16edde, type: 2}
   characterList:
   - {fileID: 11400000, guid: 80692569e835c804c880e8bac07572db, type: 2}
   - {fileID: 11400000, guid: 80c4ebd8bd72af549896e925012828b7, type: 2}

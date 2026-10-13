@@ -101,18 +101,17 @@ namespace Cox.Infection.Management{
             }
             //pass
             var moves = BoardRules.GetLegalMoves(state);
-            if (moves.Count == 0)
-            {
+            if (moves.Count == 0) {
                 return Search(BoardRules.PassTurn(state), remainingDepth, alpha, beta);
             }
             //checks if AI is Active Player, then begins creating move nodes
             bool isActivePlayer = state.CurrentPlayerId == playerId;
             var orderedNodes = new List<SearchNode>(moves.Count);
-            foreach (var move in moves)
-            {
+            foreach (var move in moves) {
                 var nextState = BoardRules.ApplyMove(state, move);
                 orderedNodes.Add(new SearchNode(move, nextState, EvaluatePositionScore(nextState)));
             }
+            Debug.Log("Ai is evaluating " + orderedNodes.Count.ToString() + " movement nodes.");
             orderedNodes.Sort((left, right) => isActivePlayer
                 ? right.OrderingScore.CompareTo(left.OrderingScore)
                 : left.OrderingScore.CompareTo(right.OrderingScore));
