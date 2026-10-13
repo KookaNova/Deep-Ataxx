@@ -9,7 +9,6 @@ namespace Cox.Infection.Management{
         public string levelName;
         public int columns = 7;
         public int rows = 7;
-        public bool redFirst = true;
         public bool isFlagged = false;
         public TileObject tile;
         public PieceComponent piece;

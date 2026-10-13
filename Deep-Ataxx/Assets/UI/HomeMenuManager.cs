@@ -11,7 +11,7 @@ public partial class HomeMenuManager : VisualElement
 
     VisualElement m_home;
     VisualElement m_story;
-    VisualElement m_twoPlayer;
+    VisualElement m_level_select;
     VisualElement m_arcade;
     VisualElement m_character_select;
 
@@ -25,7 +25,7 @@ public partial class HomeMenuManager : VisualElement
     {
         m_home = this?.Q("m-home");
         m_story = this?.Q("m-story");
-        m_twoPlayer = this?.Q("m-two-player");
+        m_level_select = this?.Q("m-level-select");
         m_arcade = this?.Q("m-arcade");
         m_character_select = this?.Q("m-character-select");
 
@@ -45,17 +45,21 @@ public partial class HomeMenuManager : VisualElement
 
         // At runtime register interactive callbacks.
         var bStory = m_home?.Q<Button>("b-story");
-        var bTwoPlayer = m_home?.Q<Button>("b-two-player");
+        var bMultiplayer = m_home?.Q<Button>("b-multiplayer");
         var bArcade = m_home?.Q<Button>("b-arcade");
+        var bFirstMove = m_level_select?.Q<Button>("b-first-move");
 
         bStory?.RegisterCallback<ClickEvent>(ev => {
             if (data != null) { data.enableAI = true; data.selectedMode = PlayerPersistentChoice.Mode.story; }
             OpenMenu(m_story);
         });
 
-        bTwoPlayer?.RegisterCallback<ClickEvent>(ev => {
-            if (data != null) { data.enableAI = false; data.selectedMode = PlayerPersistentChoice.Mode.twoPlayer; }
-            OpenMenu(m_twoPlayer);
+        bMultiplayer?.RegisterCallback<ClickEvent>(ev => {
+            if (data != null) { 
+                data.enableAI = false; 
+                data.selectedMode = PlayerPersistentChoice.Mode.twoPlayer; 
+            }
+            OpenMenu(m_level_select);
         });
 
         bArcade?.RegisterCallback<ClickEvent>(ev => {
@@ -64,17 +68,23 @@ public partial class HomeMenuManager : VisualElement
         });
 
         m_arcade?.Q<Button>("b-arcade-classic").RegisterCallback<ClickEvent>(ev => {
-            if (data != null) { data.selectedMode = PlayerPersistentChoice.Mode.arcadeClassic; data.SelectRandomLevel(); }
+            if (data != null) { data.selectedMode = PlayerPersistentChoice.Mode.arcadeClassic; }
             OpenMenu(m_character_select, m_arcade);
         });
 
         m_arcade?.Q<Button>("b-arcade-untimed").RegisterCallback<ClickEvent>(ev => {
-            if (data != null) { data.selectedMode = PlayerPersistentChoice.Mode.arcadeUntimed; data.SelectRandomLevel(); }
+            if (data != null) { data.selectedMode = PlayerPersistentChoice.Mode.arcadeUntimed; }
             OpenMenu(m_character_select, m_arcade);
         });
 
-        m_character_select?.Q<Button>("b-play").RegisterCallback<ClickEvent>(ev => { if (Application.isPlaying) SceneLoader("Play"); });
-        m_twoPlayer?.Q<Button>("b-play").RegisterCallback<ClickEvent>(ev => { if (Application.isPlaying) SceneLoader("Play"); });
+        m_character_select?.Q<Button>("b-continue").RegisterCallback<ClickEvent>(ev => { OpenMenu(m_level_select); });
+        m_level_select?.Q<Button>("b-randomize").RegisterCallback<ClickEvent>(ev => { if (Application.isPlaying) data.SelectRandomLevel(); });
+        m_level_select?.Q<Button>("b-play").RegisterCallback<ClickEvent>(ev => { if (Application.isPlaying) SceneLoader("Play"); });
+
+        bFirstMove?.RegisterCallback<ClickEvent>(ev => {
+            data.redFirst = !data.redFirst;
+            bFirstMove.text = data.redFirst ? "Red First" : "Green First";
+        });
 
         this?.Q<Button>("b-back").RegisterCallback<ClickEvent>(ev => OpenMenu(back_destination)); //universal back button
     }
@@ -83,7 +93,7 @@ public partial class HomeMenuManager : VisualElement
     void CloseAll(){
         if (m_home != null) m_home.style.display = DisplayStyle.None;
         if (m_story != null) m_story.style.display = DisplayStyle.None;
-        if (m_twoPlayer != null) m_twoPlayer.style.display = DisplayStyle.None;
+        if (m_level_select != null) m_level_select.style.display = DisplayStyle.None;
         if (m_arcade != null) m_arcade.style.display = DisplayStyle.None;
         if (m_character_select != null) m_character_select.style.display = DisplayStyle.None;
 

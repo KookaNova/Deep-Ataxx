@@ -13,8 +13,8 @@ public class ListMenuData : MonoBehaviour
 
     VisualElement root;
 
-    VisualElement twoPlayerMenu;
-    ScrollView twoPlayerList;
+    VisualElement levelSelectMenu;
+    ScrollView levelList;
 
     VisualElement m_character_select;
     ScrollView arcadeCharacterList;
@@ -27,13 +27,13 @@ public class ListMenuData : MonoBehaviour
         root = FindAnyObjectByType<UIDocument>().rootVisualElement;
         root.Q<HomeMenuManager>().data = data;
 
-        twoPlayerMenu = root?.Q("m-two-player");
-        twoPlayerList = twoPlayerMenu.Q<ScrollView>("list-levels");
+        levelSelectMenu = root?.Q("m-level-select");
+        levelList = levelSelectMenu.Q<ScrollView>("list-levels");
         if (Application.isEditor) {
-            twoPlayerList.verticalScrollerVisibility = ScrollerVisibility.AlwaysVisible;
+            levelList.verticalScrollerVisibility = ScrollerVisibility.AlwaysVisible;
         }
         root?.Q<Button>("b-options").RegisterCallback<ClickEvent>(ev => data.enableAI = !data.enableAI);
-        twoPlayerList.Focus();
+        levelList.Focus();
 
         CreateLevelList();
 
@@ -49,9 +49,10 @@ public class ListMenuData : MonoBehaviour
         foreach(Level level in arcadeLevels){
             var grid = new GridGenControl(level); //generate the control
             gridSource[i] = grid; //add it to array
-            twoPlayerList.Add(grid); //add the control to the ScrollView
+            levelList.Add(grid); //add the control to the ScrollView
             grid.RegisterCallback<FocusEvent>(ev => data.selectedLevel = grid.selectedLevel);
             grid.RegisterCallback<ClickEvent>(ev => data.selectedLevel = grid.selectedLevel);
+
             i++;
         }
     }

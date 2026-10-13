@@ -19,6 +19,7 @@ namespace Cox.Infection.Management{
         public bool invertFirstTurn = false;
         [FormerlySerializedAs("playerTurn")]
         public int playerId = 1;
+        public bool redFirst = true;
 
         //It might seem wasteful to store these here, but it's convenient for selecting levels from within levels in arcade mode.
         [HideInInspector] public Level[] levelList;

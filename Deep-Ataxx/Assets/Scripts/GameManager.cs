@@ -52,6 +52,13 @@ namespace Cox.Infection.Management{
             if(data.enableAI){
                 player.AssignPlayerId(data.playerId);
             }
+            if (data.selectedLevel != null)
+            {
+                currentPlayerId = data.redFirst
+                    ? BoardRules.PlayerOneId
+                    : BoardRules.PlayerTwoId;
+            }
+
             isInitializingGame = true;
             try
             {

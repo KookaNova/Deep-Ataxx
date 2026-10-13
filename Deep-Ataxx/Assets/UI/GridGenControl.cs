@@ -105,15 +105,10 @@ public partial class GridGenControl : VisualElement
         title.AddToClassList("menuText");
         Label opponent = new Label("Red Haze"); //add label to opponent?
         opponent.AddToClassList("menuText2");
-        Label firstMove = new Label();
-        if(level.redFirst)firstMove.text = "Red First";
-        if(!level.redFirst)firstMove.text = "Green First";
         Label size = new Label(level.columns + "x" + level.rows);
         size.AddToClassList("menuText2");
-        firstMove.AddToClassList("menuText2");
         descriptionBox.Add(title);
         descriptionBox.Add(opponent); //I don't think this is implemented yet?
-        descriptionBox.Add(firstMove);
         descriptionBox.Add(size);
     }
 
