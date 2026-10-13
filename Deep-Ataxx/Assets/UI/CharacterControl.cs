@@ -11,7 +11,6 @@ public partial class CharacterControl : VisualElement
     VisualElement descriptionBox;
     CharacterObject thisCharacter;
 
-    int columns = 7, rows = 7; //These are only for testing purposes
     /// <summary>
     /// This variant of the grid is meant to be used specifically
     /// in the UI Builder to offer an easy visual display for the code.
@@ -45,13 +44,16 @@ public partial class CharacterControl : VisualElement
         // use USS or background-size properties (set in UXML/USS) to control image scaling
         Label charName = new Label(character.name);
         charName.AddToClassList("menuText");
-        Label difficulty = new Label(character.thinkDepth.ToString());
+        Label difficulty = new Label("Difficulty: " + character.thinkDepth.ToString());
         difficulty.AddToClassList("menuText2");
-        Label firstMove = new Label("Moves First");
-        firstMove.AddToClassList("menuText2");
+        Label aggression = new Label("Aggression: " + character.aggression.ToString());
+        aggression.AddToClassList("menuText2");
+        //Label firstMove = new Label("Moves First");
+        //firstMove.AddToClassList("menuText2");
         descriptionBox.Add(charName);
         descriptionBox.Add(difficulty);
-        descriptionBox.Add(firstMove);
+        descriptionBox.Add(aggression);
+        //descriptionBox.Add(firstMove);
         pictureContainer.Add(pic);
     }
 

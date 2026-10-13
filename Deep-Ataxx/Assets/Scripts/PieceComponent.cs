@@ -93,30 +93,48 @@ namespace Cox.Infection.Management{
 
         #region  Movement
         public void PieceMoved(){
-            if(homeTile.gridPosition == endTile.gridPosition){
-                ReturnToHome("Attempted home position.");
+            if (endTile == null)
+            {
+                transform.position = homeTile.transform.position;
+                return;
             }
-            else if(endTile.piece){
-                ReturnToHome("Tile is occupied.");
-            }
-            else if(endTile.isDisabled){
-                ReturnToHome("Tile is disabled.");
-            }
-            else if(Vector2Int.Distance(homeTile.gridPosition, endTile.gridPosition) >= 3){ 
-                ReturnToHome("Tile is too far.");
-            }
-            else{
-                if(Vector2Int.Distance(homeTile.gridPosition, endTile.gridPosition) >= 2){
-                    Hop();
-                }
-                else{
-                    Spread();
+
+            var currentState = gm.CaptureBoardState();
+            var legalMoves = BoardRules.GetLegalMoves(currentState);
+            bool foundMove = false;
+            BoardMove selectedMove = default;
+            foreach (var move in legalMoves)
+            {
+                if (move.FromX == homeTile.gridPosition.x && move.FromY == homeTile.gridPosition.y &&
+                    move.ToX == endTile.gridPosition.x && move.ToY == endTile.gridPosition.y)
+                {
+                    selectedMove = move;
+                    foundMove = true;
+                    break;
                 }
             }
 
+            if (!foundMove)
+            {
+                ReturnToHome("Move is not legal.");
+                return;
+            }
+
+            var resultingState = BoardRules.ApplyMove(currentState, selectedMove);
+            if (selectedMove.Type == BoardMoveType.Hop)
+            {
+                Hop();
+            }
+            else
+            {
+                Spread();
+            }
+
+            ApplyPlayerIds(resultingState);
+            gm.EndTurn(resultingState.CurrentPlayerId);
         }
         void ReturnToHome(string reason){
-            Debug.Log("Piece returned. Invalid move: " + homeTile.name + " to " + endTile.name + ". " + reason);
+            Debug.Log("Piece returned. Invalid move from " + homeTile.name + " to " + (endTile != null ? endTile.name : "no destination") + ". " + reason);
             endTile = null;
             transform.position = homeTile.transform.position;
         }
@@ -128,7 +146,6 @@ namespace Cox.Infection.Management{
             homeTile.piece = this;
             name = homeTile.name + ".piece";
             transform.position = homeTile.transform.position;
-            Infect();
         }
         void Spread(){
             Debug.Log("Spread performed.");
@@ -137,20 +154,27 @@ namespace Cox.Infection.Management{
             p.homeTile = endTile;
             p.name = p.homeTile.name + ".piece";
             endTile.piece = p;
-            p.playerId = playerId;
+            p.SetPlayerId(playerId);
             endTile = null;
             p.isPlayable = false;
-            p.Infect();
-
-
         }
-        void Infect(){
-            foreach(var tile in homeTile.adjacentTiles){
-                if(tile.piece == null)continue;
-                tile.piece.SetPlayerId(playerId);
+
+        void ApplyPlayerIds(BoardState state)
+        {
+            foreach (var tile in gm.allTiles)
+            {
+                if (tile.piece == null)
+                {
+                    continue;
+                }
+
+                var cell = state.GetCell(tile.gridPosition.x, tile.gridPosition.y);
+                if (cell.Content == BoardCellContent.Piece && tile.piece.playerId != cell.PlayerId)
+                {
+                    tile.piece.SetPlayerId(cell.PlayerId);
+                }
                 tile.piece.isPlayable = false;
             }
-            gm.EndTurn();
         }
         #endregion
 
@@ -232,7 +256,7 @@ namespace Cox.Infection.Management{
             yield return new WaitForSecondsRealtime(.15f);
             while(lr.GetPosition(1) != endTile.gameObject.transform.position){
                 yield return new WaitForFixedUpdate();
-                Vector2 movePos = Vector2.Lerp(lr.GetPosition(1), endTile.gameObject.transform.position, .4f);
+                Vector2 movePos = Vector2.Lerp(lr.GetPosition(1), endTile.gameObject.transform.position, .25f);
                 lr.SetPosition(1, movePos);
             }
 

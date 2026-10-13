@@ -58,14 +58,14 @@ public class ListMenuData : MonoBehaviour
 
     private void CreateCharacterList()
     {
-        /*int index = 0;
+        int index = 0;
         foreach(CharacterObject character in characterList){
             var control = new CharacterControl(character);
             arcadeCharacterList.Add(control);
             control.RegisterCallback<FocusEvent>(ev => data.opponent = character);
             control.RegisterCallback<ClickEvent>(ev => data.opponent = character);
             index++;
-        }*/
+        }
     }
 
     private void CreateZoneList(){

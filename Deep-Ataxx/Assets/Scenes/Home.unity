@@ -2656,9 +2656,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d7fd11e68fee5a24f91bf74c8c78734d, type: 2}
   - {fileID: 11400000, guid: aacf20ae4c9d7a748ac4632c051d6d50, type: 2}
   - {fileID: 11400000, guid: fbcdc040eee778b42b803e5f2ed9a0c2, type: 2}
+  - {fileID: 11400000, guid: 17d6633698bf04e48a186a8ed4910ab4, type: 2}
   characterList:
-  - {fileID: 11400000, guid: e194143ebf0424d48811075340b8a9f8, type: 2}
   - {fileID: 11400000, guid: 80692569e835c804c880e8bac07572db, type: 2}
+  - {fileID: 11400000, guid: 80c4ebd8bd72af549896e925012828b7, type: 2}
+  - {fileID: 11400000, guid: 86a24cc9dab328348ac309792c980f4c, type: 2}
+  - {fileID: 11400000, guid: fbd976019f62a3a4eaa298ef245c3598, type: 2}
+  - {fileID: 11400000, guid: 9a09e4a3adab03d4291ea94628874df9, type: 2}
   zones: []
 --- !u!4 &1910237390
 Transform:

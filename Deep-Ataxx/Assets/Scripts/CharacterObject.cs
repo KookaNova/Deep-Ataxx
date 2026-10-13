@@ -10,8 +10,8 @@ namespace Cox.Infection.Management{
         [TextArea(2,10)]
         public string bio;
         public int thinkDepth = 1;
-        public int aggression = 0;
-        public float stress = 0;
+        public int aggression = 1; //Best to keep this at 1 or higher
+        public float stress = 0; //This may be best hidden.
     }
 }
 

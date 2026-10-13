@@ -18,7 +18,7 @@ namespace Cox.Infection.Management{
         public int emptyTiles;
         public Vector2Int boardSize = Vector2Int.zero;
         public PlayerPersistentChoice data;
-        public OpponentBehaviour opponent;
+        public OpponentBehaviour computerOpponent;
 
         GameUIManager gameUI;
         PlayerHelper player;
@@ -27,22 +27,22 @@ namespace Cox.Infection.Management{
         public bool isGameOver = false;
 
         //Undo
-        public List<BoardState> history = new List<BoardState>();
-	    public int undoIndex = 0;
-        int turns = 0;
+        [System.NonSerialized] public List<BoardState> history = new List<BoardState>();
+        public int undoIndex = 0;
         bool isInitializingGame;
         bool isResolvingTurn;
         bool isRestoringState;
+        bool isAIMoveInProgress;
         Coroutine gameOverRoutine;
 
-        public bool CanUndo => history != null && undoIndex > 0 && undoIndex < history.Count && !isResolvingTurn && !isRestoringState;
+        public bool CanUndo => history != null && undoIndex > 0 && undoIndex < history.Count && !isResolvingTurn && !isRestoringState && !isAIMoveInProgress;
 
         public void StartGame(){
             var root = FindAnyObjectByType<UIDocument>()?.rootVisualElement;
             gameUI = root.Q<GameUIManager>();
             allTiles = FindObjectsByType<TileObject>();
             player = FindAnyObjectByType<PlayerHelper>();
-            opponent = FindAnyObjectByType<OpponentBehaviour>();
+            computerOpponent = FindAnyObjectByType<OpponentBehaviour>();
             allTilePositions = new Vector2Int[allTiles.Length];
             
             for(int i = 0; i < allTiles.Length; i++){
@@ -65,9 +65,21 @@ namespace Cox.Infection.Management{
             history.Clear();
             undoIndex = -1;
             SaveBoardState();
+            ScheduleAIMove();
         }
 
-        public void EndTurn(){
+        public void EndTurn()
+        {
+            EndTurn(BoardRules.GetOtherPlayerId(currentPlayerId));
+        }
+
+        public void EndTurn(int nextPlayerId)
+        {
+            if (nextPlayerId != BoardRules.PlayerOneId && nextPlayerId != BoardRules.PlayerTwoId)
+            {
+                throw new System.ArgumentOutOfRangeException(nameof(nextPlayerId));
+            }
+
             bool isRootTurn = !isResolvingTurn;
             if (isRootTurn)
             {
@@ -81,7 +93,7 @@ namespace Cox.Infection.Management{
                 p2_Pieces.Clear();
                 p2_Pieces.TrimExcess();
 
-                currentPlayerId = currentPlayerId == 0 ? 1 : 0;
+                currentPlayerId = nextPlayerId;
                 Debug.Log("Current Turn = " + currentPlayerId);
                 CheckTeams();
             }
@@ -90,12 +102,64 @@ namespace Cox.Infection.Management{
                 if (isRootTurn)
                 {
                     isResolvingTurn = false;
-                    if (!isInitializingGame && !isRestoringState)
-                    {
+                    if (!isInitializingGame && !isRestoringState) {
+                        isAIMoveInProgress = false;
                         SaveBoardState();
+                        ScheduleAIMove();
                     }
                 }
             }
+        }
+
+        /// <summary>Queues an AI move when the configured computer player owns the settled turn.</summary>
+        void ScheduleAIMove()
+        {
+            if (data == null || !data.enableAI || computerOpponent == null || isGameOver || isResolvingTurn || isRestoringState)
+            {
+                return;
+            }
+
+            if (currentPlayerId == computerOpponent.PlayerId)
+            {
+                StartCoroutine(PerformAIMove());
+            }
+        }
+
+        /// <summary>Chooses an AI move and routes it through the piece animation and completion flow.</summary>
+        IEnumerator PerformAIMove()
+        {
+            isAIMoveInProgress = true;  //prevents undo mid-move
+            yield return new WaitForSecondsRealtime(1f);
+            //check if AI can make a move
+            if (data == null || !data.enableAI || computerOpponent == null || isGameOver ||
+                isResolvingTurn || isRestoringState || currentPlayerId != computerOpponent.PlayerId)
+            {
+                yield break;
+            }
+
+            var state = CaptureBoardState();
+            computerOpponent.TryGetBestMove(state, out var move);
+            TileObject sourceTile = null;
+            TileObject destinationTile = null;
+            foreach (var tile in allTiles)
+            {
+                if (tile.gridPosition.x == move.FromX && tile.gridPosition.y == move.FromY)
+                {
+                    sourceTile = tile;
+                }
+                if (tile.gridPosition.x == move.ToX && tile.gridPosition.y == move.ToY)
+                {
+                    destinationTile = tile;
+                }
+            }
+
+            if (sourceTile == null || destinationTile == null || sourceTile.piece == null)
+            {
+                Debug.LogError("AI selected a move that cannot be mapped to live board tiles.");
+                yield break;
+            }
+
+            sourceTile.piece.AIMovement(destinationTile);
         }
 
         void SaveBoardState()
@@ -110,7 +174,7 @@ namespace Cox.Infection.Management{
             gameUI?.RefreshUndoButton();
         }
 
-        BoardState CaptureBoardState()
+        public BoardState CaptureBoardState()
         {
             int width = 0;
             int height = 0;
@@ -170,6 +234,12 @@ namespace Cox.Infection.Management{
             gameUI.UpdateScore(); //Use piece counts to update scoreboard
             if(p1_Pieces.Count == 0 || p2_Pieces.Count == 0){
                 if (!isGameOver) gameOverRoutine = StartCoroutine(GameOver("GameOver: Loser has no pieces left."));
+                return;
+            }
+
+            if (BoardRules.isGameOver(CaptureBoardState()))
+            {
+                if (!isGameOver) gameOverRoutine = StartCoroutine(GameOver("GameOver: No legal moves remain."));
                 return;
             }
             
@@ -264,6 +334,7 @@ namespace Cox.Infection.Management{
             }
 
             gameUI.ShowPlayScreen();
+            ScheduleAIMove();
         }
 
         bool CanRestoreBoardState(BoardState state)
@@ -273,7 +344,7 @@ namespace Cox.Infection.Management{
             {
                 for (int x = 0; x < state.Width; x++)
                 {
-                    if (state.GetCell(x, y).Kind == BoardCellKind.Piece)
+                    if (state.GetCell(x, y).Content == BoardCellContent.Piece)
                     {
                         requiredPieces++;
                     }
@@ -295,7 +366,7 @@ namespace Cox.Infection.Management{
             foreach (var tile in allTiles)
             {
                 var cell = state.GetCell(tile.gridPosition.x, tile.gridPosition.y);
-                tile.BlockTile(cell.Kind == BoardCellKind.Blocked);
+                tile.BlockTile(cell.Content == BoardCellContent.Blocked);
                 tile.SelectTile(false);
             }
 
@@ -307,7 +378,7 @@ namespace Cox.Infection.Management{
                 for (int x = 0; x < state.Width; x++)
                 {
                     var cell = state.GetCell(x, y);
-                    if (cell.Kind != BoardCellKind.Piece)
+                    if (cell.Content != BoardCellContent.Piece)
                     {
                         continue;
                     }
