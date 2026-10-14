@@ -16,10 +16,9 @@ namespace Cox.Infection.Management{
         public Level selectedLevel;
         public CharacterObject opponent;
         public bool enableAI = false;
-        public bool invertFirstTurn = false;
         [FormerlySerializedAs("playerTurn")]
         public int playerId = 1;
-        public bool redFirst = true;
+        public bool isRedFirst = true;
 
         //It might seem wasteful to store these here, but it's convenient for selecting levels from within levels in arcade mode.
         [HideInInspector] public Level[] levelList;

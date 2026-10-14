@@ -54,7 +54,7 @@ namespace Cox.Infection.Management{
             }
             if (data.selectedLevel != null)
             {
-                currentPlayerId = data.redFirst
+                currentPlayerId = data.isRedFirst
                     ? BoardRules.PlayerOneId
                     : BoardRules.PlayerTwoId;
             }

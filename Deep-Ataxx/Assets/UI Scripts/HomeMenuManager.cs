@@ -82,8 +82,8 @@ public partial class HomeMenuManager : VisualElement
         m_level_select?.Q<Button>("b-play").RegisterCallback<ClickEvent>(ev => { if (Application.isPlaying) SceneLoader("Play"); });
 
         bFirstMove?.RegisterCallback<ClickEvent>(ev => {
-            data.redFirst = !data.redFirst;
-            bFirstMove.text = data.redFirst ? "Red First" : "Green First";
+            data.isRedFirst = !data.isRedFirst;
+            bFirstMove.text = data.isRedFirst ? "Red First" : "Green First";
         });
 
         this?.Q<Button>("b-back").RegisterCallback<ClickEvent>(ev => OpenMenu(back_destination)); //universal back button
