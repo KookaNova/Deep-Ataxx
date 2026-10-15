@@ -100,6 +100,13 @@ public partial class GameUIManager : VisualElement
         RefreshUndoButton();
     }
 
+    public void ExposeStress(int stress, int stressModifier) {
+        string stressLabel = "Stress Level: ";
+        this.Q<Label>("stress-level").text = stressLabel + stress.ToString("00");
+        string stressModifierLabel = "Stress Modifier: ";
+        this.Q<Label>("stress-modifier").text = stressModifierLabel + stressModifier.ToString("00");
+    }
+
     public void ChangeTurn(){
         if(gm.currentPlayerId == 0)this.Q<Label>("ActivePlayer").text = "Red's Turn";
         if(gm.currentPlayerId == 1)this.Q<Label>("ActivePlayer").text = "Green's Turn";
@@ -108,6 +115,7 @@ public partial class GameUIManager : VisualElement
     public void UpdateScore(){
         this.Q<Label>("RedCounter").text = gm.p1_Pieces.Count.ToString("00");
         this.Q<Label>("GreenCounter").text = gm.p2_Pieces.Count.ToString("00");
+
     }
     public void HideScore(){
         this.Q<Label>("ActivePlayer").style.visibility = Visibility.Hidden;

@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 //Cell and Tile are used interchangeably. Cell is a newer choice
 public enum BoardCellContent : byte
@@ -112,6 +114,38 @@ public sealed class BoardState
 	{
 		return new BoardState(Width, Height, cells, CurrentPlayerId);
 	}
+
+	public int GetScore() {
+		int score = default;
+		for(int i = 0; i < cells.Length; i++) {
+			if(cells[i].PlayerId == CurrentPlayerId) {
+				score++;
+			}
+			
+		}
+
+		return score;
+	}
+
+	public int GetMaxScore() {
+		int maxScore = default;
+		for (int i = 0; i < cells.Length; i++) {
+			if (cells[i].Content != BoardCellContent.Blocked) {
+				maxScore++;
+			}
+		}
+		return maxScore;
+	}
+
+	public int GetEnemyScore() {
+        int enemyScore = default;
+        for (int i = 0; i < cells.Length; i++) {
+            if (cells[i].PlayerId != CurrentPlayerId && cells[i].Content == BoardCellContent.Piece) {
+                enemyScore++;
+            }
+        }
+        return enemyScore;
+    }
 }
 
 public enum BoardMoveType : byte

@@ -101,7 +101,6 @@ namespace Cox.Infection.Management{
                 p2_Pieces.TrimExcess();
 
                 currentPlayerId = nextPlayerId;
-                Debug.Log("Current Turn = " + currentPlayerId);
                 CheckTeams();
             }
             finally
@@ -116,6 +115,10 @@ namespace Cox.Infection.Management{
                     }
                 }
             }
+        }
+
+        public void ReportStress(int stress, int stressModifier) {
+            gameUI.ExposeStress(stress, stressModifier);
         }
 
         /// <summary>Queues an AI move when the configured computer player owns the settled turn.</summary>
@@ -138,14 +141,13 @@ namespace Cox.Infection.Management{
             isAIMoveInProgress = true;  //prevents undo mid-move
             yield return new WaitForSecondsRealtime(1f);
             //check if AI can make a move
-            if (data == null || !data.enableAI || computerOpponent == null || isGameOver ||
-                isResolvingTurn || isRestoringState || currentPlayerId != computerOpponent.PlayerId)
+            if (data == null || !data.enableAI || computerOpponent == null || isGameOver || isResolvingTurn)
             {
                 yield break;
             }
 
             var state = CaptureBoardState();
-            computerOpponent.TryGetBestMove(state, out var move);
+            computerOpponent.ChooseMoveOptions(state, out BoardMove move);
             TileObject sourceTile = null;
             TileObject destinationTile = null;
             foreach (var tile in allTiles)

@@ -16,4 +16,9 @@ MonoBehaviour:
   bio: Aggressive, but doesn't think too deeply.
   thinkDepth: 1
   aggression: 3
-  stress: 0
+  mistakeLikeliness: 24
+  stressRate: 3
+  thinkDepthChangesWithStress: 1
+  invertThinkDepthStressRelationship: 0
+  mistakesChangeWithStress: 1
+  invertMistakeStressRelationship: 0

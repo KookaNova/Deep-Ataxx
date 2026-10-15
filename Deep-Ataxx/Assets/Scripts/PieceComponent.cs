@@ -139,7 +139,6 @@ namespace Cox.Infection.Management{
             transform.position = homeTile.transform.position;
         }
         void Hop(){
-            Debug.Log("Hop performed.");
             homeTile.piece = null;
             homeTile = endTile;
             endTile = null;
@@ -148,7 +147,6 @@ namespace Cox.Infection.Management{
             transform.position = homeTile.transform.position;
         }
         void Spread(){
-            Debug.Log("Spread performed.");
             transform.position = homeTile.transform.position;
             var p = Instantiate(prefab, endTile.transform.position, Quaternion.identity);
             p.homeTile = endTile;

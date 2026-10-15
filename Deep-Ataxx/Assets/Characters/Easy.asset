@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Easy
   m_EditorClassIdentifier: 
   art: {fileID: 2800000, guid: 37927f730abc54b49976c526fbac0fce, type: 3}
-  bio: Not stupid, but the easiest one here.
+  bio: The easiest one here.
   thinkDepth: 1
   aggression: 1
-  stress: 0
+  mistakeLikeliness: 60
+  stressRate: 4
+  thinkDepthChangesWithStress: 0
+  invertThinkDepthStressRelationship: 0
+  mistakesChangeWithStress: 1
+  invertMistakeStressRelationship: 0

@@ -16,4 +16,9 @@ MonoBehaviour:
   bio: Higher level.
   thinkDepth: 3
   aggression: 4
-  stress: 0
+  mistakeLikeliness: 0
+  stressRate: 3
+  thinkDepthChangesWithStress: 0
+  invertThinkDepthStressRelationship: 0
+  mistakesChangeWithStress: 1
+  invertMistakeStressRelationship: 1

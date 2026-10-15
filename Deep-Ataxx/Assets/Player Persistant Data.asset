@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32732a1c3275ccd469e62255387676fd, type: 3}
   m_Name: Player Persistant Data
   m_EditorClassIdentifier: 
-  selectedMode: 1
-  selectedLevel: {fileID: 11400000, guid: e6de4299d85f70643b85f56ea011f7a6, type: 2}
-  opponent: {fileID: 11400000, guid: 80692569e835c804c880e8bac07572db, type: 2}
-  enableAI: 0
-  invertFirstTurn: 0
+  selectedMode: 2
+  selectedLevel: {fileID: 11400000, guid: 4039811b11fadb3428a1b6bc8e278a18, type: 2}
+  opponent: {fileID: 11400000, guid: 1727a67124c64c9479cd7d6abf10a67a, type: 2}
+  enableAI: 1
   playerId: 1
+  isRedFirst: 1
   levelList:
   - {fileID: 11400000, guid: 7929c3e37448bf34ab3d09bb43141279, type: 2}
   - {fileID: 11400000, guid: e6de4299d85f70643b85f56ea011f7a6, type: 2}
@@ -30,6 +30,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d7fd11e68fee5a24f91bf74c8c78734d, type: 2}
   - {fileID: 11400000, guid: aacf20ae4c9d7a748ac4632c051d6d50, type: 2}
   - {fileID: 11400000, guid: fbcdc040eee778b42b803e5f2ed9a0c2, type: 2}
+  - {fileID: 11400000, guid: 17d6633698bf04e48a186a8ed4910ab4, type: 2}
+  - {fileID: 11400000, guid: 6ebdeb79774204e4096bda22f0c4ab0d, type: 2}
+  - {fileID: 11400000, guid: e76f19381888dde4aaf853b418f44abe, type: 2}
+  - {fileID: 11400000, guid: 1f510ad04704ef849aa8043df03d49ab, type: 2}
+  - {fileID: 11400000, guid: 39e6af4d18528e246b439b4034d0daf5, type: 2}
+  - {fileID: 11400000, guid: be5e9915aa80f204eaa6633177c9ff21, type: 2}
+  - {fileID: 11400000, guid: e3fe100124c0a5d4dbb74fcaa6e7cf93, type: 2}
+  - {fileID: 11400000, guid: 440ae3abc7a64184087b4fc5cf16edde, type: 2}
   characterList:
-  - {fileID: 0}
   - {fileID: 11400000, guid: 80692569e835c804c880e8bac07572db, type: 2}
+  - {fileID: 11400000, guid: 1727a67124c64c9479cd7d6abf10a67a, type: 2}
+  - {fileID: 11400000, guid: 80c4ebd8bd72af549896e925012828b7, type: 2}
+  - {fileID: 11400000, guid: 86a24cc9dab328348ac309792c980f4c, type: 2}
+  - {fileID: 11400000, guid: fbd976019f62a3a4eaa298ef245c3598, type: 2}
+  - {fileID: 11400000, guid: 9a09e4a3adab03d4291ea94628874df9, type: 2}

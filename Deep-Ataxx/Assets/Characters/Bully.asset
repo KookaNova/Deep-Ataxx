@@ -16,4 +16,9 @@ MonoBehaviour:
   bio: Smart and mean.
   thinkDepth: 2
   aggression: 6
-  stress: 0
+  mistakeLikeliness: 75
+  stressRate: 2
+  thinkDepthChangesWithStress: 0
+  invertThinkDepthStressRelationship: 0
+  mistakesChangeWithStress: 1
+  invertMistakeStressRelationship: 1

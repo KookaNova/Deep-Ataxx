@@ -94,6 +94,8 @@
 .characterIcon {
     flex-grow: 1;
     height: 100%;
+    align-items: center;
+    aspect-ratio: 1;
 }
 
 .score-box {

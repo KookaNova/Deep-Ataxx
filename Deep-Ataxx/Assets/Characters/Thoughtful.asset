@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Thoughtful
   m_EditorClassIdentifier: Assembly-CSharp::Cox.Infection.Management.CharacterObject
   art: {fileID: 2800000, guid: 37927f730abc54b49976c526fbac0fce, type: 3}
-  bio: Not too aggressive, but thoughtful.
+  bio: Thoughtful and non-aggressive.
   thinkDepth: 3
   aggression: 1
-  stress: 0
+  mistakeLikeliness: 25
+  stressRate: 1
+  thinkDepthChangesWithStress: 0
+  invertThinkDepthStressRelationship: 0
+  mistakesChangeWithStress: 1
+  invertMistakeStressRelationship: 1
