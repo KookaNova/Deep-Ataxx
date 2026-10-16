@@ -5,7 +5,6 @@ using UnityEngine.Serialization;
 using Cox.Infection.Utilities;
 
 namespace Cox.Infection.Management{
-    [RequireComponent(typeof(SpriteRenderer))]
     public class PieceComponent : MonoBehaviour
     {
         public bool isPlayable;
@@ -28,11 +27,11 @@ namespace Cox.Infection.Management{
 
         private void Awake() {
             gm = FindAnyObjectByType<GameManager>();
-            sr = GetComponent<SpriteRenderer>();
+            sr = GetComponentInChildren<SpriteRenderer>();
             lr = GetComponentInChildren<LineRenderer>();
             lr.SetPosition(0, transform.position);
             lr.enabled = false;
-            animator = GetComponent<Animator>();
+            animator = GetComponentInChildren<Animator>();
             player = FindAnyObjectByType<PlayerHelper>();
             
         }
