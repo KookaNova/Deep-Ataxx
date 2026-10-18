@@ -251,13 +251,16 @@ namespace Cox.Infection.Management{
             homeTile.SelectTile(true);
             lr.SetPosition(1, transform.position);
             yield return new WaitForSecondsRealtime(.15f);
-            while(lr.GetPosition(1) != endTile.gameObject.transform.position){
+            Vector2 linePos = lr.GetPosition(1);
+            Vector2 endTilePos = endTile.gameObject.transform.position;
+            while (linePos !=  endTilePos) {
                 yield return new WaitForFixedUpdate();
                 Vector2 movePos = Vector2.Lerp(lr.GetPosition(1), endTile.gameObject.transform.position, .25f);
                 lr.SetPosition(1, movePos);
+                linePos = lr.GetPosition(1);
             }
 
-            yield return new  WaitForSecondsRealtime(.25f);
+            yield return new WaitForSecondsRealtime(.25f);
 
             lr.enabled = false;
             animator.SetBool("isSelected", false);

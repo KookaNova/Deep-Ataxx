@@ -38,7 +38,7 @@ namespace Cox.Infection.Management{
             for (int y = 0; y < level.rows; y++){
                 for(int x = 0; x < level.columns; x++){
                     yield return new WaitForSeconds(timeDelay);
-                    TileObject newTile = Instantiate(level.tile, new Vector3((x - offset.x)* padding, (-y + offset.y)* padding, 0), Quaternion.identity);
+                    TileObject newTile = Instantiate(level.tile, new Vector3((x - offset.x)* padding, (-y + offset.y)* padding, .25f), Quaternion.identity);
                     grid[x,y] = newTile;
                     newTile.gridPosition = new Vector2Int(x,y);
                     newTile.transform.SetParent(transform);
