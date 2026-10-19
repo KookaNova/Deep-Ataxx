@@ -117,10 +117,6 @@ namespace Cox.Infection.Management{
             }
         }
 
-        public void ReportStress(int stress, int stressModifier) {
-            gameUI.ExposeStress(stress, stressModifier);
-        }
-
         /// <summary>Queues an AI move when the configured computer player owns the settled turn.</summary>
         void ScheduleAIMove()
         {

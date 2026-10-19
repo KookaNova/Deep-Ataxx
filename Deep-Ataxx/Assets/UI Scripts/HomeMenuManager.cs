@@ -2,6 +2,7 @@ using UnityEngine.UIElements;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Cox.Infection.Management;
+using Cox.Infection.Utilities;
 
 [UxmlElement]
 public partial class HomeMenuManager : VisualElement
@@ -32,7 +33,7 @@ public partial class HomeMenuManager : VisualElement
         // UI Builder preview
         if (!Application.isPlaying)
         {
-            //return;
+            return;
             // Ensure a sensible preview state so the UI Builder shows the main menu
             CloseAll();
             if (m_home != null) m_home.style.display = DisplayStyle.Flex;
@@ -80,10 +81,21 @@ public partial class HomeMenuManager : VisualElement
         m_character_select?.Q<Button>("b-continue").RegisterCallback<ClickEvent>(ev => { OpenMenu(m_level_select); });
         m_level_select?.Q<Button>("b-randomize").RegisterCallback<ClickEvent>(ev => { if (Application.isPlaying) data.SelectRandomLevel(); });
         m_level_select?.Q<Button>("b-play").RegisterCallback<ClickEvent>(ev => { if (Application.isPlaying) SceneLoader("Play"); });
+        bFirstMove.text = data.isRedFirst ? "Red First" : "Green First";
+        bFirstMove.style.color = data.isRedFirst ? new StyleColor(ColorManager.playerOne) : new StyleColor(ColorManager.playerTwo);
+        bFirstMove.style.borderBottomColor = data.isRedFirst ? new StyleColor(ColorManager.playerOne) : new StyleColor(ColorManager.playerTwo);
+        bFirstMove.style.borderLeftColor = data.isRedFirst ? new StyleColor(ColorManager.playerOne) : new StyleColor(ColorManager.playerTwo);
+        bFirstMove.style.borderRightColor = data.isRedFirst ? new StyleColor(ColorManager.playerOne) : new StyleColor(ColorManager.playerTwo);
+        bFirstMove.style.borderTopColor = data.isRedFirst ? new StyleColor(ColorManager.playerOne) : new StyleColor(ColorManager.playerTwo);
 
         bFirstMove?.RegisterCallback<ClickEvent>(ev => {
             data.isRedFirst = !data.isRedFirst;
             bFirstMove.text = data.isRedFirst ? "Red First" : "Green First";
+            bFirstMove.style.color = data.isRedFirst ? new StyleColor(ColorManager.playerOne) : new StyleColor(ColorManager.playerTwo);
+            bFirstMove.style.borderBottomColor = data.isRedFirst ? new StyleColor(ColorManager.playerOne) : new StyleColor(ColorManager.playerTwo);
+            bFirstMove.style.borderLeftColor = data.isRedFirst ? new StyleColor(ColorManager.playerOne) : new StyleColor(ColorManager.playerTwo);
+            bFirstMove.style.borderRightColor = data.isRedFirst ? new StyleColor(ColorManager.playerOne) : new StyleColor(ColorManager.playerTwo);
+            bFirstMove.style.borderTopColor = data.isRedFirst ? new StyleColor(ColorManager.playerOne) : new StyleColor(ColorManager.playerTwo); ;
         });
 
         this?.Q<Button>("b-back").RegisterCallback<ClickEvent>(ev => OpenMenu(back_destination)); //universal back button

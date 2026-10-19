@@ -12,6 +12,7 @@ public partial class GameUIManager : VisualElement
 
     VisualElement gameOver;
     VisualElement playScreen;
+    StyleColor indicatorOff = new StyleColor(Color.darkSlateGray);
 
     public GameUIManager(){
         RegisterCallback<GeometryChangedEvent>(OnGeometryChanged);
@@ -48,6 +49,8 @@ public partial class GameUIManager : VisualElement
         RefreshUndoButton();
         var quitBtn = playScreen.Q<Button>("Quit");
         if (quitBtn != null) quitBtn.RegisterCallback<ClickEvent>(ev => Quit());
+        this.Q<VisualElement>("turn-indicator-p1").style.backgroundColor = indicatorOff;
+        this.Q<VisualElement>("turn-indicator-p2").style.backgroundColor = indicatorOff;
     }
 
     void DeactivateAllScreens(){
@@ -100,42 +103,38 @@ public partial class GameUIManager : VisualElement
         RefreshUndoButton();
     }
 
-    public void ExposeStress(int stress, int stressModifier) {
-        string stressLabel = "Stress Level: ";
-        this.Q<Label>("stress-level").text = stressLabel + stress.ToString("00");
-        string stressModifierLabel = "Stress Modifier: ";
-        this.Q<Label>("stress-modifier").text = stressModifierLabel + stressModifier.ToString("00");
-    }
-
     public void ChangeTurn(){
-        if(gm.currentPlayerId == 0)this.Q<Label>("ActivePlayer").text = "Red's Turn";
-        if(gm.currentPlayerId == 1)this.Q<Label>("ActivePlayer").text = "Green's Turn";
+        if (gm.currentPlayerId == 0) {
+            this.Q<Label>("bot-message").text = "Player 1";
+            this.Q<VisualElement>("turn-indicator-p1").style.backgroundColor = new StyleColor(ColorManager.playerOne);
+            this.Q<VisualElement>("turn-indicator-p2").style.backgroundColor = indicatorOff;
+
+        }
+        if (gm.currentPlayerId == 1) {
+            this.Q<Label>("bot-message").text = "Player 2";
+            this.Q<VisualElement>("turn-indicator-p2").style.backgroundColor = new StyleColor(ColorManager.playerTwo);
+            this.Q<VisualElement>("turn-indicator-p1").style.backgroundColor = indicatorOff;
+        }
     }
 
     public void UpdateScore(){
-        this.Q<Label>("RedCounter").text = gm.p1_Pieces.Count.ToString("00");
-        this.Q<Label>("GreenCounter").text = gm.p2_Pieces.Count.ToString("00");
+        this.Q<Label>("points-p1").text = gm.p1_Pieces.Count.ToString("00");
+        this.Q<Label>("points-p2").text = gm.p2_Pieces.Count.ToString("00");
 
     }
     public void HideScore(){
-        this.Q<Label>("ActivePlayer").style.visibility = Visibility.Hidden;
-        playScreen.Q("RC").style.visibility = Visibility.Hidden;
-        playScreen.Q("GC").style.visibility = Visibility.Hidden;
+        playScreen.Q("panel-score").style.visibility = Visibility.Hidden;
     }
     public void RevealScore(){
-        this.Q<Label>("ActivePlayer").style.visibility = Visibility.Visible;
-        playScreen.Q("RC").style.visibility = Visibility.Visible;
-        playScreen.Q("GC").style.visibility = Visibility.Visible;
+        playScreen.Q("panel-score").style.visibility = Visibility.Visible;
     }
 
     public void GameOver(string winner){
         ActivateScreen(gameOver);
         RevealScore();
         gameOver.Q<Label>("WinText").text = winner + " WINS.";
-        gameOver.Q("Red").style.backgroundColor = new StyleColor(ColorManager.playerOne);
-        gameOver.Q("Green").style.backgroundColor = new StyleColor(ColorManager.playerTwo);
-        gameOver.Q<Label>("RedFinal").text = gm.p1_Pieces.Count.ToString("00");
-        gameOver.Q<Label>("GreenFinal").text = gm.p2_Pieces.Count.ToString("00");
+        gameOver.Q<Label>("final-score-p1").text = gm.p1_Pieces.Count.ToString("00");
+        gameOver.Q<Label>("final-score-p2").text = gm.p2_Pieces.Count.ToString("00");
         gameOver.Q<Button>("Reset").RegisterCallback<ClickEvent>(ev => Reset());
         gameOver?.Q<Button>("ViewBoard").RegisterCallback<ClickEvent>(ev => {
             DeactivateAllScreens();

@@ -1,7 +1,14 @@
 .scoreText {
-    color: rgb(255, 255, 255);
-    -unity-text-align: middle-center;
     white-space: nowrap;
+    -unity-font-definition: url("project://database/Assets/Fonts/CLUBLAND.TTF?fileID=12800000&guid=3edc3d995a2c4e04abe508091ec394c9&type=3#CLUBLAND");
+    color: rgb(244, 255, 208);
+    -unity-text-auto-size: best-fit 14px 37px;
+    -unity-font-style: normal;
+    -unity-text-align: middle-center;
+    background-color: rgba(22, 22, 22, 0);
+    padding-left: 8px;
+    height: 65%;
+    backdrop-filter: none;
 }
 
 .button1:hover {
@@ -18,14 +25,24 @@
 
 .button1 {
     color: rgb(0, 200, 150);
-    background-color: rgba(17, 31, 55, 0.65);
-    -unity-text-align: middle-center;
-    border-left-color: rgb(106, 71, 86);
-    border-right-color: rgb(106, 71, 86);
-    border-top-color: rgb(106, 71, 86);
-    border-bottom-color: rgb(106, 71, 86);
+    background-color: rgba(12, 16, 41, 0.65);
+    border-left-color: rgb(185, 34, 108);
+    border-right-color: rgb(185, 34, 108);
+    border-top-color: rgb(185, 34, 108);
+    border-bottom-color: rgb(185, 34, 108);
+    -unity-font-style: normal;
+    -unity-font-definition: url("project://database/Assets/Fonts/GOMARICE_BITTER_AND_SUGAR.TTF?fileID=12800000&guid=08981423f59599245bda5c8adf38b177&type=3#GOMARICE_BITTER_AND_SUGAR");
+    letter-spacing: 6px;
+    flex-grow: 0.5;
     -unity-background-image-tint-color: rgb(0, 200, 150);
-    flex-grow: 1;
+    background-position-x: center;
+    background-repeat: no-repeat no-repeat;
+    -unity-background-scale-mode: scale-to-fit;
+    background-size: 30px 30px;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
 }
 
 .menuText {
@@ -39,9 +56,10 @@
     padding-right: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
-    font-size: 24px;
+    font-size: 12px;
     white-space: normal;
     -unity-text-align: middle-center;
+    -unity-font-definition: url("project://database/Assets/Fonts/ETHNOCENTRIC%20RG.OTF?fileID=12800000&guid=476b1626c8366c0429443ca56346b326&type=3#ETHNOCENTRIC RG");
 }
 
 .menuText2 {
@@ -55,10 +73,13 @@
 }
 
 .title {
+    -unity-font-definition: url("project://database/Assets/Fonts/EARTHORBITERBOLD.TTF?fileID=12800000&guid=f6d1c6286764cdc4c832a873e21ac3bc&type=3#EARTHORBITERBOLD");
+    white-space: normal;
+    filter: drop-shadow(0 0 0.61 rgb(255, 0, 43));
 }
 
 .gridClass {
-    background-color: rgba(1, 41, 41, 0.73);
+    background-color: rgba(22, 22, 22, 0.73);
     margin-left: 5px;
     margin-right: 5px;
     margin-top: 5px;
@@ -71,11 +92,38 @@
     padding-top: 3px;
     padding-bottom: 3px;
     color: rgb(229, 229, 229);
+    backdrop-filter: sepia(1) blur(1.86);
+    -unity-font-definition: url("project://database/Assets/Fonts/FRADM.TTF?fileID=12800000&guid=465774718177fb14494e524b3ef83457&type=3#FRADM");
+    -unity-font-style: normal;
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-left-color: rgb(21, 24, 26);
+    border-right-color: rgb(21, 24, 26);
+    border-top-color: rgb(21, 24, 26);
+    border-bottom-color: rgb(21, 24, 26);
 }
 
 .gridClass:focus {
-    background-color: rgb(16, 72, 135);
+    background-color: rgba(91, 28, 6, 0.361);
     transition-duration: 0.25s;
+    border-left-color: rgb(223, 241, 37);
+    border-right-color: rgb(223, 241, 37);
+    border-top-color: rgb(223, 241, 37);
+    border-bottom-color: rgb(223, 241, 37);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
 }
 
 .panel {
@@ -96,6 +144,7 @@
     height: 100%;
     align-items: center;
     aspect-ratio: 1;
+    background-color: rgb(0, 0, 0);
 }
 
 .score-box {

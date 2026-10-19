@@ -1,19 +1,19 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI/MainStyle.uss?fileID=7433441132597879392&amp;guid=8608c9f4c9ce0fc4b8306d735e94bea8&amp;type=3#MainStyle"/>
+    <Style src="project://database/Assets/UI%20Scripts/MainStyle.uss?fileID=7433441132597879392&amp;guid=8608c9f4c9ce0fc4b8306d735e94bea8&amp;type=3#MainStyle"/>
     <HomeMenuManager enabled="true" style="flex-grow: 1; margin-left: 5%; margin-right: 5%; margin-top: 5%; margin-bottom: 5%; display: flex; flex-direction: column; justify-content: space-between;">
         <ui:VisualElement name="m-home" style="justify-content: space-between; flex-grow: 1; visibility: visible; opacity: 1; display: flex;">
             <ui:VisualElement name="Top" style="flex-grow: 1;">
                 <ui:VisualElement style="background-image: url(&quot;project://database/Assets/Textures/da-logo.png?fileID=2800000&amp;guid=96fb20f1dee591b47a85266c6b33f68b&amp;type=3#da-logo&quot;); flex-grow: 2; -unity-background-scale-mode: scale-to-fit; height: 100px; margin-top: 35%; flex-shrink: 1;"/>
             </ui:VisualElement>
-            <ui:VisualElement name="Center" style="flex-grow: 1; justify-content: flex-end; flex-shrink: 1;">
+            <ui:VisualElement name="Center" style="flex-grow: 1; justify-content: flex-end; flex-shrink: 1; align-items: stretch;">
                 <ui:VisualElement style="flex-grow: 1;"/>
                 <ui:VisualElement name="Buttons" style="margin-left: 10%; margin-right: 10%; justify-content: flex-end; align-items: stretch; flex-grow: 0.9; flex-shrink: 0; flex-direction: column; align-content: flex-end;">
                     <ui:Button text="Story Mode" display-tooltip-when-elided="true" name="b-story" class="button1 menuText" style="display: none;"/>
-                    <ui:Button text="Arcade Play" display-tooltip-when-elided="true" name="b-arcade" class="button1 menuText" style="display: flex;"/>
-                    <ui:Button text="Multiplayer" display-tooltip-when-elided="true" name="b-multiplayer" class="button1 menuText" style="display: flex;"/>
+                    <ui:Button text="Arcade" display-tooltip-when-elided="true" name="b-arcade" class="button1" style="display: flex; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;"/>
+                    <ui:Button text="Multiplayer" display-tooltip-when-elided="true" name="b-multiplayer" class="button1" style="display: flex; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;"/>
                     <ui:VisualElement name="SmallerButtons" style="align-items: flex-start; justify-content: space-around; flex-shrink: 1; flex-direction: row; margin-top: -2px;">
-                        <ui:Button text="Lore" display-tooltip-when-elided="true" name="b-lore" class="button1 menuText2" style="flex-grow: 0; width: 50%; display: none;"/>
-                        <ui:Button text="Credits" display-tooltip-when-elided="true" name="b-credits" class="button1 menuText2" style="flex-grow: 0; width: 50%; display: none;"/>
+                        <ui:Button text="Lore" display-tooltip-when-elided="true" name="b-lore" class="button1" style="flex-grow: 0; width: 50%; display: none;"/>
+                        <ui:Button text="Credits" display-tooltip-when-elided="true" name="b-credits" class="button1" style="flex-grow: 0; width: 50%; display: none;"/>
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
@@ -24,7 +24,7 @@
             </ui:VisualElement>
             <ui:VisualElement name="Center" style="flex-grow: 1; justify-content: flex-end;">
                 <ui:VisualElement name="Buttons" style="margin-left: 10%; margin-right: 10%; justify-content: flex-end; align-items: stretch; flex-grow: 1;">
-                    <ui:Button text="Select Zone" display-tooltip-when-elided="true" name="LevelSelect" class="button1 menuText"/>
+                    <ui:Button text="Select Zone" display-tooltip-when-elided="true" name="LevelSelect" class="button1"/>
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
@@ -33,11 +33,11 @@
                 <ui:Label text="Level Select" display-tooltip-when-elided="true" class="title" style="-unity-text-align: upper-center; font-size: 36px; color: rgb(0, 200, 150); text-shadow: 1px 1px 1px rgba(0, 0, 45, 0.9); -unity-text-outline-color: rgb(0, 0, 40);"/>
             </ui:VisualElement>
             <ui:VisualElement name="Center" style="flex-grow: 1; justify-content: space-between; flex-direction: column-reverse; align-items: stretch; align-self: stretch; display: flex;">
-                <ui:Button text="Play" display-tooltip-when-elided="true" name="b-play" class="button1 menuText" style="height: 10%;"/>
+                <ui:Button text="Play" display-tooltip-when-elided="true" name="b-play" class="button1" style="height: 10%;"/>
                 <ui:ScrollView name="list-levels" vertical-scroller-visibility="Hidden" horizontal-scroller-visibility="Hidden" focusable="true" touch-scroll-type="Elastic" style="flex-direction: row; padding-bottom: 10px; display: flex; -unity-background-scale-mode: scale-and-crop; background-position-y: top 0; overflow: hidden; justify-content: space-evenly; visibility: visible;"/>
                 <ui:VisualElement name="Top" style="flex-grow: 1; flex-direction: row; align-self: stretch; justify-content: space-around; align-items: stretch; margin-bottom: 10px; flex-shrink: 0;">
-                    <ui:Button text="Randomize" display-tooltip-when-elided="true" name="b-randomize" class="button1 menuText"/>
-                    <ui:Button display-tooltip-when-elided="true" name="b-first-move" text="Red First" class="button1 menuText"/>
+                    <ui:Button text="Randomize" display-tooltip-when-elided="true" name="b-randomize" class="button1" style="flex-shrink: 1;"/>
+                    <ui:Button display-tooltip-when-elided="true" name="b-first-move" text="Red First" class="button1" style="flex-shrink: 1;"/>
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
@@ -47,14 +47,8 @@
             </ui:VisualElement>
             <ui:VisualElement name="Center" style="flex-grow: 1; justify-content: flex-end;">
                 <ui:VisualElement name="m-arcade-mode-select" style="margin-left: 0; margin-right: 0; justify-content: center; align-items: center; flex-grow: 1; flex-direction: row; display: flex;">
-                    <ui:Button display-tooltip-when-elided="true" name="b-arcade-classic" class="button1 menuText" style="width: 50%; overflow: hidden;">
-                        <ui:Label text="Classic" display-tooltip-when-elided="true" style="flex-wrap: wrap-reverse; white-space: normal;"/>
-                        <ui:VisualElement style="background-image: url(&quot;project://database/Assets/Textures/Icons/Chess%20Clock.png?fileID=2800000&amp;guid=318ec4a3b9c7ff14181c4a0c044fdcb3&amp;type=3#Chess Clock&quot;); -unity-background-scale-mode: scale-to-fit; -unity-background-image-tint-color: rgb(0, 200, 150); flex-grow: 1; height: 100px;"/>
-                    </ui:Button>
-                    <ui:Button display-tooltip-when-elided="true" name="b-arcade-untimed" class="button1 menuText" style="display: none; flex-shrink: 1; flex-grow: 0; width: 50%;">
-                        <ui:Label text="Untimed" display-tooltip-when-elided="true" style="white-space: normal;"/>
-                        <ui:VisualElement style="flex-grow: 1; -unity-background-scale-mode: scale-to-fit; background-image: url(&quot;project://database/Assets/Textures/Icons/Viruses.png?fileID=2800000&amp;guid=37927f730abc54b49976c526fbac0fce&amp;type=3#Viruses&quot;); -unity-background-image-tint-color: rgb(0, 200, 150); height: 100px;"/>
-                    </ui:Button>
+                    <ui:Button display-tooltip-when-elided="true" name="b-arcade-classic" text="Classic" class="button1" style="overflow: visible; justify-content: flex-start; -unity-text-align: upper-center; align-items: stretch; flex-direction: column; white-space: nowrap; flex-grow: 1; min-height: 35%; background-image: url(&quot;project://database/Assets/Textures/Icons/Chess%20Clock.png?fileID=2800000&amp;guid=318ec4a3b9c7ff14181c4a0c044fdcb3&amp;type=3#Chess Clock&quot;); align-content: center; -unity-background-scale-mode: scale-to-fit;"/>
+                    <ui:Button display-tooltip-when-elided="true" name="b-arcade-untimed" text="Untimed" class="button1" style="overflow: visible; justify-content: flex-start; -unity-text-align: upper-center; align-items: stretch; flex-direction: column; white-space: nowrap; flex-grow: 1; min-height: 35%; background-image: url(&quot;project://database/Assets/Textures/Icons/Viruses.png?fileID=2800000&amp;guid=37927f730abc54b49976c526fbac0fce&amp;type=3#Viruses&quot;); align-content: center; -unity-background-scale-mode: scale-to-fit; display: none;"/>
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
@@ -65,14 +59,14 @@
             <ui:VisualElement name="Center" style="flex-grow: 1; justify-content: flex-end;">
                 <ui:VisualElement name="m-arcade-ai-select" style="margin-left: 0; margin-right: 0; justify-content: space-between; align-items: stretch; flex-grow: 1; flex-direction: column;">
                     <ui:ScrollView name="list-characters" vertical-scroller-visibility="Hidden" horizontal-scroller-visibility="Hidden"/>
-                    <ui:Button text="Continue" display-tooltip-when-elided="true" name="b-continue" class="button1 menuText"/>
+                    <ui:Button text="Continue" display-tooltip-when-elided="true" name="b-continue" class="button1"/>
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="Bottom" style="align-items: flex-start; justify-content: space-between; flex-direction: row; display: flex; align-self: stretch; align-content: stretch; height: 8%; margin-top: 10px; flex-shrink: 0;">
             <ui:VisualElement name="Left" style="align-items: stretch; align-self: flex-end; flex-grow: 1; flex-direction: row; justify-content: flex-start;">
                 <ui:Button display-tooltip-when-elided="true" name="b-back" class="button1" style="background-image: url(&quot;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=-2236324273849735119&amp;guid=39ed3e6e4ccf276488365eb89c10f866&amp;type=3#arrow-left@2x&quot;); -unity-background-scale-mode: scale-to-fit; padding-right: 10px; display: none; visibility: visible; padding-left: 10px;"/>
-                <ui:Button display-tooltip-when-elided="true" name="b-options" class="button1" style="background-image: url(&quot;project://database/Assets/Textures/Icons/UI.Gear.png?fileID=2800000&amp;guid=fd7a589b84cc66a49ab2484f77fa0427&amp;type=3#UI.Gear&quot;); -unity-background-scale-mode: scale-to-fit; align-items: stretch; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; display: none; visibility: visible;"/>
+                <ui:Button display-tooltip-when-elided="true" name="b-options" class="button1" style="background-image: url(&quot;project://database/Assets/Textures/Icons/UI.Gear.png?fileID=2800000&amp;guid=fd7a589b84cc66a49ab2484f77fa0427&amp;type=3#UI.Gear&quot;); background-position-x: center;"/>
             </ui:VisualElement>
             <ui:VisualElement name="Center" style="flex-grow: 2;"/>
             <ui:VisualElement name="Right" style="flex-grow: 1;"/>

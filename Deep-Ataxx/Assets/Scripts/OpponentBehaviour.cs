@@ -133,8 +133,6 @@ namespace Cox.Infection.Management{
             int stressModifier = CalculateStress(state.GetScore(), state.GetEnemyScore(), state.GetMaxScore());
             stress = Mathf.Clamp(stress += stressModifier,0,100);
 
-            gm.ReportStress(stress, stressModifier);
-
             if (opponentAI.mistakesChangeWithStress) {
                 if (opponentAI.invertMistakeStressRelationship) {
                     mistakeFactor -= stress / 20;

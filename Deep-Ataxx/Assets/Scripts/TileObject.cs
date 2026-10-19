@@ -21,7 +21,7 @@ namespace Cox.Infection.Management{
         private void Awake() {
             scale = transform.localScale;
             player = FindAnyObjectByType<PlayerHelper>();
-            sr = GetComponent<SpriteRenderer>();
+            sr = GetComponentInChildren<SpriteRenderer>();
             sr.color = ColorManager.tileColor;
             blockade.SetActive(false);
             transform.localScale = new Vector3(1,1,1);
